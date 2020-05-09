@@ -16,13 +16,7 @@
 					// 分享图片
 					shareImg:'https://detions.oss-accelerate.aliyuncs.com//wx/wx23b4a3be24fdd6bd.o6zAJs2ZH3_rfb40rIaXLyfXrUwQ.8oUQVJs9b8yZd65c7d4ff5c30b1e19579423aec6626c.png'
 		},
-		onLaunch: function(options) {  
 		
-				console.log("launch",options)  
-		
-				console.log('App Launch')  
-		
-	    },  
 
 	}
 </script>
