@@ -1,0 +1,45 @@
+.exitClub{
+	padding: 52upx 30upx;
+}
+.exitClubImg{
+	width: 40px;
+	height: 40px;
+}
+.exitClubRight{
+	margin-left: 10px;
+}
+.name{
+	font-size:15px;
+	font-weight:500;
+	color:rgba(51,51,51,1);
+	line-height:17px;
+	margin-bottom: 7px;
+}
+.title{
+	font-size:13px;
+	font-weight:400;
+	color:rgba(153,153,153,1);
+	line-height:13px;
+}
+.exitbtn{
+	width: 100%;
+	height: 20px;
+	text-align: center;
+	line-height: 18px;
+	border-radius:24px;
+	border:1px solid rgba(153,153,153,1);
+	font-size:12px;
+	font-weight:400;
+	color:rgba(153,153,153,1);
+}
+.exitbtn2{
+	width: 100%;
+	height: 20px;
+	text-align: center;
+	line-height: 18px;
+	border-radius:24px;
+	border:1px solid rgba(6,77,197,1);
+	font-size:12px;
+	font-weight:400;
+	color:rgba(6,77,197,1);
+}

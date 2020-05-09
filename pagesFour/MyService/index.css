@@ -1,0 +1,72 @@
+.newMyService{
+	margin-bottom: 24upx;
+	background:rgba(255,255,255,1);
+	box-shadow:1px 1px 27upx 0px rgba(234,234,234,0.8);
+	border-radius:14upx;
+}
+.service_item_name{
+	width: 100%;
+	text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+	
+	font-size:30upx;
+	font-weight:500;
+	color:rgba(68,68,68,1);
+	line-height:36upx;
+}
+.shenhe{
+	font-size:24upx;
+	font-weight:400;
+	line-height:33upx;
+}
+.dai{
+	color:rgba(51,51,51,1);
+}
+.tong{
+	color: #1677FF;
+}
+.bai{
+	color: #FF3B30;
+}
+.edit{
+	height:49upx;
+	border-radius:25upx;
+	border:2upx solid rgba(153,153,153,1);
+	text-align: center;
+	line-height: 45upx;
+	padding: 0 22upx;
+	
+	font-size:24upx;
+	font-weight:400;
+	color:rgba(51,51,51,1);
+	margin-left:19upx ;
+}
+.fabufuwu{
+	 width:322upx;
+	 height:90upx;
+	 background:rgba(255,255,255,1);
+	 border-radius:45upx;
+	 border:2upx solid rgba(212,45,37,1);
+	 
+	 font-size:32upx;
+	 font-weight:400;
+	 color:rgba(212,45,37,1);
+	 line-height:86upx;
+	 text-align: center;
+	 margin: 300upx auto  0;
+}
+.newSend{
+	width:146upx;
+	height:146upx;
+	position: fixed;
+	right: 30upx;
+	bottom: 229upx;
+}
+.newSend image{
+	border-radius: 100%;
+}

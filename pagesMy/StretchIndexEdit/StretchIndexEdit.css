@@ -1,0 +1,120 @@
+.StretchIndexSend{
+  width: 100%;
+  background:white;
+  /* padding: 28px 20px 55px; */
+}
+.StretchIndexSend-padding{
+  padding: 28px 20px 0;
+  /* border: 1px solid red; */
+}
+.StretchIndexSend-title-blue{
+  width:4px;
+  height:21px;
+  background:rgba(6,77,197,1);
+  border-radius:2px;
+}
+.StretchIndexSend-title-h2{
+  font-size:22px;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  /* line-height:31px; */
+  margin-left: 10px;
+}
+.StretchIndexSend-title{
+  margin-bottom: 31px;
+}
+.StretchIndexSend-content{
+  /* border: 1px solid green; */
+  padding-bottom: 18px;
+  margin-bottom: 19px;
+  position: relative;
+}
+.StretchIndexSend-name{
+  width:84px;
+  height:22px;
+  font-size:16px;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  line-height:22px;
+  /* background-color: aquamarine; */
+}
+.StretchIndexSend-content  input::-webkit-input-placeholder{
+  color:rgba(204,204,204,1);
+}
+.StretchIndexSend-content .StretchIndexSend-city input::-webkit-input-placeholder{
+  color:#666666;
+}
+.StretchIndexSend-chooseCity{
+  background-color: cadetblue;
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  /* height: 500px; */
+  overflow-y: auto;
+  z-index: 100;
+  background-color: white;
+  min-height: 100px;
+}
+.StretchIndexSend-chooseCity-choose{
+  color: #064DC5;
+  margin-bottom: 20px;
+}
+#xsdz{
+  background:rgba(250,250,252,1);
+  border-radius:5px;
+  font-size:16px;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+  line-height: 1.5;
+  /* text-indent: 1em; */
+  padding: 10px!important;
+  width: 100%;
+  box-sizing: border-box;
+  height: 202px;
+  border: none;
+  resize:none;
+  margin-bottom: 23px;
+}
+.wenzijieshao{
+  width:100px;
+  height:23px;
+  font-size:16px;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  line-height:23px;
+  margin-bottom: 14px;
+}
+.shangpinzhaopian{
+font-size:16px;
+font-weight:400;
+color:rgba(51,51,51,1);
+line-height:16px;
+margin-bottom: 16px;
+}
+.jiafabu{
+  width: 100%;
+  background-color: rgba(250,250,250,1);
+  height: 135px;
+  position: relative;
+}
+.jiafabu>view{
+  width:91.5%;
+  height:47px;
+  background:rgba(6,77,197,1);
+  border-radius:6px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin:auto;
+  text-align: center;
+  line-height: 47px;
+  font-size:18px;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+}
+.van-dialog{
+  border-radius: 0!important;
+}

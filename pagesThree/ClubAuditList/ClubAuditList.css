@@ -1,0 +1,18 @@
+.tabtitle{
+	font-size: 16px;
+	color: #999999;
+    transition: all 0.1s ease;
+}
+.tabActive{
+	color: #064DC5;
+	transition: all 0.1s ease;
+}
+.item1{
+	font-size: 16px;
+	padding: 0px 15px;
+	color: #333;
+}
+.abc{
+	height: 55px;
+	color: #333;
+}

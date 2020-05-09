@@ -1,0 +1,42 @@
+.service .tabActive{
+	position: relative;
+	color: #D42D25;
+	font-weight: 500;
+
+}
+.tabActive:after{
+	position: absolute;
+	bottom: -10px;
+	left: 50%;
+	transform: translateX(-50%);
+	content: '';
+	height: 3px;
+	background: #D42D25;
+	width: 130upx;
+}
+.servicetab{
+	width: 130upx;
+	margin-right: 57upx;
+	font-weight: 400;
+	color:rgba(102,102,102,1);
+	font-size:32upx;
+	text-align: center;
+}
+.serviceHead{
+	background-color: white;
+}
+.cate_name{
+	
+	font-size:20upx;
+	font-weight:500;
+	color:rgba(248,100,66,1);
+	padding:4upx 13upx ;
+	background:rgba(255,237,233,1);
+	border-radius:4upx;
+}
+.dingwei{
+	font-size:28upx;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+}
+	

@@ -1,0 +1,58 @@
+.pay-fixed{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: white;
+	width: 100%;
+	padding-top: 10px;
+	z-index: 10;
+	background: #061f46;
+}
+.pay-referrer{
+	width: 80px;
+	padding-left: 25px;
+	font-size: 14px;
+	line-height: 20px;
+	margin-right: 10px;
+
+}
+.pay-bianhao{
+	height: 45px;
+	background: #fff;
+	border-radius: 4px;
+	width: 94%;
+	margin: 0 auto 10px;
+}
+.pay-bianhao input{
+	font-size: 14px;
+	line-height: 20px;
+	flex: 1;
+}
+.pay-btn{
+	background: linear-gradient(to right, #FBF1E0, #DBB295);
+	font-weight: bold;
+	/* text-align: center; */
+	padding-left: 150upx;
+	font-size: 14px;
+	color: #D09F5D;
+	line-height: 60px;
+}
+.pay-btn>view{
+	width: 50%;
+}
+.pay-ok{
+	background: #064DC5;
+	color: #fff;
+	text-align: center;
+	font-size: 18px;
+	line-height: 40px;
+}
+.pay-number{
+	text-align: center;
+	line-height: 40px;
+	font-size: 18px;
+	color: #D09F5D;
+}
+.pay-number text{
+	font-size: 14px;
+}

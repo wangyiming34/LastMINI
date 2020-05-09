@@ -1,0 +1,28 @@
+.MyPersonal-tab{
+	padding: 25upx;
+}
+.van-uploader__upload-icon{
+	font-size: 0!important;
+}
+.van-uploader{
+	height: 100%!important;
+	width: 100%!important;
+	display:block!important;
+
+}
+.van-uploader__wrapper{
+	height: 100%!important;
+    width: 100%!important;
+	display:block!important;
+}
+.van-uploader__upload{
+	height: 100%!important;
+	width: 100%!important;
+	border:none!important;
+}
+.title{
+	
+	font-size: 14px;
+	line-height: 20px;
+	color: #333;
+}

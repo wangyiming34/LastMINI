@@ -1,0 +1,376 @@
+.information{
+	width: 100%;
+	background-color: white;
+	box-sizing: border-box;
+	padding: 30upx 3% 0;
+	margin-bottom: 16upx;
+}
+
+.nick{
+	/* background-color: #09BB07; */
+	font-size: 36upx;
+	/* line-height: 48upx; */
+	color: #064DC5;
+}
+.company{
+	font-size: 26upx;
+	color: #999999;
+}
+.top{
+	margin-bottom: 20upx;
+}
+/* .zhuijia:after {content: ""; width: 226upx; } */
+.zhuijia{
+	width: 70%;
+	max-height: 300px;
+	overflow: hidden;
+	margin-bottom: 20upx;
+}
+.newAvatar{
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+}
+.king_icon{
+	top: -4px;
+	right: -4px;
+}
+.content{
+	font-size: 34upx;
+	color: #333;
+}
+.time{
+	box-sizing:border-box ;
+	width: 100%;
+	line-height: 72upx;
+	font-size: 28upx;
+	color: rgb(153, 153, 153);
+}
+.oldContent{
+	font-size: 34upx;
+	color: #333;
+}
+.information .newContent{
+	display: -webkit-box;            /* 定义为自适应布局 */
+	word-break: break-all;           /* 换行模式 */
+	text-overflow: ellipsis;         /* 超出文字用省略号代替 */
+	overflow: hidden;                /* 多出部分隐藏 */
+	-webkit-box-orient: vertical;    /* 竖直方向的超出和隐藏 */
+	-webkit-line-clamp: 3;           /* 设定行数为3 */ 
+	font-size: 34upx;
+	color: #333;
+}
+.quan{
+	width: 60upx;
+	height: 60upx;
+	border-radius: 50%;
+	border: 1px solid #dcdcdc;
+	overflow: hidden;
+	background: #f2f6f5;
+	float: left;
+	/* line-height: 60upx; */
+	text-align: center;
+	box-sizing: border-box;
+	margin-left: -10upx;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	
+}
+.tupian{
+	z-index: 105;
+	/* margin-left:0; */
+	line-height: 40upx;
+}
+.quan image{
+	width: 60upx;
+	height: 60upx;
+	border-radius: 50%;
+	
+}
+.comment{
+	width: 100%;
+	background-color: white;
+	box-sizing: border-box;
+	/* padding: 30upx 3% 0; */
+	margin-bottom: 16upx;
+	/* background: #fafafa; */
+}
+.issue{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 0 3%;
+	height: 88upx;
+	background: #fff;
+	display: flex;
+	box-sizing: border-box;
+	z-index: 10;
+
+}
+.clint{
+	width: 25%;
+	font-size: 14px;
+	color: #91959a;
+}
+.linshi{
+}
+.linshi::after{
+	width: 1px;
+	height: 10px;
+	background-color: #CCCCCC;
+	content: '';
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.issue input{
+	display: block;
+	padding: 0 3%;
+	font-size: 26upx;
+	line-height: 52upx;
+	background: #f8f8f8;
+	border: 1px solid #ccc;
+	border-radius: 8upx;
+	flex: 1;
+}
+.btn{
+	color: #999999;
+	font-size: 28upx;
+	margin-left: 10px;
+}
+.title{
+	font-size: 30upx;
+	line-height: 80upx;
+	color: #333;
+	padding: 0 3%;
+	background: #fafafa;
+}
+.content5{
+	background-color: white;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 20upx;
+	border-bottom: 1px solid #ccc;
+}
+.img{
+	width: 35px;
+	height: 35px;
+	/* border-radius: 50%; */
+	margin-right: 20upx;
+}
+.img image{
+	border-radius: 100%;
+}
+
+.information{
+	width: 100%;
+	background-color: white;
+	box-sizing: border-box;
+	/* background-color: #09BB07; */
+	margin-bottom: 16upx;
+	padding: 0;
+}
+.imga{
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	margin-right:10upx;
+}
+.nick{
+	font-size:14px;
+	font-weight:500;
+	color:rgba(22,62,123,1);
+}
+.company{
+	font-size: 26upx;
+	color: #999999;
+}
+.top{
+	margin-bottom: 20upx;
+}
+/* .zhuijia:after {content: ""; width: 226upx; } */
+
+.time{
+	
+	font-size:12px;
+	font-weight:400;
+	color:rgba(153,153,153,1);
+	line-height:12px;
+	padding:0 0 8px 3%;
+}
+
+.ipt{
+	width: 100%;
+	height: 64upx;
+	/* position: fixed; */
+	top: 0;
+	z-index: 50;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 40upx 20upx;
+	background-color: white;
+}
+
+.ipt-left{
+	width:600upx;
+	height:54upx;
+	border-radius:33upx;
+	font-size:12px;
+	font-weight:400;
+	color:rgba(125,128,149,1);
+	line-height:54upx;
+	padding-left: 15px;
+	background: url('https://web.detion.com/static/img/search_icon1.png') no-repeat 540upx ;
+	background-size: 16px 16px;
+	
+}
+.ipt-right{
+	/* width: 50upx; */
+	/* height: 54upx; */
+}
+.ipt-right image{
+	height: 100%;
+	width: 100%;
+}
+
+.iptActive{
+	background-color: white;
+}
+
+.Active1{
+	position: absolute;
+	text-align: center;
+	border-radius: 4px;
+	background: rgba(0,0,0,0.8);
+	top: 65upx;
+	right: -10upx;
+	z-index: 1000;
+	color: white;
+	width: 90px;
+}
+
+.Active1-class{
+	font-size: 14px;
+	line-height: 36px;
+	padding: 0 10px;
+	color: #fff;
+	text-align: center;
+}
+.Active1:after{
+	position: absolute;
+	content: '';
+	display: block;
+	border:6px solid transparent ;
+	border-bottom:6px solid rgba(0,0,0,0.8);
+	top: -12px;
+	right: 14px;
+}
+
+.information-tab{
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: white;
+	width: 100%;
+	height: 170upx;
+	padding: 0 20upx;
+	z-index:10
+}
+.information-tab-name{
+	/* margin-top: 10px; */
+	width: 100%;
+	height: 87upx;
+	background:rgba(255,255,255,1);
+	
+}
+.information-tablist{
+	/* background-color: #004DC5; */
+	height: 87upx;
+	line-height: 87upx;
+	font-size:16px;
+	font-weight:400;
+	color:rgba(51,51,51,1);
+}
+
+/* head-logo{
+	width: 14px!important;
+	height: 14px!important;
+	position: absolute!important;
+	bottom: 5px;
+	right: 3px;
+} */
+
+.jubaobtn{
+	position: absolute;
+	right: 30px;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 30px;
+	width: 70px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 14px;
+	color:rgba(125,128,149,1);
+	font-weight: 400;
+	background-color:#F2F2F2;
+	border-radius: 10px;
+}
+.information .content{
+    word-break: break-all;           /* 换行模式 */
+	font-size: 34upx;
+	color: #333;
+}
+
+.information .contentv{
+    word-break: break-all;           /* 换行模式 */
+	font-size: 34upx;
+	color: #333;
+}
+
+
+.information .contentguan{
+    word-break: break-all;           /* 换行模式 */
+	font-size: 34upx;
+	color: #333;
+}
+
+
+.information .content1{
+	display: -webkit-box;            /* 定义为自适应布局 */
+	word-break: break-all;           /* 换行模式 */
+	text-overflow: ellipsis;         /* 超出文字用省略号代替 */
+	overflow: hidden;                /* 多出部分隐藏 */
+	-webkit-box-orient: vertical;    /* 竖直方向的超出和隐藏 */
+	-webkit-line-clamp: 3;           /* 设定行数为3 */ 
+	font-size: 34upx;
+	color: #333;
+}
+.information .content2{
+	display: -webkit-box;            /* 定义为自适应布局 */
+	word-break: break-all;           /* 换行模式 */
+	text-overflow: ellipsis;         /* 超出文字用省略号代替 */
+	overflow: hidden;                /* 多出部分隐藏 */
+	-webkit-box-orient: vertical;    /* 竖直方向的超出和隐藏 */
+	-webkit-line-clamp: 10000;           /* 设定行数为3 */ 
+	font-size: 34upx;
+	color: #333;
+}
+.quanwen{
+	font-size:31upx;
+	font-weight:400;
+	color:rgba(6,77,197,1);
+	padding: 5px 20upx;
+}
+
+.abcc{
+	width: 14px!important;
+	height: 14px!important;
+	position: absolute!important;
+	bottom: 6upx;
+	right: -4upx;
+}

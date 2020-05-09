@@ -1,0 +1,33 @@
+.Feedback{
+	width: 100%;
+}
+.Feedback  textarea{
+	resize: none;
+	color: '#333';
+	font-size: 28upx;
+	line-height: 28upx;
+	border: none;
+	outline: none;
+	padding: 0 !important;
+	width: 100%;
+}
+.Feedback .img{
+	height: 226upx;
+	width: 226upx;
+	background-color: #CCCCCC;
+	margin-bottom: 10upx;
+	margin-left: 10upx;
+}
+.abc{
+	justify-content: flex-start;
+}
+.del{
+	right: 0;
+	top: 0;
+	z-index: 10;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+.img image{
+	width: 100%;
+}
+		

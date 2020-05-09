@@ -1,0 +1,111 @@
+.wraphead{
+	/* min-height: 50px; */
+	width: 100%;
+	padding: 20px 15px;
+	background-color: white;
+}
+.headimg{
+	width: 60px;
+	height: 60px;
+	
+}
+.headimg image{
+	border-radius: 100%;
+}
+.headcontent{
+	flex: 1;
+	margin-left: 10px;
+	overflow: hidden;
+	
+}
+.name{
+	font-size: 18px;
+	line-height: 24px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 100%;
+}
+.job{
+	font-size: 12px;
+	line-height: 18px;
+	color: #666;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 100%;
+}
+.company{
+	font-size: 13px;
+	line-height: 18px;
+	color: #999;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 100%;
+}
+.time{
+	font-size: 13px;
+	line-height: 18px;
+	color: #333;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 100%;
+}
+.chooseTime{
+	font-size: 14px;
+	color: #333;
+	margin-right: 40upx;
+}
+.chooseItem{
+	font-size: 14px;
+	line-height: 28px;
+	border: 1px solid #999;
+	border-radius: 4px;
+	color: #333;
+	width: 94upx;
+	text-align: center;
+}
+.ac{
+	border: 1px solid #064DC5;
+	color: #064DC5;
+}
+.ipt{
+	border: 1px solid #999;
+	border-radius: 6px;
+	font-size: 14px;
+	/* line-height: 15px; */
+	padding: 4px 10px;
+	color: #333;
+	display: block;
+}
+.nian{
+	font-size: 14px;
+	line-height: 34px;
+	margin-left: 20px;
+}
+.fix{
+	position: fixed;
+	width: 92%;
+	left: 4%;
+	bottom: 40px;
+	border: 1px solid #064DC5;
+	border-radius: 4px;
+}
+.left{
+	width: 50%;
+	text-align: center;
+	line-height: 40px;
+	font-size: 18px;
+	color: #D09F5D;
+	background: rgb(246, 246, 246);
+}
+.right{
+	background: #064DC5;
+	color: #fff;
+	text-align: center;
+	font-size: 18px;
+	line-height: 40px;
+	width: 50%;
+}

@@ -1,0 +1,28 @@
+.title{
+	width:100%;
+	height:38px;
+	background:rgba(248,250,255,1);
+	font-size:16px;
+	font-weight:600;
+	color:rgba(51,51,51,1);
+	line-height:38px;
+	padding: 0 15px;
+}
+.tab{
+	background-color: white;
+	padding: 16px  15px 0px;
+}
+.tab-img{
+	width:44px;
+	height:44px;
+	border-radius:3px;
+	position: relative;
+}
+.tab-img image{
+	border-radius: 3px;
+}
+.text-wrap{
+	margin-left: 15px;
+	flex: 1;
+	padding-bottom: 25px;
+}

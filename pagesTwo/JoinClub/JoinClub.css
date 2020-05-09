@@ -1,0 +1,45 @@
+.joinClubList{
+	position: relative;
+	width: 100%;
+	min-height: 100%;
+	background:rgba(250,250,250,1);
+	padding-top: 50px;
+}
+.title{
+	padding: 0 30upx;
+	width: 100%;
+	height:50px;
+}
+.item{
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+}
+.pickerWrap{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	background-color: rgba(141, 141, 141, .5);
+}
+.clubLIst{
+	padding: 0 15px;
+	margin-bottom: 10px;
+	background-color: white;
+}
+.title1{
+	font-size:13px;
+	font-weight:400;
+	color:rgba(153,153,153,1);
+	line-height:13px;
+}
+.listBottom{
+	padding: 15px 0;
+}
+.listTop{
+	width: 100%;
+	height: 34px;
+	background-color: white;
+}

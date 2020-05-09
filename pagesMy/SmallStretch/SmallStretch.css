@@ -1,0 +1,433 @@
+.stretchIndexActive{
+  color:rgba(6,77,197,1)!important;
+  border-bottom: 2px solid rgba(6,77,197,1);
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.stretchIndex-head{
+  width: 100%;
+  height: 88upx;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-sizing: border-box;
+}
+.stretchIndex-head-title{
+  font-size:36upx;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  line-height:50upx;
+  box-sizing: border-box;
+}
+.youhaowu{
+	font-size:28upx;
+	height: 100%;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	line-height:88upx;
+	box-sizing: border-box;
+}
+.zongBanner{
+	box-sizing: border-box;
+	margin-top: 88upx;
+	width: 100%;
+	min-height: 200px;
+}
+
+.banner-swiper{
+	height: 310upx;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 30upx;
+	background-color: white;
+	position: relative;
+	padding-bottom: 50upx;
+}
+.swiper1{
+	width: 100%;
+	height: 100%;
+}
+.dots {
+  position: absolute;
+  bottom: 58rpx;
+  left: 50%;
+  // 这里一定要注意兼容不然很可能踩坑          
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);        
+  z-index: 99;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;   
+  }
+  .dot {
+      width: 8rpx;
+      height: 8rpx;
+      transition: all .6s;
+      background: #E8E8E8;
+      margin-right: 10rpx;
+  }
+  
+  .active {
+      width: 24rpx;
+      height: 8rpx;
+      background: #064DC5;
+  }
+  .classify{
+	  width: 100%;
+	  background-color: white;
+	  /* height: 48upx; */
+	  box-sizing: border-box;
+	  padding-left: 30upx;
+	  /* margin-top: 60upx; */
+  }
+  .classify-name{
+	  background-color: #D9D9D9;
+	  font-size: 28upx;
+	  margin-right: 18upx;
+	  border-radius: 24upx;
+	  padding: 2px 36upx;
+	  display: inline-block;
+	  color: white;
+	  text-align: center;
+	  
+  }
+  .scroll-view_H{
+	/* background-color: #00B26A; */
+	width: 100%;
+	height: 78upx;
+	overflow: hidden;
+	white-space: nowrap;
+  }
+  .classifyActive{
+	  background-color: #064DC5;
+  }
+  /* 瀑布流 */
+  .water{
+	  width: 100%;
+	  /* padding: 30upx 20upx; */
+	  padding-top: 40upx;
+	  background-color: #09BB07;
+	  box-sizing: border-box;
+	  display: flex;
+	  justify-content: space-around;
+  }
+  .left,.right{  
+    display: inline-block;  
+    vertical-align: top;  
+    width: 48%;
+	border: 1px solid red;
+  }  
+  
+  .itemlist{  
+	background-color: #fff;  
+	margin: 1%;   
+	margin-bottom: 20rpx;  
+	display: inline-block;  
+
+}
+.twoRankedBox{
+	padding-top: 10px;
+}
+
+.juhuasuan-loadmore-con{
+  padding: 20px  15px 0;
+  position: relative;
+  background-color: white;
+}
+.juhuasuan-con{
+  display: flex;
+  padding-bottom: 20px;
+  position: relative;
+}
+.juhuasuan-con-img{
+  width: 100px;
+  height: 100px;
+  margin-right: 16px;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  /* line-height: 100px; */
+}
+.juhuasuan-con-img image{
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+.juhuasuan-con-title{
+font-size:17px;
+font-weight:500;
+color:rgba(51,51,51,1);
+line-height: 24px;
+margin-bottom: 6px;
+}
+
+.juhuasuan-con-tap{
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.juhuasuan-con-zhekou{
+  height: 18px;
+  width: 100px;
+  position: relative;
+  float: left;
+}
+.juhuasuan-con-zhekou image{
+  width: 100%;
+  height: 100%;
+}
+.juhuasuan-con-zhekou view{
+    position: absolute;
+    top: 0;
+    left: 60px;
+	height:18px;
+	font-size:11px;
+	font-weight:500;
+	color:rgba(11,12,6,1);
+	line-height:18px;
+}
+.juhuasuan-con-biaoqian{
+/* height:18px; */
+background:rgba(232,84,30,1);
+border-radius:2px;
+font-size:12px;
+font-weight:400;
+color:rgba(255,255,255,1);
+/* line-height:18px; */
+padding: 1px 7px;
+float: left;
+margin-left: 4px;
+}
+
+.juhuasuan-con-price{
+  margin-bottom: 30px;
+}
+
+.juhuasuan-con-price text:nth-child(1){
+  color: #FF3B30;
+  font-size: 20px;
+
+}
+.juhuasuan-con-price text:nth-child(2){
+  color: #FF3B30;
+  font-size: 14px;
+}
+.juhuasuan-con-price text:nth-child(3){
+font-size:13px;
+font-weight:400;
+color:rgba(153,153,153,1);
+text-decoration:line-through ;
+}
+
+.classify1{
+	width: 100%;
+	background-color: white;
+	/* height: 88upx; */
+	box-sizing: border-box;
+	padding-top: 30upx; 
+	padding-bottom: 30upx;
+	padding-left: 30upx;
+}
+
+.stretchIndex-classify-line{
+  width:100%;
+  height:1px;
+  background:rgba(238,238,238,1);
+}
+.guanzhu-name{
+font-size:14px;
+font-weight:400;
+color:rgba(68,68,68,1);
+line-height:20px;
+margin-bottom: 15px;
+width: 100%;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+
+.new-zixun{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /* background-color: rgb(111, 158, 160); */
+}
+.mm-zixun{
+  border-radius:12px;
+  border:1px solid rgba(6,77,197,1);
+  font-size:12px;
+  font-weight:400;
+  color:rgba(6,77,197,1);
+  padding: 2px 6px;
+  box-sizing: border-box;
+  line-height: 16px;
+  top: 50%;
+  right: 10px;
+  position: absolute;
+}
+.mm-zixun1{
+  position: absolute;
+  font-size:12px;
+  font-weight:400;
+  color:rgba(6,77,197,1);
+  padding: 2px 6px;
+  right: 0;
+  bottom: 20px;
+}
+.mm-shixiao{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width:29px;
+  height:16px;
+  background:rgba(0,0,0,0.4);
+  border-radius:3px;
+	font-size:10px;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+	line-height:16px;
+	text-align: center;
+}
+
+.vote-every{
+  /* background-color: aqua; */
+  padding: 25px 0 15px;
+  position: relative;
+  background-color: white;
+  
+}
+.vote-every-look{
+  display: flex;
+  /* background-color: blue; */
+  font-size:17px;
+  font-weight:600;
+  color:rgba(68,68,68,1);
+  padding-left: 15px;
+  align-items: center;
+}
+#vote-every-look-blue{
+  width:3px;
+  height:17px;
+  background:rgba(6,77,197,1);
+  border-radius:50px;
+  margin-right: 10px;
+}
+.gotoTop{
+	width:110upx;
+	height:110upx;
+	/* background:rgba(6,77,197,1); */
+	/* box-shadow:0px 3px 9px 0px rgba(134,134,134,0.5); */
+	position: fixed;
+	top: 70%;
+	right: 30upx;
+	z-index: 10;
+}
+
+.gotoTop-send{
+	background:rgba(6,77,197,1);
+	box-shadow:0px 3px 9px 0px rgba(134,134,134,0.5);
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	color: white;
+	font-size: 22upx;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+}
+	
+.gotoTop-send>view{
+	text-align: center;
+}
+
+.twoRankedBox{  
+    margin:6px 8px;  
+    overflow: hidden;  
+    padding-bottom:25px;  
+}  
+.twoRankedBox .BoxLeft{  
+    width:49%;  
+    float: left;  
+	/* background-color: #00B26A; */
+}  
+
+.twoRankedBox .BoxRight{  
+    width:49%;  
+    float: left;  
+	/* background-color: red; */
+	margin-left: 5px;
+} 
+.item {
+    width: 100%;
+    /* background-color: aqua; */
+    margin-bottom:8px;
+    border-radius: 0 0 4px 4px;
+    box-shadow:0px 3px 18px 0px rgba(168, 167, 167, 0.5);
+    box-sizing: border-box
+    /* margin: 10px */
+  }
+
+#boxonetwo  .some-info1{
+  font-size:14px;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  line-height:17px;
+  margin-bottom: 4px;
+  /* word-break: break-all; */
+  word-wrap:break-word;
+  /* background-color: coral; */
+  overflow:hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp:2;
+  /* -webkit-box-orient: vertical; */
+  white-space: normal;
+}
+#boxonetwo .some-info2{
+  line-height: 15px;
+  margin-bottom: 10px;
+}
+#boxonetwo .some-info2 text:nth-child(1){
+  color: #FF3B30;
+  font-size: 15px;
+  margin-left: 0;
+
+}
+#boxonetwo .some-info2 text:nth-child(2){
+  color: #FF3B30;
+  font-size: 11px;
+  margin-left: 0;
+}
+#boxonetwo .some-info2 text:nth-child(3){
+font-size:11px;
+font-weight:400;
+color:rgba(153,153,153,1);
+text-decoration:line-through ;
+margin-left: 0;
+}
+#boxonetwo .some-info3 view:nth-child(1){
+font-size:12px;
+font-weight:500;
+color:rgba(153,153,153,1);
+line-height:15px;
+}
+#boxonetwo .some-info3 view:nth-child(2){
+  width:2px;
+  height:10px;
+  background-color: #DDDDDD;
+  margin: 0 3px;
+}
+#boxonetwo .some-info3 view:nth-child(3){
+  font-size:12px;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+  line-height:15px;
+}
+.pageActive{
+	color:rgba(6,77,197,1)!important;
+}

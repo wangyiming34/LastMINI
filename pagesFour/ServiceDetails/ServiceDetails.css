@@ -1,0 +1,149 @@
+.city{
+	font-size:30upx;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	line-height:36upx;
+}
+.cate_name{
+	padding: 2upx 17upx;
+	background:rgba(255,237,233,1);
+	border-radius:4upx;
+	
+	font-size:24upx;
+	font-weight:500;
+	color:rgba(248,100,66,1);
+	line-height:30upx;
+}
+.price{
+	font-size:42upx;
+	font-weight:500;
+	color:rgba(242,71,36,1);
+	line-height:52upx;
+	margin-bottom:20upx ;
+}
+.viewname{
+	width:90%;
+	font-size:28upx;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	margin-bottom: 39upx;
+}
+.huangtiao{
+	width:100%;
+	height:137upx;
+	background:rgba(255,247,232,1);
+	border-radius:8upx;
+	padding: 26upx 30upx;
+}
+.huangTitle{
+	font-size:30upx;
+	font-weight:500;
+	color:rgba(212,45,37,1);
+	line-height:36upx;
+	margin-bottom:10upx ;
+}
+.huangName{
+	font-size:26upx;
+	font-weight:500;
+	color:rgba(98,73,47,1);
+	line-height:36upx;
+}
+.kaitong{
+	top: 50%;
+	transform: translateY(-50%);
+	right: 30upx;
+	width:140upx;
+	height:50upx;
+	background:rgba(218,178,120,1);
+	border-radius:25upx;
+	
+	font-size:24upx;
+	font-family:PingFangSC-Medium,PingFang SC;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+	line-height:50upx;
+	text-align: center;
+}
+.company{
+	background-color: white;
+	width:100%;
+	height:130upx;
+	border-radius:4upx;
+	margin-bottom: 16upx;
+	padding:25upx 32upx ;
+}
+.companyimg{
+	width:80upx;
+	height:80upx;
+	border-radius:4upx;
+}
+.companyimg image{
+	border-radius:4upx;
+}
+.companyname{
+	font-size:30upx;
+	font-weight:500;
+	color:rgba(68,68,68,1);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-left: 20upx;
+}
+.SmallStretchPvw-bottom-vote-new{
+	width: 100%;
+	height: 120upx;
+	background-color: white;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+}
+.Smal-consult{
+	width:242upx;
+	height:68upx;
+	background:rgba(212,45,37,1);
+	border-radius:8upx;
+	
+	font-size:26upx;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+	line-height:68upx;
+	text-align: center;
+}
+.serImg{
+	display: block;
+	width: 28upx;
+	height: 28upx;
+}
+.Small-vote{
+	width: 30%;
+}
+.shoucang{
+	font-size:30upx;
+	font-weight:500;
+	color:rgba(51,51,51,1);
+	line-height:42upx;
+}
+.jixubianji{
+	width: 48%;
+	height:88upx;
+	background:rgba(255,255,255,1);
+	border-radius:8upx;
+	border:2upx solid rgba(212,45,37,1);
+	line-height: 84upx;
+	text-align: center;
+	font-size:36upx;
+	font-weight:400;
+	color:rgba(212,45,37,1);
+}
+.lijifabu{
+	width: 48%;
+	height:88upx;
+	background:rgba(212,45,37,1);
+	border-radius:8upx;
+	border:2upx solid rgba(212,45,37,1);
+	line-height: 84upx;
+	text-align: center;
+	font-size:36upx;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+}

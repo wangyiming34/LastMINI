@@ -1,0 +1,42 @@
+.fo{
+	background-color: white;
+	margin-bottom: 8px;
+	padding: 15px 3%;;
+}
+.price{
+	font-size: 14px;
+	line-height: 18px;
+	color: #333;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+.time{
+	font-size: 12px;
+	line-height: 22px;
+	color: #666;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.order{
+	font-size: 12px;
+	line-height: 22px;
+	color: #666;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.refund{
+	font-size: 15px;
+	line-height: 40px;
+	color: #999;
+	text-align: center;
+	width: 100%;
+	
+}
+.for-wrap{
+	min-height:80vh ;
+	margin-bottom: 20px;
+}

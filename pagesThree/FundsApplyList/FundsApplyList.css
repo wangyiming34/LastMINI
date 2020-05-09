@@ -1,0 +1,84 @@
+.content{
+	width: 100%;
+}
+.title{
+	font-size: 28upx;
+	line-height: 68upx;
+	color: #333;
+	z-index: 10;
+}
+.contentFor{
+	background-color: white;
+	padding: 0 30upx;
+	margin-bottom: 20upx;
+}
+.timewrap{
+	padding: 20upx 0;
+	font-size: 26upx;
+	line-height: 40upx;
+}
+.time{
+	color:#999999;
+}
+.forbottom{
+	padding: 24upx 0;
+}
+.wrapimg{
+	width: 48upx;
+	height: 48upx;
+	margin-right: 10upx;
+	border-radius: 100%;
+}
+.wrapimg image{
+	border-radius: 100%;
+}
+.money{
+	font-size: 34upx;
+	line-height: 48upx;
+	color: #333;
+	margin-bottom: 16upx;
+}
+.name{
+	font-size: 28upx;
+	line-height: 48upx;
+	color: #666;
+}
+.acti{
+	background:rgba(255,255,255,1);
+	border:1px solid rgba(202,202,202,1);
+	top: 68upx;
+	padding: 0 20upx;
+}
+.acfor{
+	font-size:28upx;
+	font-weight:400;
+	color:rgba(51,51,51,1);
+	line-height:74upx;
+	text-align: center;
+	width: 150upx;
+}
+.san{
+	content: '';
+	display: block;
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-left: 22upx solid transparent;
+	border-right: 22upx solid transparent;
+	border-bottom: 22upx solid rgba(202,202,202,1);
+	top: 48upx;
+	z-index: 12;
+}
+.sannei{
+	content: '';
+	display: block;
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-left: 20upx solid transparent;
+	border-right: 20upx solid transparent;
+	border-bottom: 20upx solid #ffffff;
+	top: 50upx;
+	z-index: 13;
+
+}

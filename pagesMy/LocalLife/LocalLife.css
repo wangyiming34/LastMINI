@@ -1,0 +1,93 @@
+.dingwei{
+	font-size:13px;
+	font-weight:400;
+	color:rgba(51,51,51,1);
+	/* line-height:38px; */
+}
+.dingwei input{
+	margin-left: 5px;
+}
+.LocalLife{
+	padding: 30px 30upx 0 30upx;
+}
+.all{
+	font-size:14px;
+	font-weight:400;
+	color:rgba(51,51,51,1);
+}
+.top{
+	/* margin-bottom: 20px; */
+	position: fixed;
+	top: 0;
+	background-color: white;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	padding: 5px 30upx;
+}
+.img image{
+	width:192upx;
+	height:137upx;
+	margin: 8px 0;
+	margin-right: 5px;
+	
+}
+.avatar image{
+	width:24px;
+	height:24px;
+	border-radius: 100%;
+}
+.title{
+	font-size:15px;
+	font-weight:500;
+	color:rgba(51,51,51,1);
+}
+.discount{
+	background:rgba(233,90,39,.1);
+	border-radius:1px;
+	padding: 1upx 7upx;
+	
+	font-size:11px;
+	font-weight:400;
+	color:rgba(255,33,15,1);
+}
+.cate{
+	
+	font-size:13px;
+	font-weight:400;
+	color:rgba(153,153,153,1);
+	margin-left: 5px;
+}
+.left{
+	margin-left: 3px;
+}
+.category{
+	width: 100%;
+	padding-top: 10px;
+}
+.category>view:nth-child(2n){
+	background-color: #F9FBFE;
+}
+.name{
+	width: 100%;
+	text-align: right;
+	
+	font-size:14px;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	line-height:41px;
+}
+.ruzhu{
+	position: fixed;
+	bottom: 50px;
+	right: 3%;
+	width: 42px;
+	height: 42px;
+	border-radius: 100%;
+	z-index: 1000;
+	/* border: 0.5px solid #666666; */
+	background-color: #F2F2F2;
+	text-align: center;
+	/* line-height: 42px; */
+	
+}

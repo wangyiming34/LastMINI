@@ -1,0 +1,23 @@
+.new{
+	height:60px;
+	/* background:linear-gradient(-88deg,rgba(245,195,59,1) 0%,rgba(236,181,27,1) 100%); */
+	opacity:0.91;
+	text-align: center;
+	line-height: 60px;
+	font-size:18px;
+	font-weight:400;
+	/* color:rgba(112,58,0,1); */
+}
+.newa{
+	background:linear-gradient(-88deg,rgba(245,195,59,1) 0%,rgba(236,181,27,1) 100%);
+	color:rgba(112,58,0,1);
+}
+.newf{
+	background:linear-gradient(-88deg,rgba(44,130,246,1) 0%,rgba(99,177,254,1) 100%);
+	opacity:0.71;
+	color:rgba(245,245,245,1);
+}
+.newr{
+	background:linear-gradient(-88deg,rgba(112,58,0,1) 0%,rgba(112,58,0,1) 100%);
+	color: white;
+}

@@ -1,0 +1,231 @@
+.swiperFlex{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.swiperItem{
+	width: 100%;
+	height: 50%;
+}
+.swiperItem1{
+	flex-shrink:0;
+	height: 157px;
+	/* border: 1px solid pink; */
+}
+.swiperItemImg{
+	width: 56upx;
+	height: 56upx;
+	margin-bottom: 5px;
+}
+.v_icon {
+width: 8px!important;
+height: 8px!important;
+}
+.king_icon{
+	top: -3px;
+	right: -3px;
+}
+.swiper1 {
+	width: 100%;
+	height: 170px;
+	position: relative;
+	background-color: white;
+	top: 0rpx;
+	padding: 10px 0 0;
+}
+.scrollWrap{
+	height: 160px;
+	/* border: 1px solid #ccc; */
+}
+.scroll_H{
+	height: 100%;
+	width: 100%;
+	/* border: 1px solid #FF8F58; */
+	/* overflow: auto; */
+}
+.swiperItemTitle{
+	font-size:26upx;
+	font-weight:400;
+	color:rgba(51,51,51,1);
+	line-height:37upx;
+}
+.scroll_bar_wrap{
+	width:40px;
+	height:2px;
+	background:rgba(0,0,0,.1);
+	border-radius:1px;
+	margin: 0 auto;
+	top: -10px;
+}
+.scroll_bar{
+	width:20px;
+	height:2px;
+	border-radius:1px;
+	background:rgba(212,45,37,1);
+	top: 0;
+	/* transition:all .3s .3s; */
+}
+.swipertwo{
+	width: 100%;
+	height: 100px;
+	position: relative;
+	background-color: white;
+	/* border: 1px solid red; */
+	padding: 10px 15px;
+}
+.swiperv{
+	width: 100%;
+	height: 100%;
+	/* border: 1px solid red; */
+}
+.title-name{
+	font-size:34upx;
+	font-weight:500;
+	color:rgba(68,68,68,1);
+	line-height:44upx;
+	padding: 15px 15px 8px;
+	background-color: white;
+}
+.content-wrap{
+	padding: 0 15px;
+	overflow: hidden;
+}
+.content-for{
+	width: 100%;
+	background:rgba(255,255,255,1);
+	box-shadow:1px 1px 27upx 0px rgba(234,234,234,0.8);
+	border-radius:14upx;
+	padding: 15px;
+	margin-top: 24upx;
+}
+.serviceimg{
+	width:80upx;
+	height:80upx;
+	border-radius:4upx;
+	margin-left: 45upx;
+}
+.serviceimg image{
+	width: 100%;
+	height: 100%;
+	border-radius:6upx;
+}
+.item_name_wrap{
+	width: 500upx;
+}
+.item_name{
+	width: 100%;
+	font-size:30upx;
+	font-weight:500;
+	color:rgba(68,68,68,1);
+	line-height:45upx;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin-bottom: 8upx;
+}
+.service_item_name{
+	width: 100%;
+	font-size:30upx;
+	font-weight:500;
+	color:rgba(68,68,68,1);
+	line-height:45upx;
+	text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+	margin-bottom: 8upx;
+}
+.item_tab_wrap{
+	width:100%;
+	font-size:26upx;
+	font-weight:400;
+	color:#666666;
+	line-height:32upx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.shushu{
+	margin: 0 10upx;
+}
+.service_address{
+	font-size:22upx;
+	font-weight:400;
+	color:rgba(153,153,153,1);
+	line-height:30upx;
+	margin-top: 18upx;
+}
+.service_address_read{
+	margin-left: 72upx;
+}
+.service_avc{
+	background:rgba(245,245,245,.3);
+	border-radius:2px;
+	padding: 20upx 10upx;
+	margin-top:25upx;
+}
+.bianhao{
+	padding: 0px 16upx;
+	background:linear-gradient(360deg,rgba(211,157,101,1) 0%,rgba(238,191,130,1) 100%,rgba(239,192,131,1) 100%);
+	border-radius:11upx;
+	font-size:16upx;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+	margin-left: 10upx;
+}
+.vip_level{
+	height: 26upx;
+}
+.king_icon{
+	width: 22upx;
+	height: 22upx;
+}
+level{
+	margin-top: -2px;
+}
+.myservice{
+	width:110upx;
+	height:110upx;
+	background:rgba(212,45,37,1);
+	box-shadow:0px 3upx 18upx 0px rgba(134,134,134,0.5);
+	border-radius: 100%;
+	font-size:26upx;
+	font-family:PingFang-SC-Medium,PingFang-SC;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+	line-height:31upx;
+	text-align: center;
+	line-height: 40upx;
+	position: fixed;
+	right: 34upx;
+	bottom: 120upx;
+}
+ .dot {
+      width: 8rpx;
+      height: 8rpx;
+      transition: all .6s;
+      background:rgba(239,64,64,.37);
+      margin-right: 10rpx;
+  }
+  
+  .active {
+      width: 24rpx;
+      height: 8rpx;
+      background: #D42D25;
+  }
+  .dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    // 这里一定要注意兼容不然很可能踩坑          
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);        
+    z-index:1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;   
+}
+	

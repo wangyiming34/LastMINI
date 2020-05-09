@@ -1,0 +1,267 @@
+.swiper{
+	width:100%;
+	height:266upx;
+	position: relative;
+	background-color: white;
+	top: 10upx;
+}
+.ipt{
+	width: 100%;
+	/* height: 64upx; */
+	position: fixed;
+	top: 0;
+	z-index: 6;
+	display: flex;
+	/* justify-content: space-between; */
+	align-items: center;
+	/* padding: 20upx 20upx; */
+	height: 50px;
+	background-color: white;
+	left: 0;
+}
+.swipers{
+	width: 93%;
+	height: 100%;
+	margin: 0 auto;
+	border-radius: 4px;
+}
+.swiper-img{
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+}
+.swiper-item{
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+}
+
+.ipt-left{
+	width:630upx;
+	height:70upx;
+	border-radius:33upx;
+	font-size:24upx;
+	font-weight:400;
+	color:rgba(125,128,149,1);
+	line-height:70upx;
+	padding-left: 80upx;
+	background: url('https://web.detion.com/static/image/resource/search.png') no-repeat 30upx ;
+	background-size: 32upx 32upx;
+	margin-left: 30upx;
+	margin-right: 20upx;
+}
+.ipt-right{
+	width: 40upx;
+	height: 60upx;
+}
+.ipt-right image{
+	height: 100%;
+	width: 100%;
+}
+
+/* 弹出层 */
+.tanchuceng{
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	background: rgba(0,0,0,0.85);
+	height: 150%;
+	width: 100%;
+}
+.tanImg{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -139px;
+	margin-top: -200px;
+	width: 278px;
+	height:397px ;
+	z-index: 1000;
+}
+.tanImg image{
+	width: 100%;
+	height: 100%;
+}
+/* 关闭遮罩 和 去支付 */
+.tanImg .close{
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  right:10upx;
+  top:0;
+  /* background:red; */
+}
+.tanImg .go{
+  /* background-color: #09BB07; */
+  width: 74%;
+  left: 13%;
+  height: 12vw;
+  bottom: 8vw;
+  position: absolute;
+}
+/* banner下面的小导航 */
+.banner-bottom{
+	padding: 30upx 40upx 0;
+	display: flex;
+	justify-content: space-around;
+	background-color: white;
+	flex-wrap: wrap;
+}
+	
+.item1{
+	display: flex;
+	flex-direction: column;
+	width: 25%;
+	align-items: center;
+	margin-bottom: 30upx;
+	/* border: 1px solid red; */
+}
+.icon{
+	height: 90upx;
+	width: 90upx;
+	margin-bottom: 10px;
+}
+.icon1{
+	height: 54upx;
+	width: 54upx;
+	margin-bottom: 10px;
+}
+.xufei{
+	width: 71upx;
+	height: 30upx;
+	right: 14upx;
+	top: -18upx;
+}
+.text{
+	width:96upx;
+	height:24upx;
+	font-size:24upx;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	line-height:24upx;
+	text-align: center;
+}
+.tt{
+	padding: 0upx 30upx 26upx;
+	background-color: white;
+	}
+.tt image{
+	height: 126upx;
+	width: 100%;
+}
+.pic_left{
+	height: 154upx;
+	width: 338upx;
+}
+.menu_list{
+	padding: 0rpx 30rpx 10rpx 30rpx;
+	background-color: white;
+}
+.pic_right{
+	flex: 1;
+	height: 301upx;
+	flex-direction: column;
+	margin-left: 20upx;
+	justify-content: space-between;
+}
+.pic_right image{
+	height: 142upx;
+}
+.hot{
+	/* border: 1px solid red; */
+	padding-left:  15px;
+	padding-right: 15px;
+	box-sizing: border-box;
+}
+.hot-title{
+	/* width: 100%; */
+	/* background-color: #09BB07; */
+	/* height: 30px; */
+	font-size:34upx;
+	font-weight:500;
+	color:rgba(68,68,68,1);
+	padding: 30upx 0;
+	align-items: center;
+	
+}
+.b-line{
+	/* border-bottom: 1px solid rgba(221,221,221,1); */
+}
+.wrap::-webkit-scrollbar {
+		display: none;
+	}
+image{
+	width: 100%;
+	height: 100%;
+}
+.hot .name{
+	font-size:34upx;
+	font-weight:400;
+	color:rgba(51,51,51,1);
+	/* line-height:34upx; */
+	margin-bottom:8upx ;
+	
+	
+}
+.hot .ceo{
+	font-size:24upx;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	/* line-height:24upx; */
+}
+.iptActive{
+	background-color: white;
+}
+
+.Active1{
+	position: absolute;
+	text-align: center;
+	border-radius: 4px;
+	background: rgba(0,0,0,0.8);
+	top: 65upx;
+	right: -10upx;
+	z-index: 10;
+	color: white;
+	width: 90px;
+}
+
+.Active1-class{
+	font-size: 14px;
+	line-height: 36px;
+	padding: 0 10px;
+	color: #fff;
+	text-align: center;
+}
+.Active1:after{
+	position: absolute;
+	content: '';
+	display: block;
+	border:6px solid transparent ;
+	border-bottom:6px solid rgba(0,0,0,0.8);
+	top: -12px;
+	right: 14px;
+}
+
+/* head-logo{
+	position: absolute;
+	right: 2px;
+	bottom: 3px;
+	width: 14px!important;
+	height: 14px!important;
+} */
+.v_icon{
+	/* width: 14px!important;
+	height: 14px!important; */
+}
+.starColor{
+	color: #999999;
+}
+.starActive{
+	color: #064DC5;
+}
+.colorblue{
+	background-color: #7BB3FF;
+}
+.coloryellow{
+	background-color: #FABB2A;
+}

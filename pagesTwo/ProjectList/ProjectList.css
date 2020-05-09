@@ -1,0 +1,29 @@
+.scrollTab{
+	width: 100%;
+	height: 44px;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+	background-color: white;
+}
+.scroll-view_H{
+	/* background-color: #00B26A; */
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+ }
+ .classify-name{
+ 	  /* background-color: #D9D9D9; */
+ 	  height: 100%;
+ 	  margin-left: 40upx;
+ 	  /* border-radius: 24upx; */
+ 	  /* padding: 2px 36upx; */
+ 	  display: inline-block;
+ 	  /* text-align: center; */
+	  font-size:16px;
+	  font-weight:400;
+	  color:rgba(51,51,51,1);
+	  line-height: 44px;
+ }

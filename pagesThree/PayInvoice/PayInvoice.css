@@ -1,0 +1,30 @@
+.title{
+	font-size: 33px;
+	color: #333;
+	line-height: 50px;
+	margin-bottom: 30px;
+	padding: 0 3%;
+}
+.for{
+	padding: 20px 3%;
+	font-size: 16px;
+	color: #333;
+}
+.shuoming{
+	font-size: 20px;
+	color: #333;
+	padding-left: 10px;
+	font-weight: bold;
+}
+.shuomingwrap{
+	margin: 40px 0 20px;
+	padding: 0 3%;
+}
+.notewrap{
+	padding: 0 3%;
+	font-size: 14px;
+	color: #999999;
+}
+.note{
+	line-height: 24px;
+}

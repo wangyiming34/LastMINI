@@ -1,0 +1,1060 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"onReachBottomDistance":1200,
+				"enablePullDownRefresh":true
+			}
+		}
+	    ,{
+            "path" : "pages/information/information",
+            "style" : {
+				"navigationBarTitleText": "资讯圈",
+				"onReachBottomDistance":1200,
+				"enablePullDownRefresh":true,
+				"backgroundTextStyle":"dark"
+			}
+        }
+        ,{
+            "path" : "pages/my/my",
+            "style" : {
+				"navigationBarTitleText": "我的"
+			}
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" : {
+				"navigationBarTitleText": "登录"
+			}
+        }
+        ,{
+            "path" : "pages/phone/phone",
+            "style" : {
+				"navigationBarTitleText": "手机国际区号选择"
+			}
+        }
+        ,{
+            "path" : "pages/setPassword/setPassword",
+            "style" : {
+				"navigationBarTitleText": "设置密码"
+			}
+        }
+        ,{
+            "path" : "pages/PersonalIdcard/PersonalIdcard",
+            "style" : {
+				"navigationBarTitleText": "身份认证"
+			}
+        }
+        ,{
+            "path" : "pages/ForgetPass/ForgetPass",
+            "style" : {
+				"navigationBarTitleText": "忘记密码"
+			}
+        }
+        
+
+        ,{
+            "path" : "pages/service/service",
+            "style" : {
+				"navigationBarTitleText": "服务",
+				"onReachBottomDistance":1500,
+				"enablePullDownRefresh":true
+			}
+        }
+    ],
+	// 分包
+	"subPackages": [
+		 // 分包3
+		{
+		    "root": "pagesThree",
+		    "pages": [{
+                    "path" : "PaymentHistory/PaymentHistory",
+                    "style" : {
+						"navigationBarTitleText": "会员充值历史"
+					}
+                }
+                ,{
+                    "path" : "PayInvoice/PayInvoice",
+                    "style" : {
+						"navigationBarTitleText": "发票"
+					}
+                }
+                ,{
+                    "path" : "InvoiceList/InvoiceList",
+                    "style" : {
+						"navigationBarTitleText": "开具发票"
+					}
+                }
+                ,{
+                    "path" : "ApplyInvoice/ApplyInvoice",
+                    "style" : {
+						"navigationBarTitleText": "申请开具发票"
+					}
+                }
+                ,{
+                    "path" : "InvoiceSubmit/InvoiceSubmit",
+                    "style" : {
+						"navigationBarTitleText": "申请开具发票完成"
+					}
+                }
+                ,{
+                    "path" : "InvoiceHistory/InvoiceHistory",
+                    "style" : {
+						"navigationBarTitleText": "开票历史"
+					}
+                }
+                ,{
+                    "path" : "InvoiceDetail/InvoiceDetail",
+                    "style" : {
+						"navigationBarTitleText": "开票详情"
+					}
+                }
+                ,{
+                    "path" : "Question/Question",
+                    "style" : {
+						"navigationBarTitleText": "常见问题"
+					}
+                }
+                ,{
+                    "path" : "QuestionDetail/QuestionDetail",
+                    "style" : {
+						"navigationBarTitleText": "问题详情"
+					}
+                }
+                ,{
+                    "path" : "NewUser/NewUser",
+                    "style" : {
+						 "navigationBarTitleText": "新用户",
+						 "enablePullDownRefresh":true,
+						 "onReachBottomDistance":1000
+					}
+                }
+                ,{
+                    "path" : "Recommend/Recommend",
+                    "style" : {
+						"navigationBarTitleText": "我的推荐",
+						"enablePullDownRefresh":true,
+						"onReachBottomDistance":500
+					}
+                }
+                ,{
+                    "path" : "Integral/Integral",
+                    "style" : {
+						"navigationBarTitleText": "积分排行"
+					}
+                }
+                ,{
+                    "path" : "Explain/Explain",
+                    "style" : {
+						"navigationBarTitleText": "积分排行说明"
+					}
+                }
+                ,{
+                    "path" : "Permission/Permission",
+                    "style" : {
+						"navigationBarTitleText": "统计与审批"
+					}
+                }
+                ,{
+                    "path" : "ClubAuditList/ClubAuditList",
+                    "style" : {
+						"navigationBarTitleText": "俱乐部审核"
+					}
+                }
+                ,{
+                    "path" : "ClubAudit/ClubAudit",
+                    "style" : {
+						"navigationBarTitleText": "俱乐部审核详情"
+					}
+                }
+                ,{
+                    "path" : "Report/Report",
+                    "style" : {
+						"navigationBarTitleText": "报表系统"
+					}
+                }
+                ,{
+                    "path" : "ClubMember/ClubMember",
+                    "style" : {
+						"navigationBarTitleText": "俱乐部会员统计"
+					}
+                }
+                ,{
+                    "path" : "CityClubMember/CityClubMember",
+                    "style" : {
+						"navigationBarTitleText": "俱乐部人数统计"
+					}
+                }
+                ,{
+                    "path" : "PayAgainCity/PayAgainCity",
+                    "style" : {
+						"navigationBarTitleText": "应续费用户统计"
+					}
+                }
+                ,{
+                    "path" : "PayAgainCityClub/PayAgainCityClub",
+                    "style" : {
+						"navigationBarTitleText": "应续费用户"
+					}
+                }
+                ,{
+                    "path" : "PayAgainNoCity/PayAgainNoCity",
+                    "style" : {
+						"navigationBarTitleText": "无俱乐部的城市中超期自由港VIP",
+						"enablePullDownRefresh":true,
+						"onReachBottomDistance":30
+					}
+                }
+                ,{
+                    "path" : "PayAgainCityClubUser/PayAgainCityClubUser",
+                    "style" : {
+						"navigationBarTitleText": "应续费用户",
+						"enablePullDownRefresh":true,
+						"onReachBottomDistance":30
+					}
+                }
+                ,{
+                    "path" : "Reverse/Reverse",
+                    "style" : {
+						"navigationBarTitleText": "预留编号"
+					}
+                }
+                ,{
+                    "path" : "AllMember/AllMember",
+                    "style" : {
+						"navigationBarTitleText": "用户总数"
+					}
+                }
+                ,{
+                    "path" : "UserReport/UserReport",
+                    "style" : {
+						"navigationBarTitleText": "用户报表"
+					}
+                }
+                ,{
+                    "path" : "UserReportDetail/UserReportDetail",
+                    "style" : {
+						"navigationBarTitleText": "用户报表详情",
+						"enablePullDownRefresh":true,
+						"onReachBottomDistance":30
+						
+					}
+                }
+                ,{
+                    "path" : "FreeUser/FreeUser",
+                    "style" : {
+						"navigationBarTitleText": "自由港人员统计"
+					}
+                }
+                ,{
+                    "path" : "FreeDetail/FreeDetail",
+                    "style" : {
+						"navigationBarTitleText": "自由港用户列表",
+						"enablePullDownRefresh":true,
+						"onReachBottomDistance":30
+					}
+                }
+                ,{
+                    "path" : "HistoryData/HistoryData",
+                    "style" : {
+						"navigationBarTitleText": "历史数据查询"
+					}
+                }
+                ,{
+                    "path" : "HistoryDetail/HistoryDetail",
+                    "style" : {
+						"navigationBarTitleText": "数据详情",
+						"enablePullDownRefresh":true,
+						"onReachBottomDistance":30
+					}
+                }
+                ,{
+                    "path" : "EveryMonth/EveryMonth",
+                    "style" : {
+						"navigationBarTitleText": "每月注册用户量"
+						
+					}
+                }
+                ,{
+                    "path" : "EveryMonthDetail/EveryMonthDetail",
+                    "style" : {
+						"navigationBarTitleText": "数据详情",
+						"enablePullDownRefresh":true,
+						"onReachBottomDistance":30
+					}
+                }
+                ,{
+                    "path" : "PayCount/PayCount",
+                    "style" : {
+						"navigationBarTitleText": "缴费人数",
+						"enablePullDownRefresh":true,
+						"onReachBottomDistance":30
+					}
+                }
+                ,{
+                    "path" : "TodayNeedRenew/TodayNeedRenew",
+                    "style" : {
+						"navigationBarTitleText": "截止今日应续费",
+						"enablePullDownRefresh":true,
+						"onReachBottomDistance":30
+					}
+                }
+                ,{
+                    "path" : "TodayRenewed/TodayRenewed",
+                    "style" : {
+						"navigationBarTitleText": "截止今日已续费",
+						"enablePullDownRefresh":true,
+						"onReachBottomDistance":30
+					}
+                }
+                ,{
+                    "path" : "AgainCount/AgainCount",
+                    "style" : {
+						"navigationBarTitleText": "续费人数界面",
+						"enablePullDownRefresh":true,
+						"onReachBottomDistance":30
+					}
+                }
+                ,{
+                    "path" : "GroupTotal/GroupTotal",
+                    "style" : {
+						"navigationBarTitleText": "平台建群总数"
+					}
+                }
+                ,{
+                    "path" : "RenewCityClub/RenewCityClub",
+                    "style" : {
+						"navigationBarTitleText": "应续费人列表",
+						"enablePullDownRefresh":true,
+						"onReachBottomDistance":30
+					}
+                }
+                ,{
+                    "path" : "RenewCity/RenewCity",
+                    "style" : {
+						"navigationBarTitleText": "应续费俱乐部列表"
+					}
+                }
+                ,{
+                    "path" : "ShareClubList/ShareClubList",
+                    "style" : {
+						"navigationBarTitleText": "分享俱乐部列表"
+					}
+                }
+                ,{
+                    "path" : "ShareClub/ShareClub",
+                    "style" : {
+						"navigationBarTitleText": "分享俱乐部二维码"
+					}
+                }
+                ,{
+                    "path" : "InviteFriends/InviteFriends",
+                    "style" : {
+						"navigationBarTitleText": "邀请朋友"
+					}
+                }
+                ,{
+                    "path" : "FundsApplyList/FundsApplyList",
+                    "style" : {
+						"navigationBarTitleText": "经费申请"
+					}
+                }
+                ,{
+                    "path" : "FundsApplyDetail/FundsApplyDetail",
+                    "style" : {
+						"navigationBarTitleText": "经费申请详情"
+					}
+                }
+                ,{
+                    "path" : "Sign/Sign",
+                    "style" : {
+						"navigationBarTitleText": "电子签名"
+					}
+                }
+                ,{
+                    "path" : "FundsApply/FundsApply",
+                    "style" : {
+						"navigationBarTitleText": "经费申请详情"
+					}
+                }
+            ]
+		},
+		{
+	        "root": "pagesMy",
+	        "pages": [
+				// 未读消息
+				{	
+	            "path": "Notice/Notice",
+	            "style": {
+					"navigationBarTitleText": "消息"
+				}
+				},
+				// 德申消息详情
+				{
+				"path": "NoticeDetails/NoticeDetails",
+				"style": {
+					"navigationBarTitleText": "消息详情"
+				}
+				},
+				// app下载界面
+				{
+				"path": "DownLoad/DownLoad",
+				"style": {
+					"navigationBarTitleText": "下载"
+				}
+				}
+			   // 外部跳转
+                ,{
+                    "path" : "view/view",
+                    "style" : {}
+                }
+				// my界面的设置
+                ,{
+                    "path" : "Setting/Setting",
+                    "style" : {
+						"navigationBarTitleText": "设置"
+					}
+                }
+                ,{
+                    "path" : "ChangePassword/ChangePassword",
+                    "style" : {
+						"navigationBarTitleText": "修改密码"
+					}
+                }
+                ,{
+                    "path" : "ChangePhone/ChangePhone",
+                    "style" : {
+						"navigationBarTitleText": "手机绑定"
+					}
+                }
+                ,{
+                    "path" : "ChangeWechat/ChangeWechat",
+                    "style" : {
+						"navigationBarTitleText": "微信绑定"
+					}
+                }
+                ,{
+                    "path" : "AboutUs/AboutUs",
+                    "style" : {
+						"navigationBarTitleText": "关于我们"
+					}
+                }
+                ,{
+                    "path" : "Feedback/Feedback",
+                    "style" : {
+						"navigationBarTitleText": "意见与反馈"
+					}
+                }
+                ,{
+                    "path" : "MyInfo/MyInfo",
+                    "style" : {
+						"navigationBarTitleText": "个人主页"
+					}
+                }
+                ,{
+                    "path" : "MyInformation/MyInformation",
+                    "style" : {
+						"navigationBarTitleText": "我的资讯圈",
+						"enablePullDownRefresh":true,
+						"backgroundTextStyle":"dark",
+						"onReachBottomDistance":1000
+					}
+                }
+                ,{
+                    "path" : "InfoDetail/InfoDetail",
+                    "style" : {
+						"navigationBarTitleText": "详情"
+					}
+                }
+                ,{
+                    "path" : "PraiseList/PraiseList",
+                    "style" : {
+						 "navigationBarTitleText": "点赞列表",
+                    	 "backgroundTextStyle":"dark",
+                    	 "onReachBottomDistance":30	 
+                    }
+                }
+                ,{
+                    "path" : "SmallStretch/SmallStretch",
+                    "style" : {
+						 "navigationBarTitleText": "小申展",
+                    	 "backgroundTextStyle":"dark",
+                    	 "onReachBottomDistance":30
+                    }
+                }
+                ,{
+                    "path" : "SmallStretchPvw/SmallStretchPvw",
+                    "style" : {
+						"navigationBarTitleText": "详情"
+					}
+                }
+                ,{
+                    "path" : "StretchIndexSend/StretchIndexSend",
+                    "style" : {
+						"navigationBarTitleText": "发布"
+					}
+                }
+                ,{
+                    "path" : "pay/pay",
+                    "style" : {
+						"navigationBarTitleText": "支付"
+					}
+                }
+                ,{
+                    "path" : "IssueHistory/IssueHistory",
+                    "style" : {
+						"onReachBottomDistance":500,
+						"navigationBarTitleText": "发布历史"
+					}
+					
+                }
+                ,{
+                    "path" : "SmallStretchStatus/SmallStretchStatus",
+                    "style" : {
+						"navigationBarTitleText": "发布结果"
+					}
+                }
+                ,{
+                    "path" : "StretchIndexEdit/StretchIndexEdit",
+                    "style" : {
+						"navigationBarTitleText": "重新编辑"
+					}
+                }
+                ,{
+                    "path" : "LuDingJi/LuDingJi",
+                    "style" : {
+						  "onReachBottomDistance":1000,
+						  "enablePullDownRefresh":true,
+						  "navigationBarTitleText": "路顶记"
+					}
+					
+                }
+                ,{
+                    "path" : "LuDingJiDetails/LuDingJiDetails",
+                    "style" : {
+						"navigationBarTitleText": "详情"
+					}
+                }
+                ,{
+                    "path" : "PayStep/PayStep",
+                    "style" : {
+						"navigationBarTitleText": "填写收货地址"
+					}
+                }
+                
+                ,{
+                    "path" : "Report/Report",
+                    "style" : {}
+                }
+                ,{
+                    "path" : "informationSend/informationSend",
+                    "style" : {}
+                }
+                ,{
+                    "path" : "LocalLife/LocalLife",
+                    "style" : {
+						"navigationBarTitleText": "本地生活",
+						"onReachBottomDistance":1500,
+						"enablePullDownRefresh":true
+					}
+                }
+                ,{
+                    "path" : "Search/Search",
+                    "style" : {
+						"navigationBarTitleText": "搜索",
+						"onReachBottomDistance":800
+					}
+                }
+                ,{
+                    "path" : "MyPersonal/MyPersonal",
+                    "style" : {}
+                }
+                ,{
+                    "path" : "InformationDetail/InformationDetail",
+                    "style" : {
+						"navigationBarTitleText": "详情"
+					}
+                }
+                ,{
+                    "path" : "MyProject/MyProject",
+                    "style" : {
+						"navigationBarTitleText": "我的项目"
+					}
+                }
+                ,{
+                    "path" : "MyProjectChoose/MyProjectChoose",
+                    "style" : {
+						"navigationBarTitleText": "项目/机会选择"
+					}
+                }
+                ,{
+                    "path" : "FindProject/FindProject",
+                    "style" : {
+						"navigationBarTitleText": "找项目"
+					}
+                }
+                ,{
+                    "path" : "FindMoney/FindMoney",
+                    "style" : {
+						"navigationBarTitleText": "找投资"
+					}
+                }
+                ,{
+                    "path" : "TabSelect/TabSelect",
+                    "style" : {
+						"navigationBarTitleText": "标签选择"
+					}
+                }
+                ,{
+                    "path" : "EditMyProject/EditMyProject",
+                    "style" : {
+						"navigationBarTitleText": "编辑项目"
+					}
+                }
+                
+                ,{
+                    "path" : "ForeignCard/ForeignCard",
+                    "style" : {}
+                }
+                ,{
+                    "path" : "ForeignCardDetail/ForeignCardDetail",
+                    "style" : {}
+                }
+                ,{
+                    "path" : "ForeignCardEdit/ForeignCardEdit",
+                    "style" : {}
+                }
+                ,{
+                    "path" : "PaySuccess/PaySuccess",
+                    "style" : {
+						"navigationBarTitleText": "支付成功"
+					}
+                }
+                ,{
+                    "path" : "Renew/Renew",
+                    "style" : {
+						"navigationBarTitleText": "续费"
+					}
+                }
+                ,{
+                    "path" : "FundsApprovalList/FundsApprovalList",
+                    "style" : {
+						"navigationBarTitleText": "经费审批"
+					}
+                }
+                ,{
+                    "path" : "FundsApprovalDetail/FundsApprovalDetail",
+                    "style" : {
+						"navigationBarTitleText": "经费审批详情"
+					}
+                }
+                ,{
+                    "path" : "Upload/Upload",
+                    "style" : {
+						"navigationBarTitleText": "上传专用"
+					}
+                }
+                ,{
+                    "path" : "WechatBind/WechatBind",
+                    "style" : {
+						"navigationBarTitleText": "绑定手机"
+					}
+                }
+            ]
+	    },
+		// 分包2
+		{
+		   "root": "pagesTwo",
+		   "pages": [{
+                    "path" : "TradingVolume/TradingVolume",
+                    "style" : {
+						"navigationBarTitleText": "交易额",
+						"onReachBottomDistance":800,
+						"enablePullDownRefresh":true
+					}
+                }
+                ,{
+                    "path" : "TradingVolumeSend/TradingVolumeSend",
+                    "style" : {
+						"navigationBarTitleText": "交易额发布"
+					}
+                }
+                ,{
+                    "path" : "TradingDetail/TradingDetail",
+                    "style" : {
+						"navigationBarTitleText": "交易额详情"
+					}
+                }
+                ,{
+                    "path" : "TradingHistory/TradingHistory",
+                    "style" : {
+						"navigationBarTitleText": "发布历史",
+						"onReachBottomDistance":30,
+						"enablePullDownRefresh":true
+					}
+                }
+                ,{
+                    "path" : "TradingCity/TradingCity",
+                    "style" : {
+						"navigationBarTitleText": "城市榜",
+						"onReachBottomDistance":30,
+						"enablePullDownRefresh":true
+					}
+                }
+                ,{
+                    "path" : "TradingClub/TradingClub",
+                    "style" : {
+						"navigationBarTitleText": "俱乐部榜",
+						"onReachBottomDistance":30,
+						"enablePullDownRefresh":true
+					}
+                }
+                ,{
+                    "path" : "TradingClubFree/TradingClubFree",
+                    "style" : {
+						"navigationBarTitleText": "自由港榜",
+						"onReachBottomDistance":30,
+						"enablePullDownRefresh":true
+					}
+                }
+                ,{
+                    "path" : "EnterpriseCertification/EnterpriseCertification",
+                    "style" : {
+						"navigationBarTitleText": "企业认证"
+					}
+                }
+                ,{
+                    "path" : "MyBusiness/MyBusiness",
+                    "style" : {
+						"navigationBarTitleText": "企业主页"
+					}
+                }
+                ,{
+                    "path" : "Club/Club",
+                    "style" : {
+						"navigationBarTitleText": "俱乐部"
+					}
+                }
+                ,{
+                    "path" : "ClubIndex/ClubIndex",
+                    "style" : {
+						"navigationBarTitleText": "俱乐部主页",
+						"onReachBottomDistance":30
+					}
+                }
+                ,{
+                    "path" : "CityClub/CityClub",
+                    "style" : {
+						"navigationBarTitleText": "城市俱乐部"
+					}
+                }
+                ,{
+                    "path" : "FreedomHarbor/FreedomHarbor",
+                    "style" : {
+						"navigationBarTitleText": "自由港"
+					}
+                }
+                ,{
+                    "path" : "CreateClubOne/CreateClubOne",
+                    "style" : {
+						"navigationBarTitleText": "创建俱乐部"
+					}
+                }
+                ,{
+                    "path" : "CreateClubTwo/CreateClubTwo",
+                    "style" : {
+						"navigationBarTitleText": "创建俱乐部"
+					}
+                }
+                ,{
+                    "path" : "CreateClubDetail/CreateClubDetail",
+                    "style" : {
+						"navigationBarTitleText": "详情"
+					}
+                }
+                ,{
+                    "path" : "ExitClubList/ExitClubList",
+                    "style" : {
+						"navigationBarTitleText": "退出俱乐部"
+					}
+                }
+                ,{
+                    "path" : "ExitClubReason/ExitClubReason",
+                    "style" : {
+						"navigationBarTitleText": "退出原因"
+					}
+                }
+                ,{
+                    "path" : "ExitClubDeatil/ExitClubDeatil",
+                    "style" : {
+						"navigationBarTitleText": "退出详情"
+					}
+                }
+                ,{
+                    "path" : "JoinClub/JoinClub",
+                    "style" : {
+						"navigationBarTitleText": "加入俱乐部"
+					}
+                }
+                ,{
+                    "path" : "JoinClubStatus/JoinClubStatus",
+                    "style" : {
+						"navigationBarTitleText": "加入详情"
+					}
+                }
+                ,{
+                    "path" : "JoinClubContent/JoinClubContent",
+                    "style" : {
+						"navigationBarTitleText": "加入俱乐部"
+					}
+                }
+                ,{
+                    "path" : "ProjectList/ProjectList",
+                    "style" : {
+						"navigationBarTitleText": "项目机会",
+						"onReachBottomDistance":1000,
+						"enablePullDownRefresh":true
+					}
+                },
+				 {
+				    "path" : "TabSelectNew/TabSelectNew",
+				    "style" : {
+						"navigationBarTitleText": "标签选择"
+					}
+				}
+                ,{
+                    "path" : "newsDetail/newsDetail",
+                    "style" : {
+						"navigationBarTitleText": "新闻详情"
+					}
+                }
+                ,{
+                    "path" : "SchoolDetail/SchoolDetail",
+                    "style" : {
+						"navigationBarTitleText": "学院详情"
+					}
+                }
+                ,{
+                    "path" : "SmallStretchNew/SmallStretchNew",
+                    "style" : {
+						"navigationBarTitleText": "小申展",
+						"onReachBottomDistance":1200,
+						"enablePullDownRefresh":true
+					}
+                }
+                ,{
+                    "path" : "SmallStretchNewVote/SmallStretchNewVote",
+                    "style" : {
+						"navigationBarTitleText": "我的关注"
+					}
+                }
+                ,{
+                    "path" : "SmallStretchNewEvery/SmallStretchNewEvery",
+                    "style" : {
+						"navigationBarTitleText": "大家都在看",
+						"onReachBottomDistance":1200,
+						"enablePullDownRefresh":true
+					}
+                }
+                ,{
+                    "path" : "SmallStretchNewItem/SmallStretchNewItem",
+                    "style" : {
+						"navigationBarTitleText": "友好物",
+						"onReachBottomDistance":1500,
+						"enablePullDownRefresh":true
+					}
+                }
+                ,{
+                    "path" : "Activity/Activity",
+                    "style" : {
+						"navigationBarTitleText": "活动",
+						"onReachBottomDistance":1500,
+						"enablePullDownRefresh":true
+					}
+                }
+                ,{
+                    "path" : "ActivityDetail/ActivityDetail",
+                    "style" : {
+						"navigationBarTitleText": "活动详情"
+					}
+                }
+                ,{
+                    "path" : "MyBusinessEdit/MyBusinessEdit",
+                    "style" : {
+						"navigationBarTitleText": "编辑"
+					}
+                }
+                ,{
+                    "path" : "EditEnterpriseIndex/EditEnterpriseIndex",
+                    "style" : {
+						"navigationBarTitleText": "企业信息"
+					}
+                }
+                
+                ,{
+                    "path" : "MyBusinessProduct/MyBusinessProduct",
+                    "style" : {
+						"navigationBarTitleText": "企业产品/服务"
+					}
+                }
+                ,{
+                    "path" : "MyProduct/MyProduct",
+                    "style" : {
+						"navigationBarTitleText": "企业产品/服务详情"
+					}
+                }
+                ,{
+                    "path" : "MyProductSend/MyProductSend",
+                    "style" : {
+						"navigationBarTitleText": "产品/服务编辑发布"
+					}
+                }
+                ,{
+                    "path" : "MyVoteList/MyVoteList",
+                    "style" : {
+						"navigationBarTitleText": "关注列表",
+						"onReachBottomDistance":1000,
+						"enablePullDownRefresh":true
+					}
+                }
+                ,{
+                    "path" : "MyActivity/MyActivity",
+                    "style" : {
+						"navigationBarTitleText": "我的活动",
+						"onReachBottomDistance":1500,
+						"enablePullDownRefresh":true
+					}
+                }
+                ,{
+                    "path" : "DistrictAssistant/DistrictAssistant",
+                    "style" : {
+						"navigationBarTitleText": "地区助手"
+					}
+                }
+            ]
+	    },
+		//分包4
+		{
+		   "root": "pagesFour",
+		   "pages": [
+			   {
+				   "path" : "ServiceEdit/ServiceEdit",
+				   "style" : {
+					   "navigationBarTitleText": "服务编辑"
+				   }
+			   }
+                ,{
+                    "path" : "MyService/MyService",
+                    "style" : {
+						"navigationBarTitleText": "我的服务"
+					}
+                }
+                ,{
+                    "path" : "ServiceProvider/ServiceProvider",
+                    "style" : {
+						"navigationBarTitleText": "服务商"
+					}
+                }
+                ,{
+                    "path" : "ServiceDetails/ServiceDetails",
+                    "style" : {
+						"navigationBarTitleText": "服务详情"
+					}
+                }
+                ,{
+                    "path" : "CollectionService/CollectionService",
+                    "style" : {
+						"navigationBarTitleText": "我的收藏"
+					}
+                }
+                ,{
+                    "path" : "ServiceStatus/ServiceStatus",
+                    "style" : {}
+                }
+            ]
+		}
+	],
+	  //   "preloadRule": {
+	  //       "pagesMy/Notice/Notice": {
+	  //           "network": "all",
+	  //           "packages": ["__APP__"]
+	  //       },
+			// "pagesMy/NoticeDetails/NoticeDetails": {
+			//     "network": "all",
+			//     "packages": ["__APP__"]
+			// },
+			// "pagesMy/DownLoad/DownLoad": {
+			//     "network": "all",
+			//     "packages": ["__APP__"]
+			// }
+	  //   },
+	"tabBar": {
+	    "color": "#999999",
+	    "selectedColor": "#bc1e22",
+	    "borderStyle": "black",
+	    "backgroundColor": "#ffffff",
+	    "list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/img/nav1.png",
+				"selectedIconPath": "static/img/nav2.png",
+				"text": "资源圈"
+			},
+			{
+				"pagePath": "pages/information/information",
+				"iconPath": "static/img/nav5.png",
+				"selectedIconPath": "static/img/nav6.png",
+				"text": "资讯圈"
+			},
+			 {
+			 	"pagePath": "pages/service/service",
+			 	"iconPath": "static/img/nav3.png",
+			 	"selectedIconPath": "static/img/nav4.png",
+			 	"text": "服务圈"
+			 },
+			{
+				"pagePath": "pages/my/my",
+				"iconPath": "static/img/nav9.png",
+				"selectedIconPath": "static/img/nav10.png",
+				"text": "我的"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "德申小程序",
+		"navigationBarBackgroundColor": "#004DC5",
+		// "navigationBarBackgroundColor": "#F7F7F7",
+		"backgroundColor": "#ffffff",
+		// "navigationStyle":"custom",
+		"usingComponents": {
+			"van-switch": "/wxcomponents/vant/dist/switch/index",
+			"van-loading": "/wxcomponents/vant/dist/loading/index",
+			"van-dialog": "/wxcomponents/vant/dist/dialog/index",
+			"van-uploader": "/wxcomponents/vant/dist/uploader/index",
+			"van-picker": "/wxcomponents/vant/dist/picker/index",
+			"van-toast": "/wxcomponents/vant/dist/toast/index",
+			"van-icon": "/wxcomponents/vant/dist/icon/index",
+			"van-transition": "/wxcomponents/vant/dist/transition/index",
+			"van-search": "/wxcomponents/vant/dist/search/index",
+			"van-popup":"/wxcomponents/vant/dist/popup/index"
+		}
+		
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
+	// "permission": {
+	// 	  "scope.userLocation": {
+	// 	    "desc": "获取你的位置信息...." 
+	// 	 }
+	// 	}
+}

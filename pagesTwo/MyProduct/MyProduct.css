@@ -1,0 +1,50 @@
+.proDetail{
+	background-color: white;
+	padding: 10px 12px;
+	width: 100%;
+}
+.title{
+	font-size: 20px;
+	line-height: 28px;
+	padding-bottom: 5px;
+	color: #333;
+	font-weight: bold;
+	word-break: break-all;
+}
+.description{
+	color: #999;
+	font-size: 15px;
+	line-height: 20px;
+	text-align: justify;
+	margin-bottom: 5px;
+}
+.iicon{
+	font-size: 13px;
+	color: #999;
+	margin-bottom: 5px;
+}
+.content{
+	font-size: 16px;
+	line-height: 24px;
+	color: #333;
+	margin-bottom: 10px;
+}
+.textmar{
+	margin-left: 3px;
+}
+.name{
+	font-size: 16px;
+	line-height: 24px;
+	color: #333;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	font-weight: 500;
+}
+.indu{
+	font-size: 14px;
+	line-height: 20px;
+	color: #666
+}

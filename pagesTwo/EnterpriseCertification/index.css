@@ -1,0 +1,130 @@
+.bbbbbb{
+	background: url(https://web.detion.com/static/img/background_fail.png) no-repeat center;
+	background-size: 100% 100%;
+	padding-bottom: 12%;
+	width: 100%;
+	height: 172px;
+	margin-bottom: 55px;
+}
+
+.fff{
+	background: url(https://web.detion.com/static/img/background_wait.png) no-repeat center;
+	background-size: 100% 100%;
+	padding-bottom: 12%;
+	width: 100%;
+	height: 172px;
+	margin-bottom: 55px;
+	
+}
+.rrr{
+	background: url(https://web.detion.com/static/img/background_success.png) no-repeat center;
+	background-size: 100% 100%;
+	padding-bottom: 12%;
+	width: 100%;
+	height: 172px;
+	margin-bottom: 55px;
+	
+}
+.renzheng{
+	
+}
+.renzheng view{
+	line-height: 22px;
+	font-size: 15px;
+	color: #616161;
+}
+.cccccc{
+	width: 100px;
+	height: 100px;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.cccccc image{
+	width: 37px;
+	height: 37px;
+	z-index: 10;
+	top: 23px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.dddddd{
+	font-size: 13px;
+	line-height: 20px;
+	margin-top: 5px;
+	color: #fff;
+	text-align: center;
+	z-index: 10;
+	bottom: 15px;
+	width: 100%;
+	
+}
+.scr1{
+	    position: absolute;
+	    width: 50px;
+	    height: 100px;
+	    border-radius: 50px 0 0 50px;
+	    background: linear-gradient(#f66068, #f2858a);
+	    z-index: 2;
+}
+.scr2{
+	    position: absolute;
+	    width: 50px;
+	    height: 100px;
+	    border-radius: 0 50px 50px 0;
+	    left: 50%;
+	    background: linear-gradient(#f6b7b7, #f2858a);
+	    z-index: 1;
+}
+.scr3{
+	position: absolute;
+	    width: 92px;
+	    height: 92px;
+	    top: 4px;
+	    left: 4px;
+	    border-radius: 50%;
+	    background-color: #eb585a;
+	    z-index: 2;
+}
+
+.scr4{
+	    position: absolute;
+	    width: 50px;
+	    height: 100px;
+	    border-radius: 50px 0 0 50px;
+	    background: linear-gradient(#fdca23, #fed159);
+	    z-index: 2;
+}
+.scr5{
+	    position: absolute;
+	    width: 50px;
+	    height: 100px;
+	    border-radius: 0 50px 50px 0;
+	    left: 50%;
+	    background: linear-gradient(#ffe099, #fed159);
+	    z-index: 1;
+}
+.scr6{
+	position: absolute;
+	    width: 92px;
+	    height: 92px;
+	    top: 4px;
+	    left: 4px;
+	    border-radius: 50%;
+	    background: #feb717;
+	    z-index: 2;
+}
+
+.xx1{
+
+	    background:linear-gradient(0deg,rgba(91,155,238,1) 0%,rgba(91,155,238,1) 100%);
+
+}
+.xx2{
+
+	    background:linear-gradient(0deg,rgba(255,255,255,1) 0%,rgba(91,155,238,1) 100%);
+
+}
+.xx3{
+	    background: rgba(120, 177, 238, 255);
+}

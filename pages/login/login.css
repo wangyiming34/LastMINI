@@ -1,0 +1,212 @@
+  /*新登录*/
+  .login_sub.active {
+    background: #064DC5 ;
+    color: #fff ;
+  }
+  .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+.loginNewCon{
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 20px;
+}
+.loginNewCon:after{
+  content: '';
+  position: absolute;
+  width: 160%;
+  height: 300px;
+  background: linear-gradient(to right,#074EC6,#195EF5);
+  left:-30%;
+  right:-30%;
+  top:-150px;
+  border-radius: 100%;
+}
+.loginNewCon .logo{
+  width: 75px;
+  height: 75px;
+  border-radius: 10px;
+  background: #fff;
+  padding: 5px;
+  margin: 112px auto 0;
+  position: relative;
+  z-index: 3;
+  box-shadow:0 0 5px rgba(0, 0, 0, .2);
+}
+.login_tab{
+  width: 80%;
+  margin: 5% auto 0;
+}
+.login_tab .tab_menu>view{
+  width: 50%;
+  font-size: 17px;
+  line-height: 44px;
+  text-align: center;
+  color: #666;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #dfdfdf;
+}
+.login_tab .tab_menu>view.active{
+  font-weight: bold;
+  color: #064DC5;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #064DC5;
+}
+.login_tab .login_text{
+  padding: 22px 0px 8px 0px;
+  border-bottom: 1px solid #dfdfdf;
+  position: relative;
+  /* height: 56px; */
+}
+.login_tab .login_text .loc_num{
+  padding: 0 5px;
+}
+.login_tab .login_text .loc_num .num{
+  font-size: 16px;
+  line-height: 24px;
+  margin-right: 5px;
+}
+.login_tab .login_text .loc_num .caret{
+  border-top-color: #333
+}
+.login_tab .login_text>input{
+  flex: 1;
+  margin-left: 10px;
+  display: block;
+  font-size: 16px;
+  line-height: 20px;
+}
+.login_tab .login_text .btn{
+  height: 24px;
+}
+.login_tab .login_text .btn .get_code{
+  color: #064DC5;
+  border:1px solid #064DC5;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 22px;
+  width: 72px;
+}
+.login_tab .login_sub{
+  border-radius: 30px;
+}
+.new_loginCon .text{
+  background: #FAFAFC;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+.new_loginCon .location{
+  background: none;
+  color: #333;
+  padding: 0 5px;
+}
+.new_loginCon .caret{
+  border-top-color: #333;
+  margin-left: 5px;
+}
+.new_loginCon .text input{
+  background: none;
+  font-size: 15px;
+}
+.logo image{
+	width: 100%;
+	height: 100%;
+}
+.new_loginCon .caret{
+  border-top-color: #333;
+  margin-left: 5px;
+}
+.caret{
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid #c6c6c6;
+}
+.login_tab .login_text .loc_num{
+  padding: 0 5px;
+  /* background-color: #195EF5; */
+  height: 26px;
+}
+.login_tab .login_text .loc_num .num{
+  font-size: 16px;
+  line-height: 24px;
+  margin-right: 5px;
+}
+.login_tab .login_text .loc_num .caret{
+  border-top-color: #333
+}
+.login_text input{
+	/* background-color: #09BB07; */
+}
+.login_sub {
+  overflow: hidden;
+  margin-top:45px;
+  border: 1px solid #064DC5 !important;
+  border-radius: 25px !important;
+  background: #064DC5;
+  height: 45px;
+}
+
+.login_sub .submit {
+  width: 100%;
+  display: block;
+  font-size: 16px;
+  line-height: 45px;
+  text-align: center;
+  color: #fff;
+  background: none;
+  height: 100%;
+
+}
+
+.loginTips {
+  color: #666666;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 10px 0;
+  text-align: center;
+  height: 18px;
+}
+
+.loginTips text {
+  color: #064DC5;
+  font-size: 12px;
+  line-height: 18px;
+}
+.loginTips .forget_btn{
+  color: #666;
+  font-size: 12px;
+}
+.loginTips .pop{
+	color: #064DC5;
+	font-size: 12px;
+	line-height: 18px;
+}
+.weChatLogin {
+  /*position: absolute;*/
+  width: 80%;
+  margin:0 auto 0;
+  /* background-color: #09BB07; */
+}
+
+.weChatLogin .btn {
+  background: url("https://web.detion.com/static/img/wechat2.png") no-repeat;
+  background-size: 100% 100%;
+  width: 80upx;
+  height: 80upx;
+  margin: 0px auto 0;
+  border-radius: 50%;
+}
+
+.weChatLogin .btn.border::before {
+  border-color: #ccc;
+  border-radius: 40px;
+}

@@ -1,0 +1,407 @@
+/*我的*/
+.personalHead{
+  position: relative;
+  top: 0px;
+  background-color: #004DC5;
+}
+.personalHead .user{
+  width: 120upx;
+  height: 120upx;
+  border-radius: 100%;
+  border: 4upx solid #4192ff;
+  /* overflow: hidden; */
+}
+.personalHead .user image{
+  width: 100%;
+  /* height: auto; */
+  min-height: 100%;
+  border-radius: 100%;
+}
+.personalHead .set{
+  width: 40upx;
+  height: 38upx;
+  display: block;
+  position: absolute;
+  right: 110upx;
+  top: 20upx
+}
+.personalHead .mes{
+  width: 40upx;
+  height: 38upx;
+  display: block;
+  position: absolute;
+  right:40upx;
+  top:20upx
+}
+.personalHead .back{
+  width:16upx;
+  height: 32upx;
+  position: absolute;
+  right:25upx;
+  top:50%;
+  margin-top: -20upx;
+  transform: rotate(180deg);
+}
+
+.personalHead .member{
+  height: 340upx;
+  background:no-repeat url('https://web.detion.com/static/img/my_bg.png');
+  background-size: 100% 200%;
+  padding-top: 70upx;
+  /* border: 5px solid red; */
+}
+.personalHead .member .con{
+  flex: 1;
+  margin-left: 20upx;
+}
+.personalHead .member .con .name .nickname{
+  font-size: 34upx;
+  line-height: 60upx;
+  color: #fff;
+}
+.personalHead .member .con .name .sn{
+  position: relative;
+  margin-left: 20upx;
+}
+.personalHead .member .con .name .sn .icon{
+  width: 148upx;
+  height: 34upx;
+  display: block;
+  margin-top: 4upx;
+}
+.personalHead .member .con .name .sn .star{
+  width: 38upx;
+  height: 36upx;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+.personalHead .member .con .name .sn .text{
+  font-size: 20upx;
+  line-height: 36upx;
+  top:4upx;
+  left: 40upx;
+  position: absolute;
+  color: #fff;
+  font-weight: bold;
+}
+.personalHead .member .con .name .sn .number{
+  font-size: 20upx;
+  line-height:26upx;
+  height: 28upx;
+  padding: 0 10upx 0 16upx;
+  margin-left: -10upx;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(to right, #cd9d4b, #dcad6b);
+  font-weight: bold;
+  border-radius: 0 8upx 8upx 0;
+}
+.personalHead .member .con .name .sn .number>view{
+  font-size: 20upx;
+  line-height: 0.26em;
+  font-weight: bold;
+}
+.personalHead .member .con .company{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  font-size: 26upx;
+  line-height: 48upx;
+  color: #fff;
+}
+.personalHead .member .con .job{
+  position: relative;
+  padding-left: 20upx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 26upx;
+  line-height: 56upx;
+  color: #fff;
+}
+.personalHead .member .con .job:before{
+  content: '';
+  position: absolute;
+  width: 6upx;
+  height: 22upx;
+  background: #18d070;
+  left: 0;
+  top:50%;
+  margin-top: -11upx;
+}
+.fansGroup{
+  padding: 30upx 0;
+}
+.fansGroup .list{
+  width: 33.33%;
+  position: relative;
+}
+.fansGroup .list:after{
+  width: 2upx;
+  height: 40upx;
+  content: '';
+  position: absolute;
+  right:0;
+  top:50%;
+  margin-top: -20upx;
+  background: rgba(255,255,255,0.6);
+}
+.fansGroup .list:last-child:after{
+  display: none;
+}
+.fansGroup .list .number{
+  text-align: center;
+  color: #fff;
+  font-size: 28upx;
+  line-height: 36upx;
+  font-weight: bold;
+}
+.fansGroup .list .title{
+  text-align: center;
+  color: #fff;
+  font-size: 24upx;
+  line-height: 40upx;
+  word-break: break-all;
+}
+.memberCard{
+  margin-top: 8px;
+  padding: 15px 0;
+  background: #fff;
+}
+.memberCard .card{
+  position: relative;
+  width: 94%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16upx;
+}
+.memberCard .card .card_pic{
+  width: 100%;
+  display: block;
+}
+.memberCard .card .det{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0 5%;
+}
+.memberCard .card .det .logo{
+  width: 116upx;
+  display: block;
+  margin-right: 5%;
+}
+.memberCard .card .det .con{
+  flex: 1;
+}
+.memberCard .card .det .con .title view{
+  background-image: -webkit-gradient(linear, left 0, right 0, from(#ebca90), to(#d1aa6e));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 36upx;
+  line-height: 48upx;
+  font-weight: bold;
+}
+.memberCard .card .det .con .tips{
+  background-image: -webkit-gradient(linear, left 0, right 0, from(#d1aa6e), to(#ebca90));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 28upx;
+  line-height: 48upx;
+  margin-top: 10upx;
+}
+.memberCard .card .number{
+  position: absolute;
+  right:0;
+  top:0;
+  width: 150upx;
+  font-size: 20upx;
+  line-height: 40upx;
+  height: 40upx;
+  color: #192639;
+  text-align: center;
+  background: #d2ac70;
+}
+.memberCard .card .number>view{
+  font-size: 20upx;
+  line-height: 40upx;
+  color: #192639;
+}
+.memberCard .card .number::after{
+  content: '';
+  position: absolute;
+  left: -10px;
+  top:0;
+  width: 0;
+  height: 0;
+  border-top: 40upx solid #d2ac70;
+  border-left: 20upx solid transparent;
+}
+.myList{
+  background: #fff;
+  padding: 30upx 0;
+}
+.myList .title{
+  margin: 0 auto;
+  width: 94%;
+  padding-left: 20upx;
+  position: relative;
+  font-size: 36upx;
+  line-height: 60upx;
+  color: #333;
+  word-break: break-all;
+  font-weight: bold;
+}
+.myList .title::before{
+  width: 6upx;
+  height: 30upx;
+  background: #064DC5;
+  border-radius: 4upx;
+  content: '';
+  position: absolute;
+  left: 0;
+  top:50%;
+  margin-top: -15upx;
+}
+.myList .list_group{
+  overflow: hidden;
+}
+.myList .list_group .list{
+  width: 25%;
+  float: left;
+  padding-top: 20upx;
+  margin-top: 20upx;
+}
+.myList .list_group .list .icon{
+  width: 46upx;
+  height:44upx ;
+  margin: 0 auto;
+  display: block;
+}
+.myList .list_group .list .text{
+  font-size: 24upx;
+  line-height: 60upx;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+}
+
+.club_info{
+  width: 84%;
+  background: #fff;
+  border-radius: 16upx;
+  box-shadow: 0px 4upx 12upx #f4f4f4;
+  margin: 0 auto;
+  padding: 30upx;
+  position: relative;
+  z-index: 2;
+  transform: translateY(-50%);
+}
+.club_info .logo{
+  width: 68upx;
+  height: 70upx;
+  display: block;
+  margin-right: 30upx;
+}
+.club_info .more{
+  width:16upx;
+  height: 26upx;
+  display: block;
+  margin-left: 30upx;
+}
+.club_info .info_list{
+  flex: 1;
+}
+.club_info .info_list .list{
+  font-size: 30upx;
+  line-height: 56upx;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.cardNew{
+  width: 100%;
+  padding: 30upx 3% 0;
+  background: #fff;
+  box-sizing: border-box;
+  margin-top: -60upx;
+}
+.cardNew>view{
+  position: relative;
+  width: 690upx;
+  height: 84upx;
+  margin: 0 auto;
+}
+.cardNew>view>image{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.cardNew .con{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+.cardNew .con .tips .icon{
+  width: 66upx;
+  height: 74upx;
+  display: block;
+  margin-left: 20upx;
+}
+.cardNew .con .tips .text{
+  font-size: 30upx;
+  line-height: 40upx;
+  color: #e5c388;
+  font-weight: bold;
+  margin-left: 50upx;
+}
+.cardNew .con .ope{
+  margin-right: 24upx;
+}
+.cardNew .con .ope .text,.info_list .look{
+  font-size: 26upx;
+  line-height: 40upx;
+  color: #122759;
+}
+.cardNew .con .ope .more{
+  width:16upx;
+  height: 28upx;
+  display: block;
+  margin-left: 30upx
+}
+view{
+	box-sizing: content-box;
+	/* box-sizing: border-box; */
+}
+.king_icon{
+	min-height: 0!important;
+	width: 24px!important;
+	height: 24px!important;
+	position: absolute;
+	top: -8px;
+	right: -8px;
+}
+/* head-logo{
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	right: -5px;
+} */
+.personalHead .user .v_icon{
+	min-height: 0;
+	width: 20px!important;
+	height: 20px!important;
+	right: -5px;
+}

@@ -1,0 +1,454 @@
+.activityCon .activityList view {
+  background: #fff;
+  margin-top: 8px;
+}
+
+.activityCon .activityList view{
+  display: block;
+}
+
+.activityCon .activityList view .activityPic {
+  width: 100%;
+  min-height: 100%;
+  display: block;
+}
+
+.det {
+  margin: 0 auto;
+  padding: 15px 0px;
+}
+
+.time{
+  font-size: 13px;
+  line-height: 20px;
+  color: #999;
+}
+
+.activityCon .activityList view .det .time image, .activityCon .noticeList view .det .time image {
+  width: 13px;
+  display: block;
+  margin-right: 5px;
+}
+
+.activityCon .activityList view .det .number, .activityCon .noticeList view .det .number {
+  font-size: 13px;
+  line-height: 20px;
+  color: #999;
+}
+
+.activityCon .activityList view .det .number image, .activityCon .noticeList view .det .number image {
+  width: 15px;
+  color: #999;
+  margin-right: 5px;
+}
+
+.activityCon .activityList view .title {
+  width: 94%;
+  margin: 0 auto;
+  padding-top: 5px;
+  word-break: break-all;
+}
+
+.activityCon .activityList view .title .state {
+  font-size: 11px;
+  background: #f13d4b;
+  color: #fff;
+  line-height: 16px;
+  padding: 0 5px;
+  border-radius: 2px;
+
+}
+
+.activityCon .activityList view .title .state.finish {
+  background: #999999;
+}
+
+.activityCon .activityList view .title .text {
+  font-size: 17px;
+  line-height: 24px;
+  color: #333;
+  flex: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-left: 10px;
+}
+.activityCon .noticeList{
+  background: #fff;
+  padding: 0 3%
+}
+.activityCon .noticeList view {
+  padding: 10px 0;
+}
+
+.activityCon .noticeList view .title {
+  color: #333333;
+  font-size: 17px;
+  line-height: 24px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.activityCon .noticeList view .description {
+  color: #999999;
+  font-size: 14px;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+.activityCon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.activityDetail{
+  padding: 10px 0;
+  background: #fff;
+}
+.activityDetail .detailTitle{
+  font-size: 16px;
+  line-height: 30px;
+  color: #333;
+  font-weight: bold;
+  padding:0 15px 5px;
+  width: 100%;
+  margin: 0 auto;
+  word-break: break-all;
+}
+.activityDetail .text,.activityDetail .text view,.activityDetail .text *{
+  font-size: 15px;
+  line-height: 24px;
+  color: #666;
+  text-align: justify;
+  width: 94%;
+  margin: 0 auto;
+}
+.activityDetail .text.auto{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.activityDetail .all{
+  padding: 6px 0 0;
+}
+.activityDetail .all view{
+  font-size: 14px;
+  line-height: 20px;
+  color: #064DC5;
+}
+.activityDetail .all image{
+  transition: all 0.3s ease;
+  transform: rotate(90deg);
+  display: block;
+  width: 6px;
+  margin-left: 10px;
+}
+.activityCon .line{
+  border-top: 1px solid #ccc;
+}
+.activityDetail .user_list{
+  overflow: hidden;
+}
+.activityDetail .user_list .user{
+  width: 90%;
+  margin: 0 auto;
+  /*float: left;*/
+  padding: 10px 0;
+}
+.activityDetail .user_list .user .img{
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.activityDetail .user_list .user .img image{
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  display: block;
+}
+.activityDetail .user_list .name{
+  font-size: 15px;
+  line-height: 22px;
+  color: #333;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+}
+.activityDetail .user_list .job{
+  font-size: 13px;
+  color: #666;
+  line-height: 18px;
+}
+.activityCon .sign_btn{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 44px;
+}
+.activityCon .sign_btn >view{
+  font-size: 16px;
+  line-height: 44px;
+  text-align: center;
+  background: #c2c2c2;
+  color: #fff;
+}
+
+.activityList .newDet{
+  padding: 10px 0!important;
+  border-bottom: 1px solid #dfdfdf;
+}
+.activityList .newDet .icon{
+  width: 14px;
+  height: 14px;
+  display: block;
+  margin-right: 8px;
+}
+.timeList{
+  flex: 1;
+}
+.time{
+  width: 50%;
+}
+.time .date{
+  font-size: 13px;
+  color: #333;
+  line-height: 20px;
+}
+.time .tips{
+  font-size: 12px;
+  color: #999;
+  line-height: 20px;
+}
+.time.fee{
+  margin-left: 30px;
+  position: relative;
+}
+.time.fee:before{
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 30px;
+  background: #dfdfdf;
+  top:50%;
+  margin-top: -15px;
+  left: -15px;
+}
+.activityList .newDet .address{
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin: 10px 0;
+}
+.king_icon{
+	top: -4upx;
+	right: -4upx;
+}
+.reviewTitle {
+  font-size: 15px;
+  line-height: 40px;
+  color: #333;
+  padding: 0 3%;
+  background: #fafafa;
+}
+
+.reviewCon .list {
+  background: #fff;
+  /*padding: 0 3%;*/
+}
+
+.reviewCon .list .user {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 3px;
+}
+
+.reviewCon .list .user img {
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  display: block;
+}
+
+.reviewCon .list  .det {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.reviewCon .list  .det .info  view {
+  font-size: 13px;
+  line-height: 24px;
+  color: #939393;
+}
+.reviewCon .list .det .info .company{
+  /*flex: 1;*/
+  overflow: hidden;
+}
+.reviewCon .list  .det .info .name {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.reviewCon .list  .det .text {
+  font-size: 14px;
+  color: #333;
+  line-height: 20px;
+  display: block;
+  text-align: justify;
+}
+
+.reviewCon .list  .det .text.auto {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.reviewCon .list  .det .ope{
+  display: none;
+  font-size: 14px;
+  color: #064DC5;
+  line-height: 20px;
+  margin-top: 3px;
+  position: relative!important;
+  width: auto!important;
+  height: auto!important;
+  right: auto!important;
+  bottom: auto!important;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+.reviewCon .list  .det .ope.block{
+  display: block!important;
+}
+.enterpriseList{
+  position: relative;
+  left: auto;
+  top: auto;
+  background: #fff;
+  margin-top: 8px;
+}
+.enterpriseList .listItem{
+  width: 50%;
+}
+.enterpriseList .listItem.active::after{
+  width: 100px;
+  margin-left: -50px;
+}
+.enterpriseCon .listIndex .list{
+  margin-bottom: 0;
+}
+.enterpriseCon .listIndex .list .det{
+  padding-bottom: 0;
+}
+/*消息列表*/
+
+
+.messageList .listItem {
+  width: 33.33%;
+  text-align: center;
+  float: left;
+  font-size: 16px;
+  line-height: 44px;
+  color: #999999;
+  position: relative;
+  transition: all 0.1s ease;
+}
+
+.messageList .listItem.active {
+  color: #064DC5;
+  transition: all 0.1s ease;
+}
+
+.messageList .listItem.active::after {
+  width: 28px;
+  height: 3px;
+  background: #064DC5;
+  bottom: 0;
+  position: absolute;
+  content: '';
+  left: 50%;
+  margin-left: -14px;
+}
+
+.active{
+  color: #064DC5;
+  position: relative;
+}
+.active::after{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  content: '';
+  width: 50%;
+  height: 3px;
+  background: #064DC5;
+}
+.messagelist{
+	display: flex;
+	width: 100%;
+	height: 44px;
+	font-size: 16px;
+	color: #999999;
+}
+.listItem{
+	width: 50%;
+	text-align: center;
+	height: 44px;
+	line-height: 44px;
+}
+.imga{
+	border-radius: 100%;
+}
+.reviewFoot {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 3%;
+  height: 44px;
+  background: #fff;
+  z-index: 100;
+}
+
+.reviewFoot .text {
+  flex: 1;
+}
+.reviewFoot .send{
+  color: #999999;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.reviewFoot .text input {
+  display: block;
+  padding: 0 3%;
+  /* width: 100%; */
+  font-size: 13px;
+  line-height: 26px;
+  background: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

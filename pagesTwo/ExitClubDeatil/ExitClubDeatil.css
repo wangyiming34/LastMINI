@@ -1,0 +1,49 @@
+.audit{
+	padding:80upx 100upx;
+}
+.auditImg{
+	width: 154px;
+	height: 121px;
+	margin: 0 auto;
+	margin-bottom: 13px;
+}
+.title{
+	width:100%;
+	font-size:16px;
+	font-weight:400;
+	color:rgba(51,51,51,1);
+	line-height:23px;
+	margin-bottom: 424upx;
+	text-align: center;
+}
+.indexBtn{
+	width:100%;
+	height:44px;
+	background:rgba(6,77,197,1);
+	border-radius:22px;
+	line-height: 44px;
+	text-align: center;
+	font-size:17px;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+	line-height:44px;
+}
+.btn{
+	width:325upx;
+	height:44px;
+	border-radius:6px;
+	font-size:17px;
+	font-weight:400;
+	line-height:44px;
+	text-align: center;
+}
+.btn1{
+	color: white;
+	background:rgba(6,77,197,1);
+}
+.btn2{
+	color: rgba(6,77,197,1);
+	border:1px solid rgba(6,77,197,1);
+	background-color: white;
+	line-height: 42px;
+}
