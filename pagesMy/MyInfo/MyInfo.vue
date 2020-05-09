@@ -106,7 +106,7 @@
 			  </view>
 		      <view class="con flex align-start" @click='goCompany'>
 		        <view class="pic flex align-center justify-center">
-				  <image :src="company.url_image" lazy-load="true" mode="aspectFill"></image>
+				  <image :src="company.url_image?company.url_image:'https://web.detion.com/static/image/coffee/default.png'" lazy-load="true" mode="aspectFill"></image>
 		        </view>
 		        <view class="det">
 		          <view class="title">{{company.company_name}}</view>
@@ -122,7 +122,7 @@
 		        
 		      </view>
 		      <view class="smallTitle">简介</view>
-		      <view class="brief" :class="{'all':isAll}" ref="text" v-show="company">{{company.description}}</view>
+		      <view class="brief" :class="{'all':isAll}" ref="text" v-show="company">{{company.description?company.description:'暂无简介'}}</view>
 		      <view class="brief_more" v-show="isClick" @click="more" style="margin-top: 10px">
 		        <view v-show="isAll" class="flex align-center justify-center">展开全部 <van-icon name="arrow-down" /></view>
 		        <view v-show="!isAll" class="flex align-center justify-center">收起全部 <van-icon name="arrow-up" /></view>

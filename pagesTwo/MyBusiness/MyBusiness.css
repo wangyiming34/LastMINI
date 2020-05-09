@@ -155,7 +155,7 @@
 }
 .industryName::after{
 	content: '';
-	display: block;
+	display: inline-block;
 	width: 100%;
 }
 #neww .king_icon {
