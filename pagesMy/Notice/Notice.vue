@@ -1,5 +1,5 @@
 <template>
-	<view class="wrap">
+	<view class="wrap flex flex-d" style="height: 100%;">
 		<!-- 选项卡 -->
 		 <view class="notice-head">
 			 <view class="notice-tab" :class="currentIndex===0?'nocActive':''" @click="currentIndex=0">
@@ -17,10 +17,10 @@
 			 </view>
 		 </view>
 		 <!-- 轮播图选项卡内容 -->
-		 <view class="noc-swiper">
-			 <swiper class="swiper" :current='currentIndex' @change="swiper">
+		 <view  style="flex: 1;background-color: white;" class="noc-swiper">
+			 <swiper class="swiper" :current='currentIndex' @change="swiper" style="height: 100%;">
 				 <!-- 德申活动 -->
-				 <swiper-item>
+				 <swiper-item style="height: 100%;">
 					 <scroll-view scroll-y="true" class="scrollView">
 						   <view v-for="(item,index) in list" :key="index" class="scroll-notice" @click="go(item.id)">
 							   <!-- 未读标志 -->

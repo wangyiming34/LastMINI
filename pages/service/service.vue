@@ -90,7 +90,7 @@
 							</text>
 							<text v-for="(item1,index1) in item.main" class="item_tab" :key="index1" v-show="item.main">
 								<text>{{item1}}</text>
-								<text class="shushu">I</text>
+								<text class="shushu" v-if="index1<item.main.length-1">I</text>
 							</text>
 							<text v-show="item.main==''||item.main==null">
 								暂无

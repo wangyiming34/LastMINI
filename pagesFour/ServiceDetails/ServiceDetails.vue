@@ -52,7 +52,7 @@
 	  <!-- 公司介绍-->
 	  <view class="company flex align-center" @click.stop="company">
 	  	<view class="companyimg">
-	  		<image :src="Detail.company_logo" mode=""></image>
+	  		<image :src="Detail.company_logo?Detail.company_logo:'https://web.detion.com/static/image/coffee/default.png'" mode=""></image>
 	  	</view>
 		<view class="companyname flex1">
 			{{Detail.company_name}}
