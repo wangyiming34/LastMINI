@@ -1,6 +1,7 @@
 <script>
 	export default {
 		globalData: {  
+			        // 测试git
 					// 电话号码前缀
 		            num:uni.getStorageSync('phoneCode') || 86,
 					city:uni.getStorageSync('city') || '哈尔滨',
