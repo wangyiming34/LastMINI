@@ -492,57 +492,32 @@
 			},
 			// 商城
 			goShop(){
-				if(uni.getStorageSync('setInfo') ===0){
+				if(uni.getStorageSync('userId')){
+					this.$api.shop_mobile({
+						token: uni.getStorageSync("token"),
+						user_id: uni.getStorageSync("userId"),
+						
+					}).then(res=>{
+						  // console.log(res)
+						  uni.navigateTo({
+							  url:'/pagesMy/view/view?url=https://shop.detion.com/'+'&accounts=' + res.data.data.accounts +'&pwd=' + res.data.data.pwd
+						  })
+					})
+				}else{
+					uni.clearStorageSync()
+					uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
 					uni.showToast({
-					    title: '请完善个人信息',
+					    title: '请登录',
 					    duration: 2000,
 						icon:'none'
 					});
-					
 					setTimeout(function() {
-						uni.navigateTo({
-							url:'../../pages/PersonalIdcard/PersonalIdcard'
+						uni.reLaunch({
+							url: '/pages/login/login'
 						})
 					}, 1000);
-					
-				}else{
-					if (uni.getStorageSync('isVip') === 0) {
-						Dialog.confirm({
-						  title: '提示',
-						  message: '您还不是VIP用户,去支付？',
-						  confirmButtonText:'去支付'
-						}).then(() => {
-							uni.navigateTo({
-								url:'../../pagesMy/pay/pay'
-							})
-						}).catch(() => {
-						  // on cancel
-						});
-					  } else if (uni.getStorageSync('isVip') === 1) {
-						  this.$api.shop_mobile({
-						  	token: uni.getStorageSync("token"),
-						  	user_id: uni.getStorageSync("userId"),
-						  	
-						  }).then(res=>{
-							  // console.log(res)
-							  uni.navigateTo({
-								  url:'../../pagesMy/view/view?url=http://shop.detion.com'+'&accounts=' + res.data.data.accounts +'&pwd=' + res.data.data.pwd
-							  })
-						  })
-						
-					  } else {
-						uni.clearStorageSync()
-						uni.showToast({
-						    title: '请登录',
-						    duration: 2000,
-							icon:'none'
-						});
-						
-						uni.reLaunch({
-							url: '../../pages/login/login'
-						})
-					  }
 				}
+				
 			},
 			// 活动界面
 			goActivity(){
