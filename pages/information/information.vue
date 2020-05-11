@@ -1113,6 +1113,9 @@
 			this.getPublic()
 		},
 		methods: {
+			pau(){
+				
+			},
 			// 交易额
 			goTradingVolume(){
 				uni.navigateTo({
