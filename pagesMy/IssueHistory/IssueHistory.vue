@@ -1,7 +1,7 @@
 <template>
-	<view class='IssueHistory'>
+	<view class='IssueHistory' style="background-color: #ffffff;">
 	     
-	        <view v-for="item in list" :key="item.id" class="juhuasuan-loadmore-con" style="margin-bottom:8px;background:white" v-if="list.length>0">
+	        <view v-for="item in list" :key="item.id" class="juhuasuan-loadmore-con" style="margin-bottom:8px;background:white" v-show="list.length>0">
 	            <view @longpress="touch(item)">
 	              <view class="juhuasuan-con" v-if="item.images" @click.stop="goSmallStretchPvw(item.id,item)">
 	                  <view class="juhuasuan-con-img" style="width:75px;height:75px" >
@@ -61,7 +61,7 @@
 	            </view>
 	          </view>
 			  
-			  <view class="LuDingJi-no" v-else style="overflow: hidden;height: 100%;width: 100%;background-color: white;">
+			  <view class="LuDingJi-no" v-show="list.length==0" style="overflow: hidden;height: 100%;width: 100%;background-color: white;">
 			  	<view class="LuDingJi-icon1" style="margin: 50px auto 30px;">
 			  		<image src="https://web.detion.com/static/img/empty_info.png" lazy-load="true"  mode="aspectFill"></image>
 			  	</view>
@@ -132,7 +132,7 @@
 		},
 		methods: {
 			goSmallStretchPvw(id,item){
-				console.log(item)
+				// console.log(item)
 				if(item.is_sale_out == 1){
 					uni.showToast({
 					    title: '商品已下架，上架后可查看',
@@ -273,19 +273,22 @@
 					  message: '确定要删除吗？',
 					  confirmButtonText:'确定'
 					}).then(() => {
-						this.$api.SmallStretchVote({
+						this.$api.SmallStretchIndexDel({
 						  token: uni.getStorageSync("token"),
 						  user_id: uni.getStorageSync("userId"),
-						  id: item.exhibition_id
+						  id: item.id
 						}).then(res => {
 						  console.log(res)
-						  this.myVote()
-						  if (res.data.code === '1039') {
+						  uni.showLoading({
+						      title: '删除中',
+						  	  mask:"true"
+						  });
+						  if (res.data.code === '200') {
 							uni.showToast({
 								title:"删除成功",
 								icon:'none'
 							})
-						    this.myVote()
+						    this.getList()
 						  } else {
 						    uni.showToast({
 						    	title:"删除失败",

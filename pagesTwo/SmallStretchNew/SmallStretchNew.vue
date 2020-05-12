@@ -305,149 +305,69 @@
 			// 大家都在看
 			everyLook(){
 				// console.log(123)
-				if(uni.getStorageSync('setInfo') ===0){
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesTwo/SmallStretchNewEvery/SmallStretchNewEvery'
+					})
+				}else{
+					uni.clearStorageSync()
+					uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
 					uni.showToast({
-					    title: '请完善个人信息',
+					    title: '请登录',
 					    duration: 2000,
 						icon:'none'
 					});
-					
 					setTimeout(function() {
-						uni.navigateTo({
-							url:'../../pages/PersonalIdcard/PersonalIdcard'
-						})
-					}, 300);
-					
-				}else{
-					if (uni.getStorageSync('isVip') === 0) {
-						Dialog.confirm({
-						  title: '提示',
-						  message: '您还不是VIP用户,没有发布权限',
-						  confirmButtonText:'去支付'
-						}).then(() => {
-							uni.navigateTo({
-								url:'../pay/pay'
-							})
-						}).catch(() => {
-						  // on cancel
-						});
-					  } else if (uni.getStorageSync('isVip') === 1) {
-						
-						  uni.navigateTo({
-						  	url:'../../pagesTwo/SmallStretchNewEvery/SmallStretchNewEvery'
-						  })
-						
-					  } else {
-						uni.clearStorageSync()
-						uni.showToast({
-						    title: '请登录',
-						    duration: 2000,
-							icon:'none'
-						});
-						
 						uni.reLaunch({
-							url: '../../pages/login/login'
+							url: '/pages/login/login'
 						})
-					  }
+					}, 1000);
 				}
 			},
 			// 跳转发布历史
 			history(){
-				// console.log(123)
-				if(uni.getStorageSync('setInfo') ===0){
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesMy/IssueHistory/IssueHistory'
+					})
+				}else{
+					uni.clearStorageSync()
+					uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
 					uni.showToast({
-					    title: '请完善个人信息',
+					    title: '请登录',
 					    duration: 2000,
 						icon:'none'
 					});
-					
 					setTimeout(function() {
-						uni.navigateTo({
-							url:'../../pages/PersonalIdcard/PersonalIdcard'
-						})
-					}, 300);
-					
-				}else{
-					if (uni.getStorageSync('isVip') === 0) {
-						Dialog.confirm({
-						  title: '提示',
-						  message: '您还不是VIP用户,没有发布权限',
-						  confirmButtonText:'去支付'
-						}).then(() => {
-							uni.navigateTo({
-								url:'../pay/pay'
-							})
-						}).catch(() => {
-						  // on cancel
-						});
-					  } else if (uni.getStorageSync('isVip') === 1) {
-						
-						  uni.navigateTo({
-						  	url:'../../pagesMy/IssueHistory/IssueHistory'
-						  })
-						
-					  } else {
-						uni.clearStorageSync()
-						uni.showToast({
-						    title: '请登录',
-						    duration: 2000,
-							icon:'none'
-						});
-						
 						uni.reLaunch({
-							url: '../../pages/login/login'
+							url: '/pages/login/login'
 						})
-					  }
+					}, 1000);
 				}
+				
+				
 			},
 			// 跳转关注界面
 			myVote(){
-				// console.log(123)
-				if(uni.getStorageSync('setInfo') ===0){
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesTwo/SmallStretchNewVote/SmallStretchNewVote'
+					})
+				}else{
+					uni.clearStorageSync()
+					uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
 					uni.showToast({
-					    title: '请完善个人信息',
+					    title: '请登录',
 					    duration: 2000,
 						icon:'none'
 					});
-					
 					setTimeout(function() {
-						uni.navigateTo({
-							url:'../../pages/PersonalIdcard/PersonalIdcard'
-						})
-					}, 300);
-					
-				}else{
-					if (uni.getStorageSync('isVip') === 0) {
-						Dialog.confirm({
-						  title: '提示',
-						  message: '您还不是VIP用户,没有发布权限',
-						  confirmButtonText:'去支付'
-						}).then(() => {
-							uni.navigateTo({
-								url:'../pay/pay'
-							})
-						}).catch(() => {
-						  // on cancel
-						});
-					  } else if (uni.getStorageSync('isVip') === 1) {
-						
-						  uni.navigateTo({
-						  	url:'../../pagesTwo/SmallStretchNewVote/SmallStretchNewVote'
-						  })
-						
-					  } else {
-						uni.clearStorageSync()
-						uni.showToast({
-						    title: '请登录',
-						    duration: 2000,
-							icon:'none'
-						});
-						
 						uni.reLaunch({
-							url: '../../pages/login/login'
+							url: '/pages/login/login'
 						})
-					  }
+					}, 1000);
 				}
+				
 			},
 			bindPickerChange(e){
 				

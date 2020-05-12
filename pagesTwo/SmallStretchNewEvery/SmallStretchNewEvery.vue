@@ -65,14 +65,14 @@
 		
 		
 		
-		<view class="gotoTop">
+		<!-- <view class="gotoTop">
 		        <view class="gotoTop-send gotoTop-top" @click="fnscroll" v-if="!topShow">
 					<van-icon name="upgrade" size="20px"/>
 					<view>
 						置顶
 					</view>
 		        </view>
-		</view>
+		</view> -->
 		
 		<van-dialog id="van-dialog" />
 	</view>

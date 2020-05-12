@@ -50,7 +50,7 @@
 				 <view v-for="(item5,index5) in voteList" :key="index5" class="juhuasuan-loadmore-con"
 				  v-show="item5.is_sale_out=='1'||item5.deleted_at">
 
-					<view style="position: relative;"  @longpress="touch(item)">
+					<view style="position: relative;"  @longpress="touch(item5)">
 						  <view class="mm-shixiao">
 							 失效
 						  </view>
@@ -182,17 +182,17 @@
 			this.getBanner()
 			this.getClassify()
 			this.getChina()
-			this.everyLook()
+			// this.everyLook()
 		},
-		onShareAppMessage(res) {
-		    if (res.from === 'button') {
-				console.log('分享')
-		    }
-			return {
-			      title: '德申汇小申展',
-				  path: '/pagesMy/SmallStretch/SmallStretch'
-			}
-		},
+		// onShareAppMessage(res) {
+		//     if (res.from === 'button') {
+		// 		console.log('分享')
+		//     }
+		// 	return {
+		// 	      title: '德申汇小申展',
+		// 		  path: '/pagesMy/SmallStretch/SmallStretch'
+		// 	}
+		// },
 		onShow() {
 			this.myVote()
 		},
@@ -215,6 +215,9 @@
 			}
 		},
 		methods: {
+			getChina(){
+				
+			},
 			// 友好物切换关注等
 			pageChange(index){
 				this.pageIndex1 = index
