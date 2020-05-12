@@ -1,7 +1,7 @@
 <template>
-	<view class="wrap flex flex-d" style="height: 100%;">
+	<view class="wrap" style="background-color: white;">
 		<!-- 选项卡 -->
-		 <view class="notice-head">
+		 <view class="notice-head" style="height: 50px;">
 			 <view class="notice-tab" :class="currentIndex===0?'nocActive':''" @click="currentIndex=0">
 			 	德申公告
 				<view class="notice-red" v-if="notice_count">
@@ -17,11 +17,11 @@
 			 </view>
 		 </view>
 		 <!-- 轮播图选项卡内容 -->
-		 <view  style="flex: 1;background-color: white;" class="noc-swiper">
+		 <view  :style="{height:hei+'px'}" class="noc-swiper">
 			 <swiper class="swiper" :current='currentIndex' @change="swiper" style="height: 100%;">
 				 <!-- 德申活动 -->
 				 <swiper-item style="height: 100%;">
-					 <scroll-view scroll-y="true" class="scrollView">
+					 <scroll-view scroll-y="true" class="scrollView" style="height: 100%;">
 						   <view v-for="(item,index) in list" :key="index" class="scroll-notice" @click="go(item.id)">
 							   <!-- 未读标志 -->
 							   <view class="red-read" v-if="item.red_dian===0">
@@ -69,11 +69,20 @@
 	export default {
 		data() {
 			return {
+				hei:100,
 				currentIndex: 0, //控制选项卡
 				list: [], // 德申公告列表
 			    notice_count: 0, // 德申公告未读数
 			    club_count: 0 // 俱乐部未读数
 			}
+		},
+		onLoad() {
+			var that = this
+			uni.getSystemInfo({
+			    success: function (res) {
+			       that.hei = Number(res.windowHeight) - 50
+			    }
+			});
 		},
 		onShow() {
 			// 请求信息数据

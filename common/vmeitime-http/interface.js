@@ -36,8 +36,8 @@ http.delete('user/1').then((res)=>{
 // }
 export default {
 	config: {
-		baseUrl: "https://apis.zhongemaoyi.com/api",
-		// baseUrl: "https://app.detion.com/api",
+		// baseUrl: "https://apis.zhongemaoyi.com/api",
+		baseUrl: "https://app.detion.com/api",
 		header: {
 			'Content-Type':'application/json;charset=UTF-8',
 			'Content-Type':'application/x-www-form-urlencoded'
