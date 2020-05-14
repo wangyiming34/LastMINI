@@ -10,12 +10,11 @@
 			mList:[],
 			eList:[],
 			// 阿里上传图片地址
-			aliUrl:'https://detions.oss-accelerate.aliyuncs.com',
-			signature:"ihTackOKLw3kBXmibe8omdLl/Gk=",
-			policy:'eyJleHBpcmF0aW9uIjoiMjAyNS0wMS0wMVQxMjowMDowMC4wMDBaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwMF1dfQ==',
-			OSSAccessKeyId:"LTAItGiBdrklxas7",
+			
 			// 分享图片
-			shareImg:'https://detions.oss-accelerate.aliyuncs.com//wx/wx23b4a3be24fdd6bd.o6zAJs2ZH3_rfb40rIaXLyfXrUwQ.8oUQVJs9b8yZd65c7d4ff5c30b1e19579423aec6626c.png'
+			shareImg:'https://detions.oss-accelerate.aliyuncs.com//wx/wx23b4a3be24fdd6bd.o6zAJs2ZH3_rfb40rIaXLyfXrUwQ.8oUQVJs9b8yZd65c7d4ff5c30b1e19579423aec6626c.png',
+			token:'5d888fc9-1fc6-4a29-86aa-2c22e0cb4070',
+			userId:8056
 		},
 		
 

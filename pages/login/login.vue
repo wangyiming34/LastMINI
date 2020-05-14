@@ -165,15 +165,17 @@
 								  uni.reLaunch({
 								  	url:uni.getStorageSync('path')
 								  })
+								  uni.removeStorageSync('path')
 							  }else{
 								  // TabBar界面
 								  uni.switchTab({
 								  	url:uni.getStorageSync('path')
 								  })
+								  uni.removeStorageSync('path')
 							  }
-							  this.$nextTick(function(){
-							  	uni.removeStorageSync('path')
-							  })
+							  // this.$nextTick(function(){
+							  	
+							  // })
 			                } else {
 			                  uni.switchTab({
 			                      url: '/pages/index/index'
@@ -296,15 +298,15 @@
 									  uni.reLaunch({
 										url:uni.getStorageSync('path')
 									  })
+									  uni.removeStorageSync('path')
 								  }else{
 									  // TabBar界面
 									  uni.switchTab({
 										url:uni.getStorageSync('path')
 									  })
+									  uni.removeStorageSync('path')
 								  }
-								  this.$nextTick(function(){
-								  	uni.removeStorageSync('path')
-								  })
+								 
 								} else {
 								  uni.switchTab({
 									  url: '/pages/index/index'
@@ -368,16 +370,15 @@
 			              	  uni.reLaunch({
 			              	  	url:uni.getStorageSync('path')
 			              	  })
-							  
+							  uni.removeStorageSync('path')
 			                }else{
 			              	  // TabBar界面
 			              	  uni.switchTab({
 			              	  	url:uni.getStorageSync('path')
 			              	  })
+							  uni.removeStorageSync('path')
 			                }
-							this.$nextTick(function(){
-								uni.removeStorageSync('path')
-							})
+							
 			              } else {
 			                uni.switchTab({
 			                    url: '/pages/index/index'

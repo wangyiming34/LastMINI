@@ -2249,8 +2249,17 @@ export const referrer = (data) => {
 		// handle:true
     })
 }
+// 247 专用
+export const Wxapplet_disable = (data) => {
+    return http.request({
+        url: '/Wxapplet/disable',
+        data,
+		// handle:true
+    })
+}
 // 默认全部导出  import api from '@/common/vmeitime-http/'
 export default {
+	Wxapplet_disable,
 	referrer,
 	company_status,
 	sp_del,

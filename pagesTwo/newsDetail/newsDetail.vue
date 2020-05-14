@@ -1,5 +1,5 @@
 <template>
-	<view class="wrap" style="padding-bottom: 44px;">
+	<view class="wrap" style="padding-bottom: 44px;" v-if="finish">
 		<view class="NoticeDetails">
 			<view class="title" style="padding: 0;">
 				{{detail.title}}
@@ -70,11 +70,13 @@
 				发布
 			</view>
 		</view>
-		
+		<!-- 确认框 -->
+		<van-dialog id="van-dialog" />
 	</view>
 </template>
 
 <script>
+	import Dialog from '../../wxcomponents/vant/dist/dialog/dialog';
 	var app = getApp().globalData
 	export default {
 		data() {
@@ -83,7 +85,8 @@
 				content:null,
 				comments:[],
 				thought:'',
-				id:''
+				id:'',
+				finish:false
 			}
 		},
 		onShareAppMessage:function(res) {
@@ -104,21 +107,22 @@
 			MyInfo(id){
 				if(uni.getStorageSync('userId')){
 					uni.navigateTo({
-						url:'../../pagesMy/MyInfo/MyInfo?id='+id
+						url:'/pagesMy/MyInfo/MyInfo?id='+id
 					})
 				}else{
-					uni.clearStorageSync()
-					uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
-					uni.showToast({
-					    title: '请登录',
-					    duration: 2000,
-						icon:'none'
-					});
-					setTimeout(function() {
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
 						uni.reLaunch({
 							url: '/pages/login/login'
 						})
-					}, 1000);
+					}).catch(() => {
+					  // on cancel
+					});
+					
 				}
 				
 			},
@@ -164,18 +168,18 @@
 										   });
 					}
 				}else{
-					uni.clearStorageSync()
-					uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
-					uni.showToast({
-					    title: '请登录',
-					    duration: 2000,
-						icon:'none'
-					});
-					setTimeout(function() {
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后评论,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
 						uni.reLaunch({
 							url: '/pages/login/login'
 						})
-					}, 1000);
+					}).catch(() => {
+					  // on cancel
+					});
 				}
 			      
 			},
@@ -226,6 +230,9 @@
 						  	url: '../../pages/login/login'
 						  })
 						}
+					this.$nextTick(function(){
+						this.finish = true
+					})
 				})
 			}
 		},

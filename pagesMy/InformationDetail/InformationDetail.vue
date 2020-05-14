@@ -1,5 +1,5 @@
 <template>
-	<view class='SmallStretchPvw' style="padding-bottom: 35px;background-color: white;">
+	<view class='SmallStretchPvw' style="padding-bottom: 35px;background-color: white;" v-if="finish">
 	  
 	          <!-- 顶部title -->
 	          <view class="title" style="padding: 20px 16px 10px;">
@@ -140,6 +140,7 @@
 				like: 0,
 				id: '',
 				Detail: '',
+				finish:false
 			}
 		},
 		onShareAppMessage:function(res) {
@@ -151,6 +152,10 @@
 
 		},
 		onLoad(e) {
+			uni.showLoading({
+			    title: '加载中',
+				mask:"true"
+			});
 			this.id = e.id
 			this.getData()
 		},
@@ -270,11 +275,13 @@
 					user_id: uni.getStorageSync("userId") || '',
 					id:this.id
 				}).then(res=>{
+					uni.hideLoading();
 					if (res.data.code === '200') {
 					  this.Detail = res.data.data
 					  this.vote_status = res.data.data.vote_status
 					  this.like = res.data.data.like
 					  this.tel = res.data.data.username
+					  this.finish = true
 					} else if (res.data.code === '1010') {
 					  uni.clearStorageSync()
 					  uni.showToast({
@@ -283,7 +290,7 @@
 					  	  icon:'none'
 					  });
 					  uni.reLaunch({
-					  	url: '../../pages/login/login'
+					  	url: '/pages/login/login'
 					  })
 					}
 				})

@@ -1,5 +1,5 @@
 <template>
-	<view class='SmallStretchPvw'>
+	<view class='SmallStretchPvw' v-if="finish">
 	  
 	          <!-- 顶部图片 -->
 	          <view class="SmallStretchPvw-img" style="height: 750upx;">
@@ -108,7 +108,8 @@
 			  like: 0,
 			  id: '',
 			  Detail: '',
-			  myData: [] // 为了拿公司等
+			  myData: [] ,// 为了拿公司等
+			  finish:false
 				
 			}
 		},
@@ -204,15 +205,14 @@
 				token: uni.getStorageSync("token") || '',
 				id: this.id
 			  }).then(res => {
-				// console.log(res)
 				if (res.data.code === '200') {
-				  
 				  this.Detail = res.data.data
 				  // console.log(this.Detail)
 				  this.vote_status = res.data.data.vote_status
 				  this.like = res.data.data.like
 				  this.tel = res.data.data.mobile
 				  uni.hideLoading();
+				  this.finish = true
 				} else if (res.data.code === '1010') {
 				  uni.clearStorageSync()
 				  uni.showToast({
@@ -221,7 +221,7 @@
 				  	  icon:'none'
 				  });
 				  uni.reLaunch({
-				  	url: '../../pages/login/login'
+				  	url: '/pages/login/login'
 				  })
 				}
 			  })

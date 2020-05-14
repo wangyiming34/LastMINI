@@ -1,47 +1,19 @@
 <template>
-	<view class="wrap1" style="padding-top: 108upx;">
+	<view class="wrap1" style="padding-top: 108upx;" v-if="finish">
 		<!-- 全屏透明遮罩 -->
 		<view class="zhezhao" v-show="showActive" @click.stop="showActive = !showActive">
 			
 		</view>
 		<!-- 上面的选项卡和搜索 -->
-		<cover-view class="border-bottom-new2 information-tab-name1 flex justify-around align-center">
+		<cover-view class="border-bottom-new2 information-tab-name1 flex justify-around align-center" v-if="statusShow==2">
 				<cover-view v-for="(item,index) in tablist" :key="index" class="information-tablist" :class="{tabAct:index===tabCurrent}" @click="tabCheck(index)">
 					{{item}}
 				</cover-view>
-			<!-- <cover-view class="ipt">
-					 <cover-view class="ipt-left" style="background-color:#F2F2F2;" @click="search">
-						请搜索输入内容
-					 </cover-view>
-					 <cover-view class="ipt-right re" >
-						<van-icon name="descending" size="22px" @click.stop="showActive = !showActive"/>
-						<cover-view class="Active1" v-show="showActive">
-							<cover-view class="Active1-class border-bottom-new" @click.stop="goClub">
-								俱乐部
-							</cover-view>
-							
-							<cover-view class="Active1-class border-bottom-new" @click.stop="goEnterprise">
-								企业认证
-							</cover-view>
-							
-							<cover-view class="Active1-class border-bottom-new" @click.stop="goTradingVolume">
-								交易额
-							</cover-view>
-							<cover-view class="Active1-class" @click.stop="goMy">
-								项目/机会
-							</cover-view>
-						</cover-view>
-					 </cover-view>
-			</cover-view> -->
-			<!-- 滚动的tab,先写个死的 -->
-			<!-- <cover-view class="information-tab-name flex justify-around align-center" >
-				<cover-view v-for="(item,index) in tablist" :key="index" class="information-tablist" :class="{tabAct:index===tabCurrent}" @click="tabCheck(index)">
-					{{item}}
-				</cover-view>
-			</cover-view> -->
-
+			
 		</cover-view>
-		
+		<cover-view class="border-bottom-new2 information-tab-name1 flex justify-around align-center" v-if="statusShow==1">
+				德申资讯圈
+		</cover-view>
 		
 		<!-- ================================下面第3个，视频============================== -->
 		<view class="" v-if="tabCurrent===2">
@@ -102,7 +74,7 @@
 					</view>
 					<!-- 视频 -->
 					<view class="cover" :class="item.size.height>item.size.width?'long':'short'" v-if="indexCurrent == 'v'+index">
-					    <video :id="'v'+index" :src="item.image[0]" v-if="indexCurrent == 'v'+index"  custom-cache="false" objectFit="cover" style="width: 100%;height: 100%;" autoplay="true" @pause="pau('v'+index)"></video>
+					    <video :id="'v'+index" :src="item.image[0]" v-if="indexCurrent == 'v'+index"  custom-cache="false" objectFit="cover" style="width: 100%;height: 100%;" autoplay="true"  @fullscreenchange="full"></video>
 					</view>
 					<view class="cover" v-else @click.stop="videoPlay('v'+index)" :class="item.size.height>item.size.width?'long':'short'">
 						<van-icon name="play-circle-o"/>
@@ -331,7 +303,7 @@
 					</view>
 					<!-- 视频 -->
 					<view class="cover" :class="item.size.height>item.size.width?'long':'short'" v-if="indexCurrent == 'guan'+index">
-					    <video :id="'guan'+index" :src="item.image[0]" v-if="indexCurrent == 'guan'+index"  custom-cache="false" objectFit="cover" style="width: 100%;height: 100%;" autoplay="true"></video>
+					    <video :id="'guan'+index" :src="item.image[0]" v-if="indexCurrent == 'guan'+index"  custom-cache="false" objectFit="cover" style="width: 100%;height: 100%;" autoplay="true" @fullscreenchange="full"></video>
 					</view>
 					<view class="cover" v-else @click.stop="videoPlay('guan'+index)" :class="item.size.height>item.size.width?'long':'short'">
 						<van-icon name="play-circle-o"/>
@@ -564,7 +536,7 @@
 					</view>
 					<!-- 视频 -->
 					<view class="cover" :class="item.size.height>item.size.width?'long':'short'" v-if="indexCurrent == 'tui'+index">
-					    <video :id="'tui'+index" :src="item.image[0]" v-if="indexCurrent == 'tui'+index"  custom-cache="false" objectFit="cover" style="width: 100%;height: 100%;" autoplay="true"></video>
+					    <video :id="'tui'+index" :src="item.image[0]" v-if="indexCurrent == 'tui'+index"  custom-cache="false" objectFit="cover" style="width: 100%;height: 100%;" autoplay="true" @fullscreenchange="full"></video>
 					</view>
 					<view class="cover" v-else @click.stop="videoPlay('tui'+index)" :class="item.size.height>item.size.width?'long':'short'">
 						<van-icon name="play-circle-o"/>
@@ -699,7 +671,7 @@
 					<view class="">
 						
 						<view class="cover" v-if="indexCurrent == 'school'+index">
-						    <video :id="'school'+index" :src="item.storage_id" v-if="indexCurrent == 'school'+index"  custom-cache="false" objectFit="cover" style="width: 100%;height: 100%;" autoplay="true"></video>
+						    <video :id="'school'+index" :src="item.storage_id" v-if="indexCurrent == 'school'+index"  custom-cache="false" objectFit="cover" style="width: 100%;height: 100%;" autoplay="true" @fullscreenchange="full"></video>
 						</view>
 						<view class="cover" v-else @click.stop="videoPlay('school'+index)">
 							<van-icon name="play-circle-o"/>
@@ -749,7 +721,7 @@
 				<view v-for="(item,index) in publicList" :key="index" class="newsWrap border-bottom-new2" >
 					<view class="">
 						<view class="cover" v-if="indexCurrent == 'public'+index">
-						    <video :id="'public'+index" :src="item.storage_id" v-if="indexCurrent == 'public'+index"  custom-cache="false" objectFit="cover" style="width: 100%;height: 100%;" autoplay="true"></video>
+						    <video :id="'public'+index" :src="item.storage_id" v-if="indexCurrent == 'public'+index"  custom-cache="false" objectFit="cover" style="width: 100%;height: 100%;" autoplay="true" @fullscreenchange="full"></video>
 						</view>
 						<view class="cover" v-else @click.stop="videoPlay('public'+index)">
 							<van-icon name="play-circle-o"/>
@@ -795,7 +767,7 @@
 		
 		<van-dialog id="van-dialog" />
 		<!-- 下面的发布 -->
-		<cover-view class="gotoTop">
+		<cover-view class="gotoTop" v-if="statusShow==2">
 			<cover-image class="controls-play img" @click="Issue" src="https://web.detion.com/static/images/send.png"></cover-image>
 		</cover-view>
 		<!-- <view class="gotoTop">
@@ -815,6 +787,9 @@
 	export default {
 		data() {
 			return {
+				finish:false,
+				token:null,
+				userId:null,
 				screenWidth:'',
 				n:1000000,
 				msgShow:false,
@@ -864,42 +839,54 @@
 				publicPage:1,
 				loadingPublic:false,
 				allowPublic:false,
+				scrollScreen:0, //视频全屏时列表高度
+				statusShow:1
 			}
 		},
 		onShareAppMessage:function(res) {
+			
 		    if (res.from === 'button') {// 来自页面内分享按钮
-				this.$api.reports_transpond({
-					token: uni.getStorageSync("token"),
-					user_id: uni.getStorageSync("userId"),
-					id:res.target.dataset.id
-				}).then(res1=>{
-					if(res1.data.code=='200'){
-						if(this.tabCurrent == 0){
-							for(var i =0 ; i<this.listtui.length;i++){
-								if(res.target.dataset.id == this.listtui[i].id){
-									this.listtui[i].transpond++
+				if(uni.getStorageSync('userId')){
+					this.$api.reports_transpond({
+						token: uni.getStorageSync("token"),
+						user_id: uni.getStorageSync("userId"),
+						id:res.target.dataset.id
+					}).then(res1=>{
+						if(res1.data.code=='200'){
+							if(this.tabCurrent == 0){
+								for(var i =0 ; i<this.listtui.length;i++){
+									if(res.target.dataset.id == this.listtui[i].id){
+										this.listtui[i].transpond++
+									}
 								}
-							}
-						}else if(this.tabCurrent == 1){
-							for(var i =0 ; i<this.listguan.length;i++){
-								if(res.target.dataset.id == this.listguan[i].id){
-									this.listguan[i].transpond++
+							}else if(this.tabCurrent == 1){
+								for(var i =0 ; i<this.listguan.length;i++){
+									if(res.target.dataset.id == this.listguan[i].id){
+										this.listguan[i].transpond++
+									}
 								}
-							}
-						}else{
-							for(var i =0 ; i<this.listv.length;i++){
-								if(res.target.dataset.id == this.listv[i].id){
-									this.listv[i].transpond++
+							}else{
+								for(var i =0 ; i<this.listv.length;i++){
+									if(res.target.dataset.id == this.listv[i].id){
+										this.listv[i].transpond++
+									}
 								}
 							}
 						}
+					})
+					return {
+					  title: res.target.dataset.title?res.target.dataset.title.substring(0,30)+'...':'德申汇资讯圈',
+					  imageUrl:res.target.dataset.img?res.target.dataset.img:app.shareImg,
+					  path: '/pagesMy/InfoDetail/InfoDetail?id='+res.target.dataset.id
 					}
-				})
-				return {
-				  title: res.target.dataset.title?res.target.dataset.title.substring(0,30)+'...':'德申汇资讯圈',
-				  imageUrl:res.target.dataset.img?res.target.dataset.img:app.shareImg,
-				  path: '/pagesMy/InfoDetail/InfoDetail?id='+res.target.dataset.id
+				}else{
+					return {
+					  title: '德申汇资讯圈',
+					  imageUrl:app.shareImg,
+					  path: '/pages/information/information'
+					}
 				}
+				
 		    }
 		    return {
 		      title: '德申汇资讯圈',
@@ -1102,17 +1089,45 @@
 			}
 		},
 		onLoad(e) {
+			this.token = app.token
+			this.userId = app.userId
 			uni.showLoading({
 			    title: '加载中'
 			});
-			this.gettui()
-			this.getguan()
-			this.getv()
-			this.getNews()
-			this.getSchool()
-			this.getPublic()
+			this.getShow()
+			// this.gettui()
+			// this.getguan()
+			// this.getv()
+			// this.getNews()
+			// this.getSchool()
+			// this.getPublic()
+		},
+		onPageScroll(e) {
+			this.scrollScreen = e.scrollTop
 		},
 		methods: {
+			getShow(){
+				this.$api.Wxapplet_disable({
+				}).then(res=>{
+					this.statusShow = res.data.data
+					if(this.statusShow==1){
+						this.tabCurrent = 3
+						this.getNews()
+					}else{
+						this.gettui()
+						this.getguan()
+						this.getv()
+						this.getNews()
+						this.getSchool()
+						this.getPublic()
+					}
+				})
+			},
+			full(){
+				uni.pageScrollTo({
+					scrollTop:this.scrollScreen
+				})
+			},
 			pau(){
 				
 			},
@@ -1263,17 +1278,18 @@
 						url:'/pagesMy/informationSend/informationSend'
 					})
 				}else{
-					uni.clearStorageSync()
-					uni.showToast({
-					    title: '请登录',
-					    duration: 2000,
-						icon:'none'
-					});
-					this.$nextTick(function(){
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后发布,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
 						uni.reLaunch({
 							url: '/pages/login/login'
 						})
-					})
+					}).catch(() => {
+					  // on cancel
+					});
 				}
 				
 			},
@@ -1332,7 +1348,7 @@
 			// 举报资讯圈
 			jubao_zixun(item,index){
 				uni.navigateTo({
-					url:'../../pagesMy/Report/Report?type=1&id='+item.id
+					url:'/pagesMy/Report/Report?type=1&id='+item.id
 				})
 			},
 			// 显示举报或者删除、
@@ -1496,8 +1512,8 @@
 			getv () {
 				// console.log(this.idtui)
 			    this.$api.video_list({
-			        token: uni.getStorageSync("token"),
-			        user_id: uni.getStorageSync("userId"),
+			        token: uni.getStorageSync("token") || this.token,
+			        user_id: uni.getStorageSync("userId") || this.userId,
 					page_id:this.idv
 			    }).then(res => {
 					// console.log(res)
@@ -1576,8 +1592,8 @@
 			// 获取全球推荐资讯列表
 			gettui () {
 			    this.$api.news_circle({
-			        token: uni.getStorageSync("token"),
-			        user_id: uni.getStorageSync("userId"),
+			        token: uni.getStorageSync("token") || this.token,
+			        user_id: uni.getStorageSync("userId") || this.userId,
 					page_id:this.idtui
 			    }).then(res => {
 					uni.hideLoading();
@@ -1628,16 +1644,20 @@
 			          uni.reLaunch({
 			          	url: '../../pages/login/login'
 			          })
-			        } 
-			      })
+			        }
+					this.$nextTick(function(){
+						this.finish = true
+					})
+				})
 			},
 			// 获取新闻列表
 			getNews(){
 				this.$api.detion_news({
-				    token: uni.getStorageSync("token"),
-				    user_id: uni.getStorageSync("userId"),
+				    token: uni.getStorageSync("token") || this.token,
+				    user_id: uni.getStorageSync("userId") || this.userId,
 					category_id:229,
-					page:this.newsPage
+					page:this.newsPage,
+					os_type:'mini'
 				}).then(res => {
 					   // console.log(res)
 				    if (res.data.code === '200') {
@@ -1665,6 +1685,12 @@
 								this.allow3 = false
 						 	}	
 						 }
+						 
+						 if(this.statusShow==1){
+							 uni.hideLoading();
+							 this.finish = true
+						 }
+						 
 				      
 				    } else if (res.data.code === '1000') {
 				      uni.clearStorageSync()
@@ -1686,8 +1712,8 @@
 			getguan () {
 				// console.log(this.idtui)
 			    this.$api.news_attention({
-			        token: uni.getStorageSync("token"),
-			        user_id: uni.getStorageSync("userId"),
+			        token: uni.getStorageSync("token") || this.token,
+			        user_id: uni.getStorageSync("userId") || this.userId,
 					page:this.pageguan
 			    }).then(res => {
 					
@@ -1750,8 +1776,8 @@
 			// 获取德申学院列表
 			getSchool(){
 				this.$api.grow_school({
-				    token: uni.getStorageSync("token"),
-				    user_id: uni.getStorageSync("userId"),
+				    token: uni.getStorageSync("token") || this.token,
+				    user_id: uni.getStorageSync("userId") || this.userId,
 					page:this.schoolPage,
 					type:1
 				}).then(res => {
@@ -1801,8 +1827,8 @@
 			// 获取公益课堂列表
 			getPublic(){
 				this.$api.grow_school({
-				    token: uni.getStorageSync("token"),
-				    user_id: uni.getStorageSync("userId"),
+				    token: uni.getStorageSync("token") || this.token,
+				    user_id: uni.getStorageSync("userId") || this.userId,
 					page:this.publicPage,
 					type:2
 				}).then(res => {

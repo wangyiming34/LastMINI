@@ -249,19 +249,67 @@
 		},
         methods: {
 			company(item){
-				uni.navigateTo({
-					url:'/pagesTwo/MyBusiness/MyBusiness?id='+item.id
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesTwo/MyBusiness/MyBusiness?id='+item.id
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			},
 			provider(item1){
-				uni.navigateTo({
-					url:'/pagesFour/ServiceProvider/ServiceProvider?id='+item1.id
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesFour/ServiceProvider/ServiceProvider?id='+item1.id
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			},
 			MyInfo(id){
-				uni.navigateTo({
-					url:'/pagesMy/MyInfo/MyInfo?id='+id
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesMy/MyInfo/MyInfo?id='+id
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			},
 			myservice(){
 				if(uni.getStorageSync('userId')){
@@ -282,40 +330,21 @@
 						uni.navigateTo({
 							url:'/pagesFour/MyService/MyService'
 						})
-						// this.$api.myself_company({
-						// 	token: uni.getStorageSync("token"),
-						// 	user_id: uni.getStorageSync("userId")
-						// }).then(res=>{
-						// 	// console.log(res)
-						// 	if(res.data.code === '1054'){
-						// 		uni.navigateTo({
-						// 			url:'../../pagesTwo/EnterpriseCertification/EnterpriseCertification'
-						// 		})
-						// 	}else if(res.data.code === '200'){
-						// 		uni.setStorageSync('company_id',Number(res.data.data.id))
-						// 		uni.navigateTo({
-						// 			url:'/pagesFour/MyService/MyService'
-						// 		})
-						// 	}
-						// })
-						
-						
-						
 					}
 					
 				}else{
-					uni.clearStorageSync()
-					uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
-					uni.showToast({
-					    title: '请登录',
-					    duration: 2000,
-						icon:'none'
-					});
-					setTimeout(function() {
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
 						uni.reLaunch({
 							url: '/pages/login/login'
 						})
-					}, 1000);
+					}).catch(() => {
+					  // on cancel
+					});
 				}
 			},
 			// 修改轮播图的 分页器样式用的
@@ -323,15 +352,31 @@
 			    this.swiperCurrent = e.detail.current;
 			},
 			swiper(item) {
-				if(item.href_type==0){
-					uni.navigateTo({
-						url:'/pagesFour/ServiceDetails/ServiceDetails?id='+item.href_id + '&status=0&user_id=' + item.user_id
-					})
+				if(uni.getStorageSync('userId')){
+					if(item.href_type==0){
+						uni.navigateTo({
+							url:'/pagesFour/ServiceDetails/ServiceDetails?id='+item.href_id + '&status=0&user_id=' + item.user_id
+						})
+					}else{
+						uni.navigateTo({
+							url:'/pagesMy/view/view?url='+ item.href
+						})
+					}
 				}else{
-					uni.navigateTo({
-						url:'/pagesMy/view/view?url='+ item.href
-					})
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
 				}
+				
 			   // console.log(item)
 			},
 			getHot () {
@@ -385,7 +430,7 @@
 			getData(){
 				this.$api.service_cate_list({
 				}).then(res=>{
-					console.log(res)
+					// console.log(res)
 					if(res.data.data.cate.length>10){
 						this.showScroll = true
 					}else{
@@ -407,128 +452,207 @@
 			},
 			// 搜索
 			search(){
-				uni.navigateTo({
-					url:'/pagesFour/ServiceProvider/ServiceProvider'
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesFour/ServiceProvider/ServiceProvider'
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			},
 			goMy(){
-				// console.log(123)
-				if(uni.getStorageSync('setInfo') ==0){
-					uni.showToast({
-					    title: '请完善个人信息',
-					    duration: 2000,
-						icon:'none'
-					});
-					
-					setTimeout(function() {
-						uni.navigateTo({
-							url:'../../pages/PersonalIdcard/PersonalIdcard'
-						})
-					}, 1000);
-					
-				}else{
-					// console.log(456)
-					if (uni.getStorageSync('isVip') == 0) {
-						Dialog.confirm({
-						  title: '提示',
-						  message: '您还不是VIP用户,去支付？',
-						  confirmButtonText:'去支付'
-						}).then(() => {
-							uni.navigateTo({
-								url:'../../pagesMy/pay/pay'
-							})
-						}).catch(() => {
-						  // on cancel
+				if(uni.getStorageSync('userId')){
+					if(uni.getStorageSync('setInfo') ==0){
+						uni.showToast({
+						    title: '请完善个人信息',
+						    duration: 2000,
+							icon:'none'
 						});
-					  } else if (uni.getStorageSync('isVip') == 1) {
-						  // uni.navigateTo({
-						  // 	url:'../../pagesMy/ceshi/ceshi'
-						  // })
+						
+						setTimeout(function() {
 							uni.navigateTo({
-								url:'../../pagesMy/MyProject/MyProject'
+								url:'../../pages/PersonalIdcard/PersonalIdcard'
 							})
-					  } 
+						}, 1000);
+						
+					}else{
+						// console.log(456)
+						if (uni.getStorageSync('isVip') == 0) {
+							Dialog.confirm({
+							  title: '提示',
+							  message: '您还不是VIP用户,去支付？',
+							  confirmButtonText:'去支付'
+							}).then(() => {
+								uni.navigateTo({
+									url:'../../pagesMy/pay/pay'
+								})
+							}).catch(() => {
+							  // on cancel
+							});
+						  } else if (uni.getStorageSync('isVip') == 1) {
+							  // uni.navigateTo({
+							  // 	url:'../../pagesMy/ceshi/ceshi'
+							  // })
+								uni.navigateTo({
+									url:'../../pagesMy/MyProject/MyProject'
+								})
+						  } 
+					}
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
 				}
+				
 			},
 				
 			goClub(){
-				if(uni.getStorageSync('setInfo') ===0){
-					uni.showToast({
-					    title: '请完善个人信息',
-					    duration: 2000,
-						icon:'none'
-					});
-					
-					setTimeout(function() {
-						uni.navigateTo({
-							url:'../../pages/PersonalIdcard/PersonalIdcard'
-						})
-					}, 1000);
-					
-				}else{
-					if (uni.getStorageSync('isVip') === 0) {
-						Dialog.confirm({
-						  title: '提示',
-						  message: '您还不是VIP用户,去支付？',
-						  confirmButtonText:'去支付'
-						}).then(() => {
-							uni.navigateTo({
-								url:'../../pagesMy/pay/pay'
-							})
-						}).catch(() => {
-						  // on cancel
+				if(uni.getStorageSync('userId')){
+					if(uni.getStorageSync('setInfo') ===0){
+						uni.showToast({
+						    title: '请完善个人信息',
+						    duration: 2000,
+							icon:'none'
 						});
-					  } else if (uni.getStorageSync('isVip') === 1) {
-						uni.navigateTo({
-							url:'../../pagesTwo/Club/Club'
+						
+						setTimeout(function() {
+							uni.navigateTo({
+								url:'../../pages/PersonalIdcard/PersonalIdcard'
+							})
+						}, 1000);
+						
+					}else{
+						if (uni.getStorageSync('isVip') === 0) {
+							Dialog.confirm({
+							  title: '提示',
+							  message: '您还不是VIP用户,去支付？',
+							  confirmButtonText:'去支付'
+							}).then(() => {
+								uni.navigateTo({
+									url:'../../pagesMy/pay/pay'
+								})
+							}).catch(() => {
+							  // on cancel
+							});
+						  } else if (uni.getStorageSync('isVip') === 1) {
+							uni.navigateTo({
+								url:'../../pagesTwo/Club/Club'
+							})
+						  } 
+					}
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
 						})
-					  } 
+					}).catch(() => {
+					  // on cancel
+					});
 				}
+				
 				
 			},
 			goEnterprise(){
-				if(uni.getStorageSync('setInfo') === 0){
-					uni.showToast({
-					    title: '请完善个人信息',
-					    duration: 1000,
-						icon:'none'
-					});
-					setTimeout(function() {
-						uni.navigateTo({
-							url:'../../pages/PersonalIdcard/PersonalIdcard'
+				if(uni.getStorageSync('userId')){
+					if(uni.getStorageSync('setInfo') === 0){
+						uni.showToast({
+						    title: '请完善个人信息',
+						    duration: 1000,
+							icon:'none'
+						});
+						setTimeout(function() {
+							uni.navigateTo({
+								url:'../../pages/PersonalIdcard/PersonalIdcard'
+							})
+						}, 1000);
+					}else{
+						this.$api.MyselfIndex({
+							token: uni.getStorageSync("token"),
+							user_id: uni.getStorageSync("userId"),
+							
+						}).then(res=>{
+							if (res.data.code === '200') {
+							  if (res.data.data.company_data) {
+							    this.company_id = res.data.data.company_data.id
+								uni.setStorageSync('company_id',Number(this.company_id))
+							  }
+							  this.$nextTick(() => {
+							    if (uni.getStorageSync("company_id")) {
+							      uni.navigateTo({
+							      	url:'../../pagesTwo/MyBusiness/MyBusiness?id='+uni.getStorageSync("company_id")
+							      })
+							    }else{
+									uni.navigateTo({
+										url:'../../pagesTwo/MyBusiness/MyBusiness'
+									})
+								} 
+							  })
+							}
 						})
-					}, 1000);
-				}else{
-					this.$api.MyselfIndex({
-						token: uni.getStorageSync("token"),
-						user_id: uni.getStorageSync("userId"),
 						
-					}).then(res=>{
-						if (res.data.code === '200') {
-						  if (res.data.data.company_data) {
-						    this.company_id = res.data.data.company_data.id
-							uni.setStorageSync('company_id',Number(this.company_id))
-						  }
-						  this.$nextTick(() => {
-						    if (uni.getStorageSync("company_id")) {
-						      uni.navigateTo({
-						      	url:'../../pagesTwo/MyBusiness/MyBusiness?id='+uni.getStorageSync("company_id")
-						      })
-						    }else{
-								uni.navigateTo({
-									url:'../../pagesTwo/MyBusiness/MyBusiness'
-								})
-							} 
-						  })
-						}
-					})
-					
+					}
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
 				}
+				
 			},
 			goTradingVolume(){
-				uni.navigateTo({
-					url:'../../pagesTwo/TradingVolume/TradingVolume'
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesTwo/TradingVolume/TradingVolume'
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			}
         }
     }

@@ -270,7 +270,7 @@
 						  confirmButtonText:'去支付'
 						}).then(() => {
 							uni.navigateTo({
-								url:'../pay/pay'
+								url:'/pagesMy/pay/pay'
 							})
 						}).catch(() => {
 						  // on cancel

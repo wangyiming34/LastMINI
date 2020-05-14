@@ -1,186 +1,214 @@
 <template>
-	<view class="wrap scroll" v-if="isFinish">
-		<view class="personalHead">
-			  <image src="https://web.detion.com/static/img/set_icon.png" class="set" @click.prevent.stop="set"></image>
-			  <image src="https://web.detion.com/static/img/mes_icon1.png" v-if="info.messageBoxCount" class="mes" @click.prevent.stop="notice"></image>
-			  <image src="https://web.detion.com/static/img/mes_icon.png" v-else class="mes" @click.prevent.stop="notice"></image>
-			  <view class="member">
-				<view class="info flex align-center" style="position: relative;padding: 0 4%" @click="MyInfo">
-					
-					
-				  <!-- <view class="user flex align-center justify-center re">
-					<image :src="info.avatar?info.avatar:'../../static/img/user_icon.png'"></image>
-					<head-logo :type="info.type" :v_type="info.add_v_type"></head-logo>
-				  </view> -->
-				  
-				  <view  class="re">
-				  	<view class="imgWrapTal user" style="width: 120upx;height: 120upx;">
-				  		<image :src="info.avatar?info.avatar:'../../static/img/user_icon.png'"  mode="aspectFill"></image>
-				  	</view>
-				  	<head-logo :type="info.type" :v_type="info.add_v_type"></head-logo>
-				  </view>		
-				  
-				  
-				  <view class="con">
-					<view class="name flex align-center">
-					  <view class="nickname">
-						{{info.nickname}}
-					  </view>
-					  <!--普通用户-->
-					  <view class="sn re" v-if="isVip === 0">
-						<image src="https://web.detion.com/static/img/no_member.png" class="icon"></image>
+	<view class="wrap" v-if="isFinish">
+		<view class="" v-if="statusShow==2">
+			<view class="personalHead">
+				  <image src="https://web.detion.com/static/img/set_icon.png" class="set" @click.prevent.stop="set"></image>
+				  <image src="https://web.detion.com/static/img/mes_icon1.png" v-if="info.messageBoxCount" class="mes" @click.prevent.stop="notice"></image>
+				  <image src="https://web.detion.com/static/img/mes_icon.png" v-else class="mes" @click.prevent.stop="notice"></image>
+				  <view class="member">
+					<view class="info flex align-center" style="position: relative;padding: 0 4%" @click="MyInfo">
+						
+						
+					  <!-- <view class="user flex align-center justify-center re">
+						<image :src="info.avatar?info.avatar:'../../static/img/user_icon.png'"></image>
 						<head-logo :type="info.type" :v_type="info.add_v_type"></head-logo>
-						<view class="text">普通用户</view>
-					  </view>
-					  <!--普通用户-->
-					  <!--VIP用户-->
-					  <view class="sn flex align-center" v-else-if="isVip === 1">
-						<image src="https://web.detion.com/static/img/member.png" class="star"></image>
-						<view class="number flex align-center justify-center">
-						  <view v-if="info.type === '1'">C</view>
-						  <view v-else-if="info.type === '2'">C</view>
-						  <view v-else-if="info.type === '3'">G</view>
-						  <view v-else-if="info.type === '4'">E</view>
-						  <view v-else-if="info.type === '5'">T</view>
-						  <view v-else-if="info.type === '6'">V</view>
-						  <view v-else-if="info.type === '7'">B</view>
-						  <view>{{info.no}}</view>
+					  </view> -->
+					  
+					  <view  class="re">
+					  	<view class="imgWrapTal user" style="width: 120upx;height: 120upx;">
+					  		<image :src="info.avatar?info.avatar:'../../static/img/user_icon.png'"  mode="aspectFill"></image>
+					  	</view>
+					  	<head-logo :type="info.type" :v_type="info.add_v_type"></head-logo>
+					  </view>		
+					  
+					  
+					  <view class="con">
+						<view class="name flex align-center">
+						  <view class="nickname">
+							{{info.nickname}}
+						  </view>
+						  <!--普通用户-->
+						  <view class="sn re" v-if="isVip == 0">
+							<image src="https://web.detion.com/static/img/no_member.png" class="icon"></image>
+							<head-logo :type="info.type" :v_type="info.add_v_type"></head-logo>
+							<view class="text">普通用户</view>
+						  </view>
+						  <!--普通用户-->
+						  <!--VIP用户-->
+						  <view class="sn flex align-center" v-else-if="isVip == 1">
+							<image src="https://web.detion.com/static/img/member.png" class="star"></image>
+							<view class="number flex align-center justify-center">
+							  <view v-if="info.type === '1'">C</view>
+							  <view v-else-if="info.type === '2'">C</view>
+							  <view v-else-if="info.type === '3'">G</view>
+							  <view v-else-if="info.type === '4'">E</view>
+							  <view v-else-if="info.type === '5'">T</view>
+							  <view v-else-if="info.type === '6'">V</view>
+							  <view v-else-if="info.type === '7'">B</view>
+							  <view>{{info.no}}</view>
+							</view>
+						  </view>
+						  <level :type="info.type" :v_type="info.add_v_type" :vip_level="info.vip_level"></level>
+						  <!--VIP用户-->
 						</view>
+						<view class="company" v-if="info.company">{{info.company}}·{{info.job}}</view>
 					  </view>
-					  <level :type="info.type" :v_type="info.add_v_type" :vip_level="info.vip_level"></level>
-					  <!--VIP用户-->
+					  <image src="https://web.detion.com/static/img/back_white.png" class="back"></image>
 					</view>
-					<view class="company" v-if="info.company">{{info.company}}·{{info.job}}</view>
+					<!--粉丝-->
+					<view class="fansGroup  flex align-center">
+					  <view class="list" @click="goVoteList(0)">
+						<view class="number">{{fans.FenSi?fans.FenSi:0}}</view>
+						<view class="title">粉丝</view>
+					  </view>
+					  <view class="list"  @click="goVoteList(1)">
+						<view class="number">{{fans.GuanZhu?fans.GuanZhu:0}}</view>
+						<view class="title">关注</view>
+					  </view>
+					  <view class="list" @click="goVoteList(2)">
+						<view class="number">{{fans.HuGuan?fans.HuGuan:0}}</view>
+						<view class="title">互相关注</view>
+					  </view>
+					</view>
 				  </view>
-				  <image src="https://web.detion.com/static/img/back_white.png" class="back"></image>
+			
 				</view>
-				<!--粉丝-->
-				<view class="fansGroup  flex align-center">
-				  <view class="list" @click="goVoteList(0)">
-					<view class="number">{{fans.FenSi?fans.FenSi:0}}</view>
-					<view class="title">粉丝</view>
+				<!--俱乐部信息-->
+				<view class="club_info flex align-center" @click="goclub">
+				  <image src="https://web.detion.com/static/img/logo_small.png" class="logo"></image>
+				  <view class="info_list" v-if="is_join">
+					<view class="list" v-for="(item,index) in info.club_data" :key="index">{{item.name}} {{item.dutyname}}</view>
 				  </view>
-				  <view class="list"  @click="goVoteList(1)">
-					<view class="number">{{fans.GuanZhu?fans.GuanZhu:0}}</view>
-					<view class="title">关注</view>
+				  <view class="info_list flex align-center justify-between" v-else>
+					<view class="list">您暂未加入俱乐部</view>
+					<view class="look">点击查看</view>
 				  </view>
-				  <view class="list" @click="goVoteList(2)">
-					<view class="number">{{fans.HuGuan?fans.HuGuan:0}}</view>
-					<view class="title">互相关注</view>
+				  <image src="https://web.detion.com/static/img/next3.png" class="more"></image>
+				</view>
+				<!--会员卡-->
+				<view class="cardNew">
+				  <view>
+					<image src="https://web.detion.com/static/img/card_bg1.png"></image>
+					<view class="con flex align-center justify-between" @click="vip">
+					  <view class="tips flex align-center">
+						<image src="https://web.detion.com/static/img/icon27.png" class="icon"></image>
+						<view class="text">德申VIP用户</view>
+					  </view>
+					  <view class="ope flex align-center">
+						<view class="text" v-if="isVip == 1">用户续费</view>
+						<view class="text" v-else-if="isVip == 0">开通VIP</view>
+						<image src="https://web.detion.com/static/img/next3.png" class="more"></image>
+					  </view>
+					</view>
 				  </view>
-				</view>
-			  </view>
-
-			</view>
-			<!--俱乐部信息-->
-			<view class="club_info flex align-center" @click="goclub">
-			  <image src="https://web.detion.com/static/img/logo_small.png" class="logo"></image>
-			  <view class="info_list" v-if="is_join">
-				<view class="list" v-for="(item,index) in info.club_data" :key="index">{{item.name}} {{item.dutyname}}</view>
-			  </view>
-			  <view class="info_list flex align-center justify-between" v-else>
-				<view class="list">您暂未加入俱乐部</view>
-				<view class="look">点击查看</view>
-			  </view>
-			  <image src="https://web.detion.com/static/img/next3.png" class="more"></image>
-			</view>
-			<!--会员卡-->
-			<view class="cardNew">
-			  <view>
-				<image src="https://web.detion.com/static/img/card_bg1.png"></image>
-				<view class="con flex align-center justify-between" @click="vip">
-				  <view class="tips flex align-center">
-					<image src="https://web.detion.com/static/img/icon27.png" class="icon"></image>
-					<view class="text">德申VIP用户</view>
-				  </view>
-				  <view class="ope flex align-center">
-					<view class="text" v-if="isVip === 1">用户续费</view>
-					<view class="text" v-else-if="isVip === 0">开通VIP</view>
-					<image src="https://web.detion.com/static/img/next3.png" class="more"></image>
-				  </view>
-				</view>
-			  </view>
-			</view>
-
-			<view class="myList" style="margin-bottom: 10px">
-			  <view class="title">我的服务</view>
-			  <view class="list_group">
-				<view class="list" v-if="isVip === 0" @click="goclub">
-				  <image src="https://web.detion.com/static/image/my/icon.png" class="icon"></image>
-				  <view class="text">俱乐部</view>
-				</view>
-				<view class="list" @click="goclub" v-if="isVip === 1" >
-				  <image src="https://web.detion.com/static/image/my/icon.png" class="icon"></image>
-				  <view class="text">俱乐部</view>
-				</view>
-				
-				<view class="list" @click="myCompany">
-				  <image src="https://web.detion.com/static/img/icon_my1.png" class="icon"></image>
-				  <view class="text">我的企业</view>
-				</view>
-				<view class="list" @click="MyActivity">
-					<image src="https://web.detion.com/static/img/icon_my2.png" class="icon"></image>
-					<view class="text">我的活动</view>
-				</view>
-				
-				<view class="list" @click="DistrictAssistant">
-					<image src="https://web.detion.com/static/img/icon_my3.png" class="icon"></image>
-					<view class="text">地区助手</view>
-				</view>
-				<view class="list" v-if="isVip === 0" @click.stop="MyInformation">
-				  <image src="https://web.detion.com/static/img/icon_my4.png" class="icon"></image>
-				  <view class="text">我的资讯圈</view>
-				</view>
-				<view class="list" v-if="isVip === 1" @click.stop="MyInformation">
-					<image src="https://web.detion.com/static/img/icon_my4.png" class="icon"></image>
-					<view class="text">我的资讯圈</view>
-				</view>
-				
-				<view class="list">
-				  <navigator url="../../pagesMy/MyProject/MyProject">
-					<image src="https://web.detion.com/static/img/icon_my8.png" class="icon"></image>
-					<view class="text">我的项目/机会</view>
-				  </navigator>
 				</view>
 			
-				<view class="list" @click="PaymentHistory">
-					<img src="https://web.detion.com/static/img/icon_my5.png" alt="" class="icon">
-					<view class="text">缴费历史</view>
-				</view>
-
-				<view class="list" @click="question">
-					<img src="https://web.detion.com/static/img/icon_my11.png" alt="" class="icon">
-					<view class="text">常见问题</view>
-				</view>
-				<view class="list" @click="newUser">
-					<img src="https://web.detion.com/static/img/icon_my12.png" alt="" class="icon">
-					<view class="text">新用户</view>
-				</view>
-				<view class="list" @click="Recommend">
-					<img src="https://detions.oss-accelerate.aliyuncs.com//wx/wxa2eeaf66a51d1ed0.o6zAJs2ZH3_rfb40rIaXLyfXrUwQ.V6XnyAHOdjVyd884c9133a8a0f6a1be57759b0360429.png" alt="" class="icon">
-					<view class="text">我的推荐</view>
-				</view>
-				<view class="list" @click="Integral">
-					<img src="https://web.detion.com/static/img/icon_my14.png" alt="" class="icon">
-					<view class="text">积分排行</view>
-				</view>
-	
-				<view class="list" v-if="is_fund" @click="goPermission">
-					<img src="https://web.detion.com/static/img/icon_my15.png" alt="" class="icon">
-					<view class="text">统计与审批</view>
+				<view class="myList" style="margin-bottom: 10px">
+				  <view class="title">我的服务</view>
+				  <view class="list_group">
+					<view class="list" v-if="isVip == 0" @click="goclub">
+					  <image src="https://web.detion.com/static/image/my/icon.png" class="icon"></image>
+					  <view class="text">俱乐部</view>
+					</view>
+					<view class="list" @click="goclub" v-if="isVip == 1" >
+					  <image src="https://web.detion.com/static/image/my/icon.png" class="icon"></image>
+					  <view class="text">俱乐部</view>
+					</view>
+					
+					<view class="list" @click="myCompany">
+					  <image src="https://web.detion.com/static/img/icon_my1.png" class="icon"></image>
+					  <view class="text">我的企业</view>
+					</view>
+					<view class="list" @click="MyActivity">
+						<image src="https://web.detion.com/static/img/icon_my2.png" class="icon"></image>
+						<view class="text">我的活动</view>
+					</view>
+					
+					<view class="list" @click="DistrictAssistant">
+						<image src="https://web.detion.com/static/img/icon_my3.png" class="icon"></image>
+						<view class="text">地区助手</view>
+					</view>
+					<view class="list" v-if="isVip == 0" @click.stop="MyInformation">
+					  <image src="https://web.detion.com/static/img/icon_my4.png" class="icon"></image>
+					  <view class="text">我的资讯圈</view>
+					</view>
+					<view class="list" v-if="isVip == 1" @click.stop="MyInformation">
+						<image src="https://web.detion.com/static/img/icon_my4.png" class="icon"></image>
+						<view class="text">我的资讯圈</view>
+					</view>
+					
+					<view class="list">
+					  <navigator url="../../pagesMy/MyProject/MyProject">
+						<image src="https://web.detion.com/static/img/icon_my8.png" class="icon"></image>
+						<view class="text">我的项目/机会</view>
+					  </navigator>
+					</view>
+				
+					<view class="list" @click="PaymentHistory">
+						<img src="https://web.detion.com/static/img/icon_my5.png" alt="" class="icon">
+						<view class="text">缴费历史</view>
+					</view>
+			
+					<view class="list" @click="question">
+						<img src="https://web.detion.com/static/img/icon_my11.png" alt="" class="icon">
+						<view class="text">常见问题</view>
+					</view>
+					<view class="list" @click="newUser">
+						<img src="https://web.detion.com/static/img/icon_my12.png" alt="" class="icon">
+						<view class="text">新用户</view>
+					</view>
+					<view class="list" @click="Recommend">
+						<img src="https://detions.oss-accelerate.aliyuncs.com//wx/wxa2eeaf66a51d1ed0.o6zAJs2ZH3_rfb40rIaXLyfXrUwQ.V6XnyAHOdjVyd884c9133a8a0f6a1be57759b0360429.png" alt="" class="icon">
+						<view class="text">我的推荐</view>
+					</view>
+					<view class="list" @click="Integral">
+						<img src="https://web.detion.com/static/img/icon_my14.png" alt="" class="icon">
+						<view class="text">积分排行</view>
+					</view>
+				
+					<view class="list" v-if="is_fund" @click="goPermission">
+						<img src="https://web.detion.com/static/img/icon_my15.png" alt="" class="icon">
+						<view class="text">统计与审批</view>
+					</view>
+					
+					<view class="list" @click.stop="goTradingVolume">
+						<img src="https://web.detion.com/static/image/my/icon1.png" alt="" class="icon">
+						<view class="text">交易额</view>
+					</view>
+					
+					<view class="list" @click.stop="MyCollect">
+						<img src="https://web.detion.com/static/img/icon_my18.png" alt="" class="icon">
+						<view class="text">我的收藏</view>
+					</view>
+					
+				  </view>
+			</view>
+		</view>
+		<view class="" v-if="statusShow==1" style="width: 100%;height: 100%;padding-top: 0px;">
+			<view class="flex align-center justify-between" style="background-color: white;height: 90px;width: 100%;padding: 15px;box-sizing: border-box;" @click="login">
+				<view class="flex align-center">
+					<view class="" style="width: 60px;height: 60px;margin-right: 20px;">
+						<image src="../../static/img/user_icon.png" mode="" style="border-radius: 100%;"></image>
+					</view>
+					
+					<view class="">
+						<view class="" style="color: #333333;font-size: 15px;margin-bottom: 5px;">
+							未登录用户
+						</view>
+						<view class="" style="color: #999999;font-size: 12px;">
+							登录后可以享受更多服务
+						</view>
+					</view>
 				</view>
 				
-				<view class="list" @click.stop="goTradingVolume">
-					<img src="https://web.detion.com/static/image/my/icon1.png" alt="" class="icon">
-					<view class="text">交易额</view>
-				</view>
 				
-				<view class="list" @click.stop="MyCollect">
-					<img src="https://web.detion.com/static/img/icon_my18.png" alt="" class="icon">
-					<view class="text">我的收藏</view>
+				<view class="flex align-center" style="color: #0bbe06;font-size: 15px;">
+					<view class="">
+						立即登录
+					</view>
+					<van-icon name="arrow" color="#999999"/>
 				</view>
-				
-			  </view>
+			</view>
 		</view>
 		<!-- 提示框 -->
 		<van-toast id="van-toast" />
@@ -201,15 +229,15 @@
 			  isFinish:false, //数据请求完成
 			  company_id:0, //如果有公司，公司的id
 			  fans: {}, // 粉丝列表
-			  id:uni.getStorageSync('userId'), // 用户userid
-			  isVip: uni.getStorageSync('isVip'), // 是否为VIP
+			  id:'', // 用户userid
+			  isVip: '', // 是否为VIP
 			  appid: 'wxf96de80f86c7cb7a',
 			  is_join: false, // 是否有俱乐部信息（是否加入俱乐部）
 			  is_auth: false, // 是否显示俱乐部申请（城市会长+张总）
 			  is_report: false, // 是否显示报表系统 （创始人）
 			  fund_num: 0, // 审批数量
 			  is_fund: false, // 审批权限
-
+			  statusShow:null
 			}
 		},
 		// onShareAppMessage:function(res) {
@@ -219,14 +247,35 @@
 		// 	  path: '/pages/my/my'
 		// 	}
 		// },
-		onShow() {
-			this.MyselfIndex()
-			uni.showLoading({
-			    title: '加载中'
-			});
+		onLoad() {
 			
 		},
+		onShow() {
+			this.getShow()
+		},
 		methods: {
+			login(){
+				uni.clearStorageSync()
+				uni.reLaunch({
+					url: '/pages/login/login'
+				})
+			},
+			// 获取状态
+			getShow(){
+				if(uni.getStorageSync("userId")){
+					this.statusShow = 2
+					this.id = uni.getStorageSync('userId') 
+					this.isVip = uni.getStorageSync('isVip')
+					// console.log(typeof this.isVip)
+					uni.showLoading({
+					    title: '加载中'
+					});
+					this.MyselfIndex()
+				}else{
+					this.statusShow = 1
+					this.isFinish = true
+				}
+			},
 			// 我的收藏
 			MyCollect(){
 				uni.navigateTo({
@@ -236,7 +285,7 @@
 			// 交易额
 			goTradingVolume(){
 				uni.navigateTo({
-					url:'../../pagesTwo/TradingVolume/TradingVolume'
+					url:'/pagesTwo/TradingVolume/TradingVolume'
 				})
 			},
 			// 会员服务
@@ -323,13 +372,13 @@
 			// 积分排行
 			Integral(){
 				uni.navigateTo({
-					url:'../../pagesThree/Integral/Integral'
+					url:'/pagesThree/Integral/Integral'
 				})
 			},
 			// 我的推荐
 			Recommend(){
 				uni.navigateTo({
-					url:'../../pagesThree/Recommend/Recommend'
+					url:'/pagesThree/Recommend/Recommend'
 				})
 			},
 			// 新用户
@@ -346,7 +395,7 @@
 			},
 			// 缴费历史
 			PaymentHistory(){
-				if(uni.getStorageSync('setInfo') ===0){
+				if(uni.getStorageSync('setInfo') ==0){
 					uni.showToast({
 					    title: '请完善个人信息',
 					    duration: 2000,
@@ -360,7 +409,7 @@
 					}, 1000);
 					
 				}else{
-					if (uni.getStorageSync('isVip') === 0) {
+					if (uni.getStorageSync('isVip') == 0) {
 						Dialog.confirm({
 						  title: '提示',
 						  message: '您还不是VIP用户,去支付？',
@@ -372,7 +421,7 @@
 						}).catch(() => {
 						  // on cancel
 						});
-					  } else if (uni.getStorageSync('isVip') === 1) {
+					  } else if (uni.getStorageSync('isVip') == 1) {
 						uni.navigateTo({
 							url:'../../pagesThree/PaymentHistory/PaymentHistory'
 						})
@@ -499,7 +548,7 @@
 						  // console.log(res)
 						  if(res.data.code === '200'){
 							  this.info = res.data.data
-							  // console.log(this.info)
+							  console.log(this.info)
 							  // 是否有自己的公司 有的话存上公司的id
 							  if (res.data.data.company_data) {
 								  this.company_id = res.data.data.company_data.id
@@ -548,8 +597,9 @@
 									})
 						          }
 								  // 完成数据控制整个界面的显示和隐藏
+								  uni.hideLoading();
 						          this.isFinish = true
-						          uni.hideLoading();
+						          
 					  })
 			},
 			// 粉丝/关注/互关

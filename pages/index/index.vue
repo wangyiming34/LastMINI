@@ -19,9 +19,9 @@
 			 </view>
 			<!-- </navigator>	 -->
 			 <view class="ipt-right re" >
-				 <view class="" @click.stop="showActive = !showActive" style="width: 100%;height: 100%;">
+				<view class="" @click.stop="showActive = !showActive" style="width: 100%;height: 100%;">
 					<image src="https://web.detion.com/static/image/resource/icon6.png" lazy-load="true" class="imga" mode="widthFix" style="display: block;"></image>
-				 </view>
+				</view>
 				<view class="Active1" v-show="showActive">
 					<view class="Active1-class border-bottom-new" @click.stop="goClub">
 						俱乐部
@@ -84,7 +84,7 @@
 			  
 			  <view class="item1" @click="goShop">
 					<image :src="icon[6]" alt="" class="icon icon1">
-					<view class="text">德申商城</view>
+					<view class="text">{{statusShow==1?'积分排行':'德申商城'}}</view>
 			  </view>
 			  
 			  <view class="item1" @click.stop="goTradingVolume">
@@ -100,7 +100,7 @@
 			<image :src="item.image"  alt="" v-for="(item,index) in banner2" :key="index" @click="capsule(item)">
 		</view>
 		 <!-- 咖啡厅等 -->
-		<view class="menu_list flex justify-between">
+		<view class="menu_list flex justify-between" v-if="statusShow==2">
 		   
 			   <view class="pic_left" @click="coffee">
 					 <image :src="tile[0]"  alt="">
@@ -250,7 +250,10 @@
 				tile:[], // 咖啡厅等
 				icon:[], // 会员服务等小图标
 				banner2:{},
-				iconShow:1  //1是续费，2是开通
+				iconShow:2,//1是续费，2是开通
+				token:null,
+				userId:null,
+				statusShow:1
 			}
 		},
 		onPullDownRefresh(){
@@ -277,6 +280,10 @@
 			this.showActive = false
 		},
 		onLoad(option) {
+			this.token = app.token
+			this.userId = app.userId
+			// 获取状态
+			this.getShow()
 			// 获取图片和颜色
 			this.getImg()
 			// 获取轮播图数据
@@ -284,95 +291,102 @@
 			this.getData1()
 			// 获取热门项目
 			this.getHot()
-			var that = this
-			var date = new Date() / 1000
-			if (uni.getStorageSync("expiretime")) { // 登录过
-					this.getLocationInfo();
-			        // if (uni.getStorageSync("setInfo")== 1) {
-						// this.getLocationInfo();
-			          if (uni.getStorageSync('isVip') == 0) { // 未支付
-					      // console.log('未支付')
-			            if (uni.getStorageSync('tips_pay')) { //检测
-			              uni.showTabBar()
-						  that.is_pay = false
-						  this.getLocationInfo();
-			            } else {
-			              that.is_pay = true
-						  uni.hideTabBar()
-			            }
-			          } else if (uni.getStorageSync('isVip') == 1) {
-			            // console.log('IsVip')
-			          }
-			        // } else if (uni.getStorageSync("setInfo") == 0) {
-			        //   uni.reLaunch({
-			        //   	 url:'../PersonalIdcard/PersonalIdcard'
-			        //   }); // 完善信息
-			        // }
-			} else if (uni.getStorageSync("expiretime")==='' || uni.getStorageSync("expiretime")===undefined ||uni.getStorageSync("expiretime")===null || date > uni.getStorageSync("expiretime")) { // 未登录过或登录过已过期
-				uni.clearStorageSync()
-				uni.showToast({
-				    title: '请登录',
-				    duration: 2000,
-					icon:'none'
-				});
-				this.$nextTick(function(){
-					uni.reLaunch({
-						url: '/pages/login/login'
+			
+			if(uni.getStorageSync("userId")){
+				var that = this
+				var date = new Date() / 1000
+				if (uni.getStorageSync("expiretime")) { // 登录过
+						this.getLocationInfo();
+				        // if (uni.getStorageSync("setInfo")== 1) {
+							// this.getLocationInfo();
+				          if (uni.getStorageSync('isVip') == 0) { // 未支付
+						      // console.log('未支付')
+				            if (uni.getStorageSync('tips_pay')) { //检测
+				              uni.showTabBar()
+							  that.is_pay = false
+							  this.getLocationInfo();
+				            } else {
+				              that.is_pay = true
+							  uni.hideTabBar()
+				            }
+				          } else if (uni.getStorageSync('isVip') == 1) {
+				            // console.log('IsVip')
+				          }
+				        // } else if (uni.getStorageSync("setInfo") == 0) {
+				        //   uni.reLaunch({
+				        //   	 url:'../PersonalIdcard/PersonalIdcard'
+				        //   }); // 完善信息
+				        // }
+				} else if (uni.getStorageSync("expiretime")==='' || uni.getStorageSync("expiretime")===undefined ||uni.getStorageSync("expiretime")===null || date > uni.getStorageSync("expiretime")) { // 未登录过或登录过已过期
+					uni.clearStorageSync()
+					uni.showToast({
+					    title: '请登录',
+					    duration: 2000,
+						icon:'none'
+					});
+					this.$nextTick(function(){
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
 					})
-				})
-				 
+					 
+				}
 			}
+			
 		},
 		onShow(){
-			this.$api.MyselfIndex({
-				token: uni.getStorageSync("token"),
-				user_id: uni.getStorageSync("userId")
-			}).then(res1=>{
-				// console.log(res1.data.data.nickname)
-				this.nickname = res1.data.data.nickname
-				if(res1.data.data.is_vip==1){
-					this.iconShow = 1
-				}else{
-					this.iconShow = 2
-				}
-				this.$api.is_get_badge({
+			if(uni.getStorageSync("userId")){
+				this.$api.MyselfIndex({
 					token: uni.getStorageSync("token"),
 					user_id: uni.getStorageSync("userId")
-				}).then(res=>{
-					if(res.data.code=='1079'){
-						uni.setStorageSync("isVip",1)
-						// 弹窗跳填写地址
-						Dialog.confirm({
-						  title: '提示',
-						  message: '尊敬的'+res.data.data.nickname+'先生/女士：您已缴费成功，德申汇为您献上一份专属礼包，填写地址，马上领取',
-						  confirmButtonText:'立即领取'
-						}).then(() => {
-							uni.navigateTo({
-								url:'../../pagesMy/PayStep/PayStep'
-							})
-						}).catch(() => {
-						  // on cancel
-						});
-					}else if(res.data.code=='1081'){
-						uni.setStorageSync("isVip",1)
+				}).then(res1=>{
+					// console.log(res1.data.data.nickname)
+					this.nickname = res1.data.data.nickname
+					if(res1.data.data.is_vip==1){
+						this.iconShow = 1
+					}else{
+						this.iconShow = 2
 					}
+					this.$api.is_get_badge({
+						token: uni.getStorageSync("token"),
+						user_id: uni.getStorageSync("userId")
+					}).then(res=>{
+						if(res.data.code=='1079'){
+							uni.setStorageSync("isVip",1)
+							// 弹窗跳填写地址
+							Dialog.confirm({
+							  title: '提示',
+							  message: '尊敬的'+res.data.data.nickname+'先生/女士：您已缴费成功，德申汇为您献上一份专属礼包，填写地址，马上领取',
+							  confirmButtonText:'立即领取'
+							}).then(() => {
+								uni.navigateTo({
+									url:'../../pagesMy/PayStep/PayStep'
+								})
+							}).catch(() => {
+							  // on cancel
+							});
+						}else if(res.data.code=='1081'){
+							uni.setStorageSync("isVip",1)
+						}
+					})
 				})
-			})
-			// 国外实名认证是否通过
-			this.getforeign()
+				// 国外实名认证是否通过
+				this.getforeign()
+				
+				// 动态创建遮罩特效
+				var animation = uni.createAnimation({
+				      duration: 300,
+				      timingFunction: 'linear',
+				})			
+				this.animation = animation			
+				animation.translateY(-500).step()			
+				this.animationData = animation.export()
+				setTimeout(function() {
+				  animation.translateY(0).step()
+				  this.animationData = animation.export()
+				}.bind(this), 300)
+			}
 			
-			// 动态创建遮罩特效
-			var animation = uni.createAnimation({
-			      duration: 300,
-			      timingFunction: 'linear',
-			})			
-			this.animation = animation			
-			animation.translateY(-500).step()			
-			this.animationData = animation.export()
-			setTimeout(function() {
-			  animation.translateY(0).step()
-			  this.animationData = animation.export()
-			}.bind(this), 300)
 		},
 		onShareAppMessage(res) {
 			if (res.from === 'button') {// 来自页面内分享按钮
@@ -389,16 +403,53 @@
 		    }
 		},
 		methods: {
-			// 胶囊跳转
-			capsule(item){
-				uni.navigateTo({
-					url:'../../pagesMy/view/view?url='+ item.href
+			// 获取状态
+			getShow(){
+				this.$api.Wxapplet_disable({
+				}).then(res=>{
+					this.statusShow = res.data.data
 				})
 			},
+			// 胶囊跳转
+			capsule(item){
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesMy/view/view?url='+ item.href
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+			},
 			coffee(){
-				uni.navigateTo({
-					url:'../../pagesMy/view/view?url=https://web.detion.com/CoffeeIndex'
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesMy/view/view?url=https://web.detion.com/CoffeeIndex'
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
 			},
 			// 获取图片
 			getImg(){
@@ -411,9 +462,25 @@
 			},
 			// 了解德申
 			detion(){
-				uni.navigateTo({
-					url:'../../pagesMy/view/view?url=https://web.detion.com/Detion'
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesMy/view/view?url=https://web.detion.com/Detion'
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 				// uni.redirectTo({
 				// 	url:'/pagesFour/ServiceStatus/ServiceStatus?type=0'
 				// })
@@ -423,221 +490,415 @@
 			},
 			// 邀请好友
 			InviteFriends(){
-				uni.navigateTo({
-					url:'../../pagesThree/InviteFriends/InviteFriends'
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesThree/InviteFriends/InviteFriends'
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			},
 			// 会员服务
 			vip(){
-				if (Number(uni.getStorageSync('setInfo')) === 1) {
-					this.$api.is_get_badge({
-					  token: uni.getStorageSync("token"),
-					  user_id: uni.getStorageSync("userId")
-					}).then(res => {
-					  if (res.data.code === '1016') { // 不是vip
-							uni.navigateTo({
-								url:'../../pagesMy/pay/pay'
-							})
-					  } else if (res.data.code === '1079') { // 缴费成功未选择礼包
-							uni.navigateTo({
-								url:'../../pagesMy/PayStep/PayStep'
-							})
-					  } else if (res.data.code === '1081' || res.data.code === '1077') { // 10000之后领取礼包完成可以正常续费或10000之前没有领取资格
-							uni.navigateTo({
-								url:'../../pagesMy/Renew/Renew'
-							})
-					  } else if (res.data.code === '1099') {
-							uni.navigateTo({
-								url:'../../pages/PersonalIdcard/PersonalIdcard'
-							})
-					  } else {
-						uni.showToast({
-						    title: res.data.msg,
-						    mask: "true",
-							icon:'none'
-						});
+				if(uni.getStorageSync('userId')){
+					if (Number(uni.getStorageSync('setInfo')) === 1) {
+						this.$api.is_get_badge({
+						  token: uni.getStorageSync("token"),
+						  user_id: uni.getStorageSync("userId")
+						}).then(res => {
+						  if (res.data.code === '1016') { // 不是vip
+								uni.navigateTo({
+									url:'/pagesMy/pay/pay'
+								})
+						  } else if (res.data.code === '1079') { // 缴费成功未选择礼包
+								uni.navigateTo({
+									url:'/pagesMy/PayStep/PayStep'
+								})
+						  } else if (res.data.code === '1081' || res.data.code === '1077') { // 10000之后领取礼包完成可以正常续费或10000之前没有领取资格
+								uni.navigateTo({
+									url:'/pagesMy/Renew/Renew'
+								})
+						  } else if (res.data.code === '1099') {
+								uni.navigateTo({
+									url:'/pages/PersonalIdcard/PersonalIdcard'
+								})
+						  } else {
+							uni.showToast({
+							    title: res.data.msg,
+							    mask: "true",
+								icon:'none'
+							});
+						  }
+						})
+					  } else if (Number(uni.getStorageSync('setInfo')) === 0) {
+						uni.navigateTo({
+							url:'/pages/PersonalIdcard/PersonalIdcard'
+						})
 					  }
-					})
-				  } else if (Number(uni.getStorageSync('setInfo')) === 0) {
-					uni.navigateTo({
-						url:'../../pages/PersonalIdcard/PersonalIdcard'
-					})
-				  }
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			},
 			swiper(item){
-				// console.log(item)
-				uni.navigateTo({
-					url:"../../pagesMy/view/view?url="+item.href
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:"/pagesMy/view/view?url="+item.href
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			},
 			search(){
-				uni.navigateTo({
-					url:'../../pagesMy/Search/Search'
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesMy/Search/Search'
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			},	
 			LuDingJi(){
-				uni.navigateTo({
-					url:'../../pagesMy/LuDingJi/LuDingJi'
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesMy/LuDingJi/LuDingJi'
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			},
 			SmallStretchNew(){
-				uni.navigateTo({
-					url:'../../pagesTwo/SmallStretchNew/SmallStretchNew'
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesTwo/SmallStretchNew/SmallStretchNew'
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			},
 			LocalLife(){
-				uni.navigateTo({
-					url:'../../pagesMy/LocalLife/LocalLife'
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesMy/LocalLife/LocalLife'
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			},
 			// 商城
 			goShop(){
 				if(uni.getStorageSync('userId')){
-					this.$api.shop_mobile({
-						token: uni.getStorageSync("token"),
-						user_id: uni.getStorageSync("userId"),
-						
-					}).then(res=>{
-						  // console.log(res)
-						  uni.navigateTo({
-							  url:'/pagesMy/view/view?url=https://shop.detion.com/'+'&accounts=' + res.data.data.accounts +'&pwd=' + res.data.data.pwd
-						  })
-					})
+					if(this.statusShow==2){
+						this.$api.shop_mobile({
+							token: uni.getStorageSync("token"),
+							user_id: uni.getStorageSync("userId"),
+							
+						}).then(res=>{
+							  // console.log(res)
+							  uni.navigateTo({
+								  url:'/pagesMy/view/view?url=https://shop.detion.com/'+'&accounts=' + res.data.data.accounts +'&pwd=' + res.data.data.pwd
+							  })
+						})
+					}else{
+						uni.navigateTo({
+							url:'/pagesThree/Integral/Integral'
+						})
+					}
+					
 				}else{
-					uni.clearStorageSync()
-					uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
-					uni.showToast({
-					    title: '请登录',
-					    duration: 2000,
-						icon:'none'
-					});
-					setTimeout(function() {
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
 						uni.reLaunch({
 							url: '/pages/login/login'
 						})
-					}, 1000);
+					}).catch(() => {
+					  // on cancel
+					});
 				}
 				
 			},
 			// 活动界面
 			goActivity(){
-				uni.navigateTo({
-					url:'../../pagesTwo/Activity/Activity'
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesTwo/Activity/Activity'
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			},
 			goMy(){
-				// console.log(123)
-				if(uni.getStorageSync('setInfo') ==0){
-					uni.showToast({
-					    title: '请完善个人信息',
-					    duration: 2000,
-						icon:'none'
-					});
-					
-					setTimeout(function() {
-						uni.navigateTo({
-							url:'../../pages/PersonalIdcard/PersonalIdcard'
-						})
-					}, 1000);
-					
-				}else{
-					// console.log(456)
-					if (uni.getStorageSync('isVip') == 0) {
-						Dialog.confirm({
-						  title: '提示',
-						  message: '您还不是VIP用户,去支付？',
-						  confirmButtonText:'去支付'
-						}).then(() => {
-							uni.navigateTo({
-								url:'../../pagesMy/pay/pay'
-							})
-						}).catch(() => {
-						  // on cancel
+				if(uni.getStorageSync('userId')){
+					if(uni.getStorageSync('setInfo') ==0){
+						uni.showToast({
+						    title: '请完善个人信息',
+						    duration: 2000,
+							icon:'none'
 						});
-					  } else if (uni.getStorageSync('isVip') == 1) {
-						  // uni.navigateTo({
-						  // 	url:'../../pagesMy/ceshi/ceshi'
-						  // })
+						
+						setTimeout(function() {
 							uni.navigateTo({
-								url:'../../pagesMy/MyProject/MyProject'
+								url:'/pages/PersonalIdcard/PersonalIdcard'
 							})
-					  } 
+						}, 1000);
+						
+					}else{
+						// console.log(456)
+						if (uni.getStorageSync('isVip') == 0) {
+							Dialog.confirm({
+							  title: '提示',
+							  message: '您还不是VIP用户,去支付？',
+							  confirmButtonText:'去支付'
+							}).then(() => {
+								uni.navigateTo({
+									url:'/pagesMy/pay/pay'
+								})
+							}).catch(() => {
+							  // on cancel
+							});
+						  } else if (uni.getStorageSync('isVip') == 1) {
+								uni.navigateTo({
+									url:'/pagesMy/MyProject/MyProject'
+								})
+						  } 
+					}
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
 				}
+				
 			},
 				
 			goClub(){
-				if(uni.getStorageSync('setInfo') ===0){
-					uni.showToast({
-					    title: '请完善个人信息',
-					    duration: 2000,
-						icon:'none'
-					});
-					
-					setTimeout(function() {
-						uni.navigateTo({
-							url:'../../pages/PersonalIdcard/PersonalIdcard'
-						})
-					}, 1000);
-					
-				}else{
-					if (uni.getStorageSync('isVip') === 0) {
-						Dialog.confirm({
-						  title: '提示',
-						  message: '您还不是VIP用户,去支付？',
-						  confirmButtonText:'去支付'
-						}).then(() => {
-							uni.navigateTo({
-								url:'../../pagesMy/pay/pay'
-							})
-						}).catch(() => {
-						  // on cancel
+				if(uni.getStorageSync('userId')){
+					if(uni.getStorageSync('setInfo') ===0){
+						uni.showToast({
+						    title: '请完善个人信息',
+						    duration: 2000,
+							icon:'none'
 						});
-					  } else if (uni.getStorageSync('isVip') === 1) {
-						uni.navigateTo({
-							url:'../../pagesTwo/Club/Club'
+						
+						setTimeout(function() {
+							uni.navigateTo({
+								url:'/pages/PersonalIdcard/PersonalIdcard'
+							})
+						}, 1000);
+						
+					}else{
+						if (uni.getStorageSync('isVip') === 0) {
+							Dialog.confirm({
+							  title: '提示',
+							  message: '您还不是VIP用户,去支付？',
+							  confirmButtonText:'去支付'
+							}).then(() => {
+								uni.navigateTo({
+									url:'/pagesMy/pay/pay'
+								})
+							}).catch(() => {
+							  // on cancel
+							});
+						  } else if (uni.getStorageSync('isVip') === 1) {
+							uni.navigateTo({
+								url:'/pagesTwo/Club/Club'
+							})
+						  } 
+					}
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
 						})
-					  } 
+					}).catch(() => {
+					  // on cancel
+					});
 				}
+				
 				
 			},
 			goEnterprise(){
-				if(uni.getStorageSync('setInfo') === 0){
-					uni.showToast({
-					    title: '请完善个人信息',
-					    duration: 1000,
-						icon:'none'
-					});
-					setTimeout(function() {
-						uni.navigateTo({
-							url:'../../pages/PersonalIdcard/PersonalIdcard'
+				if(uni.getStorageSync('userId')){
+					if(uni.getStorageSync('setInfo') === 0){
+						uni.showToast({
+						    title: '请完善个人信息',
+						    duration: 1000,
+							icon:'none'
+						});
+						setTimeout(function() {
+							uni.navigateTo({
+								url:'/pages/PersonalIdcard/PersonalIdcard'
+							})
+						}, 1000);
+					}else{
+						this.$api.myself_company({
+							token: uni.getStorageSync("token"),
+							user_id: uni.getStorageSync("userId")
+						}).then(res=>{
+							// console.log(res)
+							if(res.data.code === '1054'){
+								uni.navigateTo({
+									url:'../../pagesTwo/EnterpriseCertification/EnterpriseCertification'
+								})
+							}else if(res.data.code === '200'){
+								this.company_id = res.data.data.id
+								uni.setStorageSync('company_id',Number(this.company_id))
+								uni.navigateTo({
+									url:'/pagesTwo/MyBusiness/MyBusiness?id='+uni.getStorageSync("company_id")
+								})
+							}
 						})
-					}, 1000);
+						
+						
+					}
 				}else{
-					this.$api.myself_company({
-						token: uni.getStorageSync("token"),
-						user_id: uni.getStorageSync("userId")
-					}).then(res=>{
-						// console.log(res)
-						if(res.data.code === '1054'){
-							uni.navigateTo({
-								url:'../../pagesTwo/EnterpriseCertification/EnterpriseCertification'
-							})
-						}else if(res.data.code === '200'){
-							this.company_id = res.data.data.id
-							uni.setStorageSync('company_id',Number(this.company_id))
-							uni.navigateTo({
-								url:'/pagesTwo/MyBusiness/MyBusiness?id='+uni.getStorageSync("company_id")
-							})
-						}
-					})
-					
-					
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
 				}
+				
 			},
 			goTradingVolume(){
-				uni.navigateTo({
-					url:'../../pagesTwo/TradingVolume/TradingVolume'
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesTwo/TradingVolume/TradingVolume'
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			},
 			getforeign(){
 				this.$api.register_applies_status({
@@ -653,22 +914,70 @@
 			
 			// 会友汇详情
 			InformationDetail(id){
-				uni.navigateTo({
-					url:'../../pagesMy/InformationDetail/InformationDetail?id='+id
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesMy/InformationDetail/InformationDetail?id='+id
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			},
 			// 跳转筛选
 			goProjectList(){
-				uni.navigateTo({
-					url:'../../pagesTwo/ProjectList/ProjectList'
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesTwo/ProjectList/ProjectList'
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			},
 				
 			// 跳转个人主页
 			MyInfo(id){
-				uni.navigateTo({
-					url:'../../pagesMy/MyInfo/MyInfo?id='+id
-				})
+				if(uni.getStorageSync('userId')){
+					uni.navigateTo({
+						url:'/pagesMy/MyInfo/MyInfo?id='+id
+					})
+				}else{
+					Dialog.confirm({
+					  title: '提示',
+					  message: '您还没有登录,请登录后查看,去登录?'
+					}).then(() => {
+						uni.clearStorageSync()
+						uni.setStorageSync('path',this.$url.getCurrentPageUrlWithArgs())
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}).catch(() => {
+					  // on cancel
+					});
+				}
+				
 			},
 			// 返回顶部
 			top(){
@@ -725,15 +1034,15 @@
 			  this.is_pay = false
 			  uni.setStorageSync("tips_pay",true)
 			  uni.navigateTo({
-			  	url:'../../pagesMy/pay/pay'
+			  	url:'/pagesMy/pay/pay'
 			  })
 			},
 			
 			// 获取热门
 			getHot () {
 			      this.$api.Opportunity_index({
-			              token: uni.getStorageSync("token"),
-			              user_id: uni.getStorageSync("userId"),
+			              token: uni.getStorageSync("token") || this.token,
+			              user_id: uni.getStorageSync("userId") || this.userId,
 			              page: this.page
 			            }).then(res => {
 							if(res.data.code=== '200'){
@@ -767,8 +1076,8 @@
 			getData () {
 			      // 热搜、轮播
 			      this.$api.Swiper({
-			        token: uni.getStorageSync("token"),
-			        user_id: uni.getStorageSync("userId")
+			        token: uni.getStorageSync("token") || this.token,
+			        user_id: uni.getStorageSync("userId") || this.userId
 			      }).then(res => {
 				
 			        if (res.data.code === '200') {
@@ -790,8 +1099,8 @@
 			getData1 () {
 			      // 热搜、轮播
 			      this.$api.Swiper({
-			        token: uni.getStorageSync("token"),
-			        user_id: uni.getStorageSync("userId"),
+			        token: uni.getStorageSync("token") || this.token,
+			        user_id: uni.getStorageSync("userId") || this.userId,
 					type:2
 			      }).then(res => {
 					 this.banner2 = res.data.data.resource_banner
